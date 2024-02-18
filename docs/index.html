@@ -121,7 +121,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -143,6 +143,174 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2024/02/18/virtual-dom/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.png">
+      <meta itemprop="name" content="Mawchu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/blog/2024/02/18/virtual-dom/" class="post-title-link" itemprop="url">React 思維進化 - Virtual dom</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-02-18 16:25:16 / Modified: 17:28:57" itemprop="dateCreated datePublished" datetime="2024-02-18T16:25:16+08:00">2024-02-18</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>新年換新工作後的第一篇文章，就獻給來自『React 思維進化』本書提到的動量級概念——Virtual dom。</p>
+<p>對於主流框架來說操作原生 DOM 的代價無疑是巨大的，所以紛紛發展出各自的優秀手段來減少操作所耗費的能量，以下歸納出來自書中提及的、關於為什麼要操作虛擬 DOM 以及操作手法的重點，源自一篇優秀的<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/31809713?utm_id=0">濃縮精華文章</a>。</p>
+<h1 id="Virtual-dom-真的必要嗎？又沒比較快！"><a href="#Virtual-dom-真的必要嗎？又沒比較快！" class="headerlink" title="Virtual dom 真的必要嗎？又沒比較快！"></a>Virtual dom 真的必要嗎？又沒比較快！</h1><p>文章開頭的疑問是，在測試操作原生方法來改變渲染的 DOM 結構之後發現 React 或 Angular 都不見效率(時間)上的優勢，那為何要這些框架？這個提問的人顯然非常簡單粗暴說出大部分新手的知識誤區：「快就是好！沒必要優化。」</p>
+<p>但發明框架一定有它的道理，從三個方面來說：</p>
+<h2 id="好維護"><a href="#好維護" class="headerlink" title="好維護"></a>好維護</h2><p>如果不使用框架開發應用程式，將一個肥大的專案打開後滿滿的都是 document.querySelector，你想要從某個功能入手修改的時候你不頭疼？就邏輯歸納來說就好像幫你雜亂的桌子理出個櫃子，每個抽屜好好放入同一個分類的東西，當你想找或者想使用的時候難道沒幫你省下不少時間嗎？<br>分類的優勢若從 vue 與 react 來說可以切入：</p>
+<ul>
+<li>vue 的 三大模組切分法(template, style, script)</li>
+<li>react 的函式導向設計法(functional programming) + hooks</li>
+</ul>
+<p>框架幫你掩蓋了底層的操作邏輯，給予多個易於操作的 api 讓你專注開發。</p>
+<h2 id="瀏覽器的渲染行為"><a href="#瀏覽器的渲染行為" class="headerlink" title="瀏覽器的渲染行為"></a>瀏覽器的渲染行為</h2><p>當你在享受著框架帶來的便利與舒適，一邊訴說與原生 js 的 DOM 操作無差別時，應該思考虛擬 DOM 被發明的意義與出發點，首先對於瀏覽器來說為什麼 DOM 操作代價昂貴原因在於：重新渲染。</p>
+<p>瀏覽器在 DOM 改變後、渲染畫面經歷的階段：</p>
+<ol>
+<li>DOM Tree Update</li>
+<li>Reflow&#x2F;Layout-計算畫面的位置與大小</li>
+<li>Repaint</li>
+<li>Composite-將畫面元素與 css 繪製合成</li>
+<li>Rendering</li>
+</ol>
+<p>當這一連串的執行經常發生，就會造成瀏覽畫面的卡頓，其一原理包含了瀏覽器在背後每 16 FPS 渲染畫面的動作，也就是每秒刷新頁面 60 次。<br>而省去這些成本的大功臣來自於 Virtual dom 背後的辛苦。</p>
+<h2 id="Virtual-dom-為什麼重要"><a href="#Virtual-dom-為什麼重要" class="headerlink" title="Virtual dom 為什麼重要"></a>Virtual dom 為什麼重要</h2><p>先講結論：只更新 『必要的』元素。</p>
+<p>不同於原生 DOM 操作習慣，例如 innerHTML 每次必定全部渲染，虛擬 DOM 先在藍圖草稿上，操作低成本的 js 對象，規劃與彩排各種情況的 DOM tree，多次演練編排過後的結果才會真正地透過瀏覽器操作原生 DOM。這個過程之所以比預期的慢，是因為進行了幾個背後的努力：</p>
+<h3 id="Virtual-dom-react"><a href="#Virtual-dom-react" class="headerlink" title="Virtual dom - react"></a>Virtual dom - react</h3><p>React 採取持續不斷的檢查與比對 DOM 結構(Diff)，過程中建立與修改一個個 js dom object 規劃新的 DOM 長相，包含 type, prop, children 等敘述，以便 Diff 完成以後的最終版(patch) 如實透過原生 DOM 產出。</p>
+<h3 id="Virtual-dom-vue"><a href="#Virtual-dom-vue" class="headerlink" title="Virtual dom - vue"></a>Virtual dom - vue</h3><p>Vue 則是透過 MVVM 的資料繫結、數據收集後比對差異與變化，各自對應的最小範圍資料經由 ViewModel&#x2F;Scope 歸納、決定哪些虛擬 DOM 受到影響，這中間產生的複用議題則不如 React 表現好，但仍透過 track ny $index 躍升了效能，與之平起平坐。</p>
+<h1 id="效率並非時間導向"><a href="#效率並非時間導向" class="headerlink" title="效率並非時間導向"></a>效率並非時間導向</h1><p>效率這個假議題從『時間』被拉出來討論背後實際的『渲染』問題才是重點，框架解決的從不是快不快，而是好不好用，能不能直觀開發與維護。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2023/03/20/fast-learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.png">
+      <meta itemprop="name" content="Mawchu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/blog/2023/03/20/fast-learning/" class="post-title-link" itemprop="url">高速學習的技巧</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-03-20 19:22:48 / Modified: 19:37:30" itemprop="dateCreated datePublished" datetime="2023-03-20T19:22:48+08:00">2023-03-20</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>經過 Youtube 的神奇演算法我閱覽了分別來自薑餅資與文森先生，關於高效學習的這本書提到的做法，雖然我沒有時間實際閱讀這本書，仍然在先輩的分享獲得許多啟發。<br>既然書本的重點中有一點與某北一女畢業生分享的雷同，就應該應用在這篇文章中才恰當囉！也就是 <strong>回想式學習</strong>。<br>我先將記得的部分做幾個提問式回想：</p>
+<h1 id="情境式學習"><a href="#情境式學習" class="headerlink" title="情境式學習"></a>情境式學習</h1><h2 id="為什麼學校的學習總是與社會脫節？"><a href="#為什麼學校的學習總是與社會脫節？" class="headerlink" title="為什麼學校的學習總是與社會脫節？"></a>為什麼學校的學習總是與社會脫節？</h2><p>因為學校教學內容分散且流於表面，很難將一個技能實際運用在真正的技能場景上，導致學生在學習過程的環境與學習內容，甚至到工具都與情境脫節，導致學習的成果不如市場預期。</p>
+<h1 id="後設學習-（meta-learning）"><a href="#後設學習-（meta-learning）" class="headerlink" title="後設學習 （meta learning）"></a>後設學習 （meta learning）</h1><h2 id="為何當資源充足時學習成果卻不如預期？"><a href="#為何當資源充足時學習成果卻不如預期？" class="headerlink" title="為何當資源充足時學習成果卻不如預期？"></a>為何當資源充足時學習成果卻不如預期？</h2><p>當資源廣泛而且容易取得時暴露的缺點就是，學習沒有預設的目標與焦點集中，導致學習非常分散沒有效率，就我個人從事軟體工程師相關工作的經驗是，在學習任何主題之前必須設立學習地圖（roadmap），甚至上求職網查詢想要獲得的職位頭銜需要具備的技能，讓自己的進修範圍可以更精確，節省許多在學習上迷路的時間。</p>
+<h1 id="回想式學習"><a href="#回想式學習" class="headerlink" title="回想式學習"></a>回想式學習</h1><h2 id="為什麼心理學家將實驗人員分組學習方式，分配到回想式學習的組別成果最好？"><a href="#為什麼心理學家將實驗人員分組學習方式，分配到回想式學習的組別成果最好？" class="headerlink" title="為什麼心理學家將實驗人員分組學習方式，分配到回想式學習的組別成果最好？"></a>為什麼心理學家將實驗人員分組學習方式，分配到回想式學習的組別成果最好？</h2><p>經過實驗可以發現回想式學習會讓腦袋自動將認爲重要的資訊加強記憶，讓這些碎片盡可能儲存在長期記憶中，也因為主動式的歸納資訊的重要性讓自己更能快速找到不夠熟悉、缺失的學習重點，就像請隔壁同學抽考一樣，提前找到自己在重複閱讀時被動學習而不夠理解的地方。</p>
+<p>其他的忘了，回想式學習找到不夠理解的地方ＸＤ</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -672,87 +840,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2023/02/05/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.png">
-      <meta itemprop="name" content="Mawchu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/blog/2023/02/05/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-02-05 14:15:17" itemprop="dateCreated datePublished" datetime="2023-02-05T14:15:17+08:00">2023-02-05</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
 
 </div>
   </main>
@@ -763,7 +850,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
