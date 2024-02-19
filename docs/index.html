@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
@@ -180,9 +180,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-02-18 16:25:16 / Modified: 17:28:57" itemprop="dateCreated datePublished" datetime="2024-02-18T16:25:16+08:00">2024-02-18</time>
+      <time title="Created: 2024-02-18 16:25:16" itemprop="dateCreated datePublished" datetime="2024-02-18T16:25:16+08:00">2024-02-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-19 17:17:37" itemprop="dateModified" datetime="2024-02-19T17:17:37+08:00">2024-02-19</time>
     </span>
 
   
@@ -205,7 +211,7 @@
 <li>react 的函式導向設計法(functional programming) + hooks</li>
 </ul>
 <p>框架幫你掩蓋了底層的操作邏輯，給予多個易於操作的 api 讓你專注開發。</p>
-<h2 id="瀏覽器的渲染行為"><a href="#瀏覽器的渲染行為" class="headerlink" title="瀏覽器的渲染行為"></a>瀏覽器的渲染行為</h2><p>當你在享受著框架帶來的便利與舒適，一邊訴說與原生 js 的 DOM 操作無差別時，應該思考虛擬 DOM 被發明的意義與出發點，首先對於瀏覽器來說為什麼 DOM 操作代價昂貴原因在於：重新渲染。</p>
+<h2 id="瀏覽器的渲染行為"><a href="#瀏覽器的渲染行為" class="headerlink" title="瀏覽器的渲染行為"></a>瀏覽器的渲染行為</h2><p>當你在享受著框架帶來的便利與舒適，一邊訴說與原生 js 的 DOM 操作無差別時，應該思考虛擬 DOM 被發明的意義與出發點，首先對於瀏覽器來說為什麼 DOM 操作代價昂貴——重新渲染。</p>
 <p>瀏覽器在 DOM 改變後、渲染畫面經歷的階段：</p>
 <ol>
 <li>DOM Tree Update</li>
@@ -218,7 +224,7 @@
 <h2 id="Virtual-dom-為什麼重要"><a href="#Virtual-dom-為什麼重要" class="headerlink" title="Virtual dom 為什麼重要"></a>Virtual dom 為什麼重要</h2><p>先講結論：只更新 『必要的』元素。</p>
 <p>不同於原生 DOM 操作習慣，例如 innerHTML 每次必定全部渲染，虛擬 DOM 先在藍圖草稿上，操作低成本的 js 對象，規劃與彩排各種情況的 DOM tree，多次演練編排過後的結果才會真正地透過瀏覽器操作原生 DOM。這個過程之所以比預期的慢，是因為進行了幾個背後的努力：</p>
 <h3 id="Virtual-dom-react"><a href="#Virtual-dom-react" class="headerlink" title="Virtual dom - react"></a>Virtual dom - react</h3><p>React 採取持續不斷的檢查與比對 DOM 結構(Diff)，過程中建立與修改一個個 js dom object 規劃新的 DOM 長相，包含 type, prop, children 等敘述，以便 Diff 完成以後的最終版(patch) 如實透過原生 DOM 產出。</p>
-<h3 id="Virtual-dom-vue"><a href="#Virtual-dom-vue" class="headerlink" title="Virtual dom - vue"></a>Virtual dom - vue</h3><p>Vue 則是透過 MVVM 的資料繫結、數據收集後比對差異與變化，各自對應的最小範圍資料經由 ViewModel&#x2F;Scope 歸納、決定哪些虛擬 DOM 受到影響，這中間產生的複用議題則不如 React 表現好，但仍透過 track ny $index 躍升了效能，與之平起平坐。</p>
+<h3 id="Virtual-dom-vue"><a href="#Virtual-dom-vue" class="headerlink" title="Virtual dom - vue"></a>Virtual dom - vue</h3><p>Vue 則是透過 MVVM 的資料繫結、數據收集後比對差異與變化，各自對應的最小範圍資料經由 ViewModel&#x2F;Scope 歸納、決定哪些虛擬 DOM 受到影響，這中間產生的複用議題則不如 React 表現好，但仍透過 track by $index 躍升了效能，與之平起平坐。</p>
 <h1 id="效率並非時間導向"><a href="#效率並非時間導向" class="headerlink" title="效率並非時間導向"></a>效率並非時間導向</h1><p>效率這個假議題從『時間』被拉出來討論背後實際的『渲染』問題才是重點，框架解決的從不是快不快，而是好不好用，能不能直觀開發與維護。</p>
 
       
@@ -274,9 +280,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-03-20 19:22:48 / Modified: 19:37:30" itemprop="dateCreated datePublished" datetime="2023-03-20T19:22:48+08:00">2023-03-20</time>
+      <time title="Created: 2023-03-20 19:22:48" itemprop="dateCreated datePublished" datetime="2023-03-20T19:22:48+08:00">2023-03-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-19 16:48:20" itemprop="dateModified" datetime="2024-02-19T16:48:20+08:00">2024-02-19</time>
     </span>
 
   
@@ -348,9 +360,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-03-05 20:06:31 / Modified: 23:47:48" itemprop="dateCreated datePublished" datetime="2023-03-05T20:06:31+08:00">2023-03-05</time>
+      <time title="Created: 2023-03-05 20:06:31" itemprop="dateCreated datePublished" datetime="2023-03-05T20:06:31+08:00">2023-03-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-19 16:48:20" itemprop="dateModified" datetime="2024-02-19T16:48:20+08:00">2024-02-19</time>
     </span>
 
   
@@ -443,7 +461,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-02-26 15:16:56" itemprop="dateModified" datetime="2023-02-26T15:16:56+08:00">2023-02-26</time>
+      <time title="Modified: 2024-02-19 16:48:20" itemprop="dateModified" datetime="2024-02-19T16:48:20+08:00">2024-02-19</time>
     </span>
 
   
@@ -544,9 +562,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-02-17 03:59:25 / Modified: 04:29:59" itemprop="dateCreated datePublished" datetime="2023-02-17T03:59:25+08:00">2023-02-17</time>
+      <time title="Created: 2023-02-17 03:59:25" itemprop="dateCreated datePublished" datetime="2023-02-17T03:59:25+08:00">2023-02-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-19 16:48:20" itemprop="dateModified" datetime="2024-02-19T16:48:20+08:00">2024-02-19</time>
     </span>
 
   
@@ -637,9 +661,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-02-05 17:04:33 / Modified: 17:22:03" itemprop="dateCreated datePublished" datetime="2023-02-05T17:04:33+08:00">2023-02-05</time>
+      <time title="Created: 2023-02-05 17:04:33" itemprop="dateCreated datePublished" datetime="2023-02-05T17:04:33+08:00">2023-02-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-19 16:48:20" itemprop="dateModified" datetime="2024-02-19T16:48:20+08:00">2024-02-19</time>
     </span>
 
   
@@ -724,7 +754,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-02-09 23:54:52" itemprop="dateModified" datetime="2023-02-09T23:54:52+08:00">2023-02-09</time>
+      <time title="Modified: 2024-02-19 16:48:20" itemprop="dateModified" datetime="2024-02-19T16:48:20+08:00">2024-02-19</time>
     </span>
 
   
@@ -799,7 +829,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-02-25 17:16:19" itemprop="dateModified" datetime="2023-02-25T17:16:19+08:00">2023-02-25</time>
+      <time title="Modified: 2024-02-19 16:48:20" itemprop="dateModified" datetime="2024-02-19T16:48:20+08:00">2024-02-19</time>
     </span>
 
   
