@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: Mawchu's blog
 subtitle: ''
 description: ''
 keywords:
@@ -96,8 +96,34 @@ ignore:
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
+# Feed Atom
+
+plugins:
+  hexo-generator-feed
+#Feed Atom
+feed:
+  enable: true
+  type: atom
+  path: atom.xml
+  limit: 20
+
+sitemap:
+  path: 
+    - sitemap.xml
+    - sitemap.txt
+  template: ./source/layouts/sitemap_template.xml
+  template_txt: ./source/layouts/sitemap_template.txt
+  rel: false
+  tags: true
+  categories: true
+
+social:
+  # 其他社交按钮
+  RSS: /atom.xml || fa fa-rss
+
 ## Themes: https://hexo.io/themes/
 theme: next
+
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment

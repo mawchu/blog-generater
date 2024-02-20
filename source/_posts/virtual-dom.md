@@ -2,6 +2,10 @@
 title: React 思維進化 - Virtual dom
 date: 2024-02-18 16:25:16
 tags:
+- react
+- vue
+- virtual-dom
+- browser
 ---
 
 新年換新工作後的第一篇文章，就獻給來自『React 思維進化』本書提到的動量級概念——Virtual dom。

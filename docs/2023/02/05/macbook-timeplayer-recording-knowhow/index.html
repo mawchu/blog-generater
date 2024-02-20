@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.1.1">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
@@ -17,13 +18,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"mawchu.github.io","root":"/blog/","images":"/blog/images","scheme":"Pisces","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/blog/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"mawchu.github.io","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":true,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/blog/js/config.js"></script>
 
     <meta name="description" content="異地工作的習慣已經非常普遍了，在咖啡廳裡一個筆電、一對 Airpods 就開始課程學習並且錄影時，如何避免在錄製 Macbook 畫面影片時排除環境聲音（也就是麥克風）?本人使用的是 M2 晶片的 Macbook Pro，2023 1 月入手的產品，以下介紹自己通過網路資料與自己摸索的成功過程！ 安裝 Black Hole 聲道搜集 appBlack Hole申請 email 後收信並且取得下載連">
 <meta property="og:type" content="article">
 <meta property="og:title" content="macbook-timeplayer-recording-knowhow">
 <meta property="og:url" content="https://mawchu.github.io/blog/2023/02/05/macbook-timeplayer-recording-knowhow/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Mawchu&#39;s blog">
 <meta property="og:description" content="異地工作的習慣已經非常普遍了，在咖啡廳裡一個筆電、一對 Airpods 就開始課程學習並且錄影時，如何避免在錄製 Macbook 畫面影片時排除環境聲音（也就是麥克風）?本人使用的是 M2 晶片的 Macbook Pro，2023 1 月入手的產品，以下介紹自己通過網路資料與自己摸索的成功過程！ 安裝 Black Hole 聲道搜集 appBlack Hole申請 email 後收信並且取得下載連">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-02-05T09:04:33.000Z">
@@ -39,7 +40,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://mawchu.github.io/blog/2023/02/05/macbook-timeplayer-recording-knowhow/","path":"2023/02/05/macbook-timeplayer-recording-knowhow/","title":"macbook-timeplayer-recording-knowhow"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>macbook-timeplayer-recording-knowhow | Hexo</title>
+<title>macbook-timeplayer-recording-knowhow | Mawchu's blog</title>
   
 
 
@@ -52,6 +53,7 @@
   <noscript>
     <link rel="stylesheet" href="/blog/css/noscript.css">
   </noscript>
+<link rel="alternate" href="/blog/atom.xml" title="Mawchu's blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -72,7 +74,7 @@
 
     <a href="/blog/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">Hexo</p>
+      <p class="site-title">Mawchu's blog</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -131,7 +133,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -166,12 +168,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Mawchu's blog">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="macbook-timeplayer-recording-knowhow | Hexo">
+      <meta itemprop="name" content="macbook-timeplayer-recording-knowhow | Mawchu's blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -264,7 +266,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Mawchu</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
 
     </div>
