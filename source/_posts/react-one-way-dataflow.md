@@ -1,0 +1,34 @@
+---
+title: React 思維進化 - One-way dataflow
+date: 2024-02-24 23:21:17
+tags:
+---
+
+<img style="margin-right: unset; margin-left: unset; padding-top: 30px" src="/blog/images/react-one-way-data-flow-1.jpg"  width="80%" height="auto">
+
+# 單向資料流的目的
+
+前端框架處理與解決的問題始終著重在：保持資料源頭(Source)的一致與完整性。之所以這樣設計的原因在於減少同時處理資料與操作 DOM 造成的多個變因，為保持來源的單純性，建構在「單向」會使得追蹤問題與除錯更簡單容易，只要聚焦在「正確的」資料、在透過模板渲染並且映射到畫面上的後續動作則透過框架處理成「自動化」。
+
+以下比較使用傳統 JQuery 開發與採用前端框架 React 的容易區別的關鍵思維差異：
+
+## 資料與渲染元件混雜，無關注點分離
+
+JQuery 的開發思維若不夠謹慎，容易在開發時資料與渲染邏輯(UI)混合，資料揉在操作元件之內需同步處理，極可能在過程中因疏失或未查導致資料操作與畫面渲染不同步而在多個 DOM 或多個資料片段的邏輯拆解中遺漏未對齊，而使資料被污染也無法查找原始檔案作比較。
+
+不過有經驗的工程師仍可以藉由單獨管理資料、整理出 data model 後再一併渲染畫面來落實**關注點分離(Seperation of concerns)**，
+
+# React 如何實現前端效能優化
+
+前端解決操作 DOM 的渲染效能問題，有兩大類實作方式：
+
+1. 模塊化最小範圍的 View-Model，比較資料（Model）差異後更新牽連的 DOM（View），著重在監聽資料的變化，是以 Two-way-binding 的資料流的框架 Vue.js 為代表。
+2. 僅操作 Virtual Dom 虛擬對象（object），並且利用保留的版本比對差異無後顧之憂地一律重繪，持續透過 Virtual Dom 單向產出最終版的 Real Dom，
+
+## 無視差異，一率重繪
+
+免去考慮模塊相關邏輯對應的 DOM（View），也不用一一拆分受影響的 DOM 有哪些、Model data 是什麼，一鍵清除重新歸零後再渲染新的 html 結構。
+
+## React Element 不可變，保留原始結構
+
+## Diff 新舊版結構，更新差異處到 DOM

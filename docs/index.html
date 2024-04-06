@@ -123,12 +123,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -145,6 +145,290 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2024/04/06/react-onclick-event/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.png">
+      <meta itemprop="name" content="Mawchu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mawchu's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Mawchu's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/blog/2024/04/06/react-onclick-event/" class="post-title-link" itemprop="url">React 初學踩坑記 - onClick 事件的無限迴圈</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-04-06 22:47:03 / Modified: 23:44:15" itemprop="dateCreated datePublished" datetime="2024-04-06T22:47:03+08:00">2024-04-06</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>終於在前端生涯來到三年多後第一次接觸 React 開發，即便已經知道 React 容易踩坑無限迴圈的議題，仍然一頭栽了進去。<br>今天要來說說關於<code>「onClick 事件的無限迴圈」</code>，為什麼在 Vue 習以為常的開發手法卻在 React 踢爆鐵板呢？<br>抱持著踩坑的興奮心情與你各位分享ヾ(&#x3D;&#96;ω´&#x3D;)ノ | |：</p>
+<h1 id="React-的重新渲染機制"><a href="#React-的重新渲染機制" class="headerlink" title="React 的重新渲染機制"></a>React 的重新渲染機制</h1><p>Vue 與 React 在運作機制上為了避免高耗能的 DOM 操作採取不同的做法，詳細可以閱讀 Zet 大大在《React 思維進化》中的解說。<br>總的來講，Vue 採用資料與視圖綁定的做法， MVVM 雙向綁定監聽資料變化以最小規模化操作牽動到的 DOM；React 則是採用了 React DOM 操作虛擬物件、一率重繪與單向資料流（One way dataflow）等多重手法來達成目的，這也造成 React 容易無限迴圈的主因。</p>
+<h1 id="OnClick-事件傳入參數的日常"><a href="#OnClick-事件傳入參數的日常" class="headerlink" title="OnClick 事件傳入參數的日常"></a>OnClick 事件傳入參數的日常</h1><p>當我在開發一個簡易的路由切換，給當前按鈕改變顏色時秉持以往撰寫 Vue 的習慣：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Root</span></span>() &#123;</span><br><span class="line">  const [currentTab, setCurrentTab] = useState(<span class="string">&quot;app&quot;</span>);</span><br><span class="line">  const changeCurrentTab = (tabName) =&gt; &#123;</span><br><span class="line">    setCurrentTab(tabName);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="built_in">return</span> (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      &lt;h1&gt;This is main page.&lt;/h1&gt;</span><br><span class="line">      &lt;Space</span><br><span class="line">        style=&#123;&#123;</span><br><span class="line">          display: <span class="string">&quot;flex&quot;</span>,</span><br><span class="line">          flexWrap: <span class="string">&quot;wrap&quot;</span>,</span><br><span class="line">        &#125;&#125;</span><br><span class="line">      &gt;</span><br><span class="line">        &lt;Link to=&#123;`/app`&#125;&gt;</span><br><span class="line">          &lt;Button</span><br><span class="line">            onClick=&#123;changeCurrentTab(<span class="string">&quot;app&quot;</span>)&#125;</span><br><span class="line">            <span class="built_in">type</span>=&#123;currentTab === <span class="string">&quot;app&quot;</span> ? <span class="string">&quot;primary&quot;</span> : <span class="string">&quot;&quot;</span>&#125;</span><br><span class="line">          &gt;</span><br><span class="line">            APP</span><br><span class="line">          &lt;/Button&gt;</span><br><span class="line">        &lt;/Link&gt;</span><br><span class="line">        &lt;Link to=&#123;`/library`&#125;&gt;</span><br><span class="line">          &lt;Button</span><br><span class="line">            onClick=&#123;changeCurrentTab(<span class="string">&quot;library&quot;</span>)&#125;</span><br><span class="line">            <span class="built_in">type</span>=&#123;currentTab === <span class="string">&quot;library&quot;</span> ? <span class="string">&quot;primary&quot;</span> : <span class="string">&quot;&quot;</span>&#125;</span><br><span class="line">          &gt;</span><br><span class="line">            LIBRARY</span><br><span class="line">          &lt;/Button&gt;</span><br><span class="line">        &lt;/Link&gt;</span><br><span class="line">      &lt;/Space&gt;</span><br><span class="line">      &lt;Outlet /&gt;</span><br><span class="line">    &lt;/&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> default Root;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>然後就沒有然後了，畫面直接死給你看：</p>
+<img style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/react-onclick-event-0.png' width='100%' height='auto'>
+
+<p>原因在於當前 Component 的 function 一旦傳入參數就視同於立即呼叫，時機在於 Component 渲染後觸發，這並不是我們預期「點擊後觸發」的行為，為了修正錯誤必須更改為箭頭函式以確保元件渲染的當下才定義函式，並且在需要的時候呼叫：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Root</span></span>() &#123;</span><br><span class="line">  const [currentTab, setCurrentTab] = useState(<span class="string">&quot;app&quot;</span>);</span><br><span class="line">  const changeCurrentTab = (tabName) =&gt; &#123;</span><br><span class="line">    setCurrentTab(tabName);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="built_in">return</span> (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      &lt;h1&gt;This is main page.&lt;/h1&gt;</span><br><span class="line">      &lt;Space</span><br><span class="line">        style=&#123;&#123;</span><br><span class="line">          display: <span class="string">&quot;flex&quot;</span>,</span><br><span class="line">          flexWrap: <span class="string">&quot;wrap&quot;</span>,</span><br><span class="line">        &#125;&#125;</span><br><span class="line">      &gt;</span><br><span class="line">        &lt;Link to=&#123;`/app`&#125;&gt;</span><br><span class="line">          &lt;Button</span><br><span class="line">            onClick=&#123;() =&gt; changeCurrentTab(<span class="string">&quot;app&quot;</span>)&#125;</span><br><span class="line">            <span class="built_in">type</span>=&#123;currentTab === <span class="string">&quot;app&quot;</span> ? <span class="string">&quot;primary&quot;</span> : <span class="string">&quot;&quot;</span>&#125;</span><br><span class="line">          &gt;</span><br><span class="line">            APP</span><br><span class="line">          &lt;/Button&gt;</span><br><span class="line">        &lt;/Link&gt;</span><br><span class="line">        &lt;Link to=&#123;`/library`&#125;&gt;</span><br><span class="line">          &lt;Button</span><br><span class="line">            onClick=&#123;() =&gt; changeCurrentTab(<span class="string">&quot;library&quot;</span>)&#125;</span><br><span class="line">            <span class="built_in">type</span>=&#123;currentTab === <span class="string">&quot;library&quot;</span> ? <span class="string">&quot;primary&quot;</span> : <span class="string">&quot;&quot;</span>&#125;</span><br><span class="line">          &gt;</span><br><span class="line">            LIBRARY</span><br><span class="line">          &lt;/Button&gt;</span><br><span class="line">        &lt;/Link&gt;</span><br><span class="line">      &lt;/Space&gt;</span><br><span class="line">      &lt;Outlet /&gt;</span><br><span class="line">    &lt;/&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> default Root;</span><br></pre></td></tr></table></figure>
+
+<p>詳細可以看<a target="_blank" rel="noopener" href="https://sentry.io/answers/why-can-t-the-react-js-onclick-event-pass-a-value-to-a-method/">這一篇</a>的說明</p>
+<blockquote>
+<p>When you call an onClick event handler function directly with an argument passed in, the function <code>is executed when the component is mounted</code>.<br><code>An inline function is a function that’s</code>defined when the component is rendered&#96;. This onClick event handler is now called by React only when the button is clicked by a user.</p>
+</blockquote>
+<h2 id="為什麼會造成無限迴圈"><a href="#為什麼會造成無限迴圈" class="headerlink" title="為什麼會造成無限迴圈"></a>為什麼會造成無限迴圈</h2><p>render 時觸發資料變化 -&gt; re-render -&gt; render 時觸發資料變化 -&gt; re-render -&gt; render 時觸發資料變化 -&gt; re-render …<br>於是造成了渲染渲染再渲染，重複重複再重複的死胡同裡面了。<br><img style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/react-onclick-event-1.gif' width='60%' height='auto'></p>
+<blockquote>
+<p>The reason why passing in a value to a state setter onClick event handler causes an infinite loop, if you call it without an inline function, is that the state is set when the component is rendered. <code>This causes the component to re-render as the state is updated</code>. The state is then set again when the component is re-rendered, which causes another re-render. This continues and causes an infinite loop.</p>
+</blockquote>
+<h2 id="為什麼-inline-function-有解"><a href="#為什麼-inline-function-有解" class="headerlink" title="為什麼 inline function 有解"></a>為什麼 inline function 有解</h2><p>Inline arrow function 之所以有效，在於他每一次的<code>函式執行環境都是「獨立的」</code>，對於 Javascript 來說 function 也是一種物件，物件的特性就是傳參考（by preference），所以 React 在每次渲染創建的 inline arrow function 都是各自獨立的函式，與之前的參考脫鉤也就沒有資料改變的問題，從而解決了因為偵測變化而重新渲染的無限迴圈。</p>
+<blockquote>
+<p>Using an inline arrow function helps resolve this issue. When you use an inline arrow function, a new function is created each time the component renders. This ensures that <code>the reference to the function changes</code>, which prevents the effect from re-rendering. - chatGpt</p>
+</blockquote>
+<ul>
+<li>踩坑記先記錄到這裡，期待透過下一次的採坑重新認識每個 Javascript 框架囉～！</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2024/02/24/react-one-way-dataflow/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.png">
+      <meta itemprop="name" content="Mawchu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mawchu's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Mawchu's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/blog/2024/02/24/react-one-way-dataflow/" class="post-title-link" itemprop="url">React 思維進化 - One-way dataflow</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-02-24 23:21:17" itemprop="dateCreated datePublished" datetime="2024-02-24T23:21:17+08:00">2024-02-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-03-16 13:39:00" itemprop="dateModified" datetime="2024-03-16T13:39:00+08:00">2024-03-16</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <img style="margin-right: unset; margin-left: unset; padding-top: 30px" src="/blog/images/react-one-way-data-flow-1.jpg"  width="80%" height="auto">
+
+<h1 id="單向資料流的目的"><a href="#單向資料流的目的" class="headerlink" title="單向資料流的目的"></a>單向資料流的目的</h1><p>前端框架處理與解決的問題始終著重在：保持資料源頭(Source)的一致與完整性。之所以這樣設計的原因在於減少同時處理資料與操作 DOM 造成的多個變因，為保持來源的單純性，建構在「單向」會使得追蹤問題與除錯更簡單容易，只要聚焦在「正確的」資料、在透過模板渲染並且映射到畫面上的後續動作則透過框架處理成「自動化」。</p>
+<p>以下比較使用傳統 JQuery 開發與採用前端框架 React 的容易區別的關鍵思維差異：</p>
+<h2 id="資料與渲染元件混雜，無關注點分離"><a href="#資料與渲染元件混雜，無關注點分離" class="headerlink" title="資料與渲染元件混雜，無關注點分離"></a>資料與渲染元件混雜，無關注點分離</h2><p>JQuery 的開發思維若不夠謹慎，容易在開發時資料與渲染邏輯(UI)混合，資料揉在操作元件之內需同步處理，極可能在過程中因疏失或未查導致資料操作與畫面渲染不同步而在多個 DOM 或多個資料片段的邏輯拆解中遺漏未對齊，而使資料被污染也無法查找原始檔案作比較。</p>
+<p>不過有經驗的工程師仍可以藉由單獨管理資料、整理出 data model 後再一併渲染畫面來落實**關注點分離(Seperation of concerns)**，</p>
+<h1 id="React-如何實現前端效能優化"><a href="#React-如何實現前端效能優化" class="headerlink" title="React 如何實現前端效能優化"></a>React 如何實現前端效能優化</h1><p>前端解決操作 DOM 的渲染效能問題，有兩大類實作方式：</p>
+<ol>
+<li>模塊化最小範圍的 View-Model，比較資料（Model）差異後更新牽連的 DOM（View），著重在監聽資料的變化，是以 Two-way-binding 的資料流的框架 Vue.js 為代表。</li>
+<li>僅操作 Virtual Dom 虛擬對象（object），並且利用保留的版本比對差異無後顧之憂地一律重繪，持續透過 Virtual Dom 單向產出最終版的 Real Dom，</li>
+</ol>
+<h2 id="無視差異，一率重繪"><a href="#無視差異，一率重繪" class="headerlink" title="無視差異，一率重繪"></a>無視差異，一率重繪</h2><p>免去考慮模塊相關邏輯對應的 DOM（View），也不用一一拆分受影響的 DOM 有哪些、Model data 是什麼，一鍵清除重新歸零後再渲染新的 html 結構。</p>
+<h2 id="React-Element-不可變，保留原始結構"><a href="#React-Element-不可變，保留原始結構" class="headerlink" title="React Element 不可變，保留原始結構"></a>React Element 不可變，保留原始結構</h2><h2 id="Diff-新舊版結構，更新差異處到-DOM"><a href="#Diff-新舊版結構，更新差異處到-DOM" class="headerlink" title="Diff 新舊版結構，更新差異處到 DOM"></a>Diff 新舊版結構，更新差異處到 DOM</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2024/02/22/react-element/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.png">
+      <meta itemprop="name" content="Mawchu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mawchu's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Mawchu's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/blog/2024/02/22/react-element/" class="post-title-link" itemprop="url">React 思維進化 - React Element X JSX</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-02-22 22:10:09" itemprop="dateCreated datePublished" datetime="2024-02-22T22:10:09+08:00">2024-02-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-24 12:00:36" itemprop="dateModified" datetime="2024-02-24T12:00:36+08:00">2024-02-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>承襲上一篇『React 思維進化』核心理念的出發點——Virtual Dom 為基底，第二層的關鍵因素就是 React Element，筆者佔用了相當大的篇幅與頻繁地提及次數都在在彰顯其份量，可以從幾個粗淺但切中要害的方式分析：</p>
+<h1 id="React-Element-為構築畫面的最小單位"><a href="#React-Element-為構築畫面的最小單位" class="headerlink" title="React Element 為構築畫面的最小單位"></a>React Element 為構築畫面的最小單位</h1><p>筆者從開頭就破題「組成 React 最小畫面的元素單位並非 component 而是 React Element」，以及「React Element 就是 React 實作 Virtual Dom 作為優化瀏覽器重新渲染造成的效能消耗必要手段之一。」來當作所有思維的基礎。</p>
+<h2 id="Virtual-Dom-是概念、React-Element-是實作、DOM-是結果"><a href="#Virtual-Dom-是概念、React-Element-是實作、DOM-是結果" class="headerlink" title="Virtual Dom 是概念、React Element 是實作、DOM 是結果"></a>Virtual Dom 是概念、React Element 是實作、DOM 是結果</h2><p>Virtual Dom 的美好藍圖必須透過某些框架手法來轉換為現實，就是透過 React 的最小構築畫面單位——React Element，該方法可以傳入三個參數：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import React from &#x27;react&#x27;;</span><br><span class="line">import ReactDOM from &#x27;react-dom/client&#x27;;</span><br><span class="line"></span><br><span class="line">// 準備容器根節點(注意！該範圍內會直接為 React 所掌控與覆蓋，盡量避免直接透過其他 js 手法寫入此容器)</span><br><span class="line">const rootContainerElement = document.getElementById(&#x27;root-container&#x27;);</span><br><span class="line">const root = ReactDOM.creatRoot(rootContainerElement);</span><br><span class="line"></span><br><span class="line">// 注入React Element</span><br><span class="line">const buttonReactElement = React.creactElement(</span><br><span class="line">    &#x27;button&#x27;,           // 元素類型</span><br><span class="line">    &#123; id: &#x27;button1&#x27; &#125;,  // 屬性值</span><br><span class="line">    &#x27;I am a button&#x27;     // 子元素，可以往後傳入多個</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>產生的實際 DOM 樣貌：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">    ...</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div id=&quot;root-container&quot;&gt;</span><br><span class="line">            &lt;button id=&quot;button1&quot;&gt;I am a button&lt;/button&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>React.creactElement 實際產生的是一個普通的 React javascript 物件，用來模擬實際產生的 DOM 樣貌，</p>
+</blockquote>
+<h2 id="React-Element-Child-可以多個或嵌套"><a href="#React-Element-Child-可以多個或嵌套" class="headerlink" title="React Element Child 可以多個或嵌套"></a>React Element Child 可以多個或嵌套</h2><p>從第三個參數開始可以不斷透過 React Element 持續撰寫撰寫平行的兄弟、巢狀嵌套的父子等子元素：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">const buttonReactElement = React.creactElement(</span><br><span class="line">    &#x27;div&#x27;,           // 元素類型</span><br><span class="line">    &#123; id: &#x27;wrapper&#x27;, className: &#x27;wrapper&#x27; &#125;,  // 屬性值</span><br><span class="line">    React.creactElement(  // 子元素，可以往後傳入多個</span><br><span class="line">        &#x27;ul&#x27;,</span><br><span class="line">        &#123; id: &#x27;list&#x27; &#125;,</span><br><span class="line">        React.creactElement(&#x27;li&#x27;, &#123; className: &#x27;list-item&#x27; &#125;, &#x27;item 1&#x27;),</span><br><span class="line">        React.creactElement(&#x27;li&#x27;, &#123; className: &#x27;list-item&#x27; &#125;, &#x27;item 2&#x27;),</span><br><span class="line">        React.creactElement(&#x27;li&#x27;, &#123; className: &#x27;list-item&#x27; &#125;, &#x27;item 3&#x27;),</span><br><span class="line">    ),</span><br><span class="line">    React.creactElement(</span><br><span class="line">        &#x27;button&#x27;,</span><br><span class="line">        &#123; id: &#x27;button1&#x27; &#125;,</span><br><span class="line">        &#x27;I am a button&#x27;</span><br><span class="line">    )</span><br><span class="line">    ...</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="React-Element-的-immutable-特性"><a href="#React-Element-的-immutable-特性" class="headerlink" title="React Element 的 immutable 特性"></a>React Element 的 immutable 特性</h2><p>為了實現效能優化，React 發展出不可變(immutable)的特性，每個產生的 React Element 都不能為後續的修改而變動，這是為了確保每個版本的 React Element 都有白紙黑字的根據，以便後續與新的版本做對照與比較(Diff)，進而方便 React 鎖定比較後的結構細節並且縮小範圍。</p>
+<p>不過 React.creactElement 這樣的撰寫方式不夠直覺好懂，所以發展出第三個核心理念——JSX。</p>
+<h1 id="JSX-菀菀類卿，除卻巫山不是雲"><a href="#JSX-菀菀類卿，除卻巫山不是雲" class="headerlink" title="JSX 菀菀類卿，除卻巫山不是雲"></a>JSX 菀菀類卿，除卻巫山不是雲</h1><p>JSX 長得像 HTML、本質上卻是 Virtual DOM，這是因為如同 <code>class</code> 是 functional constructor 的語法糖一樣，他不過是 React Element 方法的語法糖，並非一個新的語言、也不是獨創的，撕開面具他不過就是透過 Babel 從高階語言轉換成另一個高階語言的「轉譯」(Transpiler)手法而已，讓你可以用 HTML 的概念去寫 Virtual DOM 並且呼叫 React.creactElement 方法，目的就是好維護、夠直觀。</p>
+<p>透過 JSX 撰寫 React.creactElement：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const reactElement = (</span><br><span class="line">    &lt;div id=&quot;wrapper&quot; className=&quot;wrapper&quot;&gt;</span><br><span class="line">        &lt;ul id=&quot;list&quot;&gt;</span><br><span class="line">            &lt;li className=&quot;list-item&quot;&gt;item 1&lt;/li&gt;</span><br><span class="line">            &lt;li className=&quot;list-item&quot;&gt;item 2&lt;/li&gt;</span><br><span class="line">            &lt;li className=&quot;list-item&quot;&gt;item 3&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">        &lt;button id=&quot;button1&quot;&gt;I am a button&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>避免與 <code>class</code> 重複而使用 <code>className</code> 並非 JSX 的規定，而是為了映射到 React.creactElement 呼叫時的寫法。</p>
+</blockquote>
+<p>完全等同以下的寫法(Babel 轉譯結果)：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const buttonReactElement = React.creactElement(</span><br><span class="line">    &#x27;div&#x27;, // 元素類型</span><br><span class="line">    &#123; id: &#x27;wrapper&#x27;, className: &#x27;wrapper&#x27; &#125;, // 屬性值</span><br><span class="line">    React.creactElement( // 子元素，可以往後傳入多個</span><br><span class="line">        &#x27;ul&#x27;,</span><br><span class="line">        &#123; id: &#x27;list&#x27; &#125;,</span><br><span class="line">        React.creactElement(&#x27;li&#x27;, &#123; className: &#x27;list-item&#x27; &#125;, &#x27;item 1&#x27;),</span><br><span class="line">        React.creactElement(&#x27;li&#x27;, &#123; className: &#x27;list-item&#x27; &#125;, &#x27;item 2&#x27;),</span><br><span class="line">        React.creactElement(&#x27;li&#x27;, &#123; className: &#x27;list-item&#x27; &#125;, &#x27;item 3&#x27;),</span><br><span class="line">    ),</span><br><span class="line">    React.creactElement(</span><br><span class="line">        &#x27;button&#x27;,</span><br><span class="line">        &#123; id: &#x27;button1&#x27; &#125;,</span><br><span class="line">        &#x27;I am a button&#x27;</span><br><span class="line">    )</span><br><span class="line">    ...</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>下一篇將跟隨『React 思維進化』筆者的引導，深入檢討 React 與 Vue 各自在優化前端效能上採用的做法，以及如何呼應到瀏覽器的渲染行為。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -190,7 +474,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-20 09:12:46" itemprop="dateModified" datetime="2024-02-20T09:12:46+08:00">2024-02-20</time>
+      <time title="Modified: 2024-02-24 12:00:04" itemprop="dateModified" datetime="2024-02-24T12:00:04+08:00">2024-02-24</time>
     </span>
 
   
@@ -282,15 +566,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2023-03-20 19:22:48" itemprop="dateCreated datePublished" datetime="2023-03-20T19:22:48+08:00">2023-03-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-19 16:48:20" itemprop="dateModified" datetime="2024-02-19T16:48:20+08:00">2024-02-19</time>
+      <time title="Created: 2023-03-20 19:22:48 / Modified: 19:37:30" itemprop="dateCreated datePublished" datetime="2023-03-20T19:22:48+08:00">2023-03-20</time>
     </span>
 
   
@@ -362,15 +640,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2023-03-05 20:06:31" itemprop="dateCreated datePublished" datetime="2023-03-05T20:06:31+08:00">2023-03-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-19 16:48:20" itemprop="dateModified" datetime="2024-02-19T16:48:20+08:00">2024-02-19</time>
+      <time title="Created: 2023-03-05 20:06:31 / Modified: 23:47:48" itemprop="dateCreated datePublished" datetime="2023-03-05T20:06:31+08:00">2023-03-05</time>
     </span>
 
   
@@ -463,7 +735,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-19 16:48:20" itemprop="dateModified" datetime="2024-02-19T16:48:20+08:00">2024-02-19</time>
+      <time title="Modified: 2023-02-26 15:16:56" itemprop="dateModified" datetime="2023-02-26T15:16:56+08:00">2023-02-26</time>
     </span>
 
   
@@ -564,15 +836,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2023-02-17 03:59:25" itemprop="dateCreated datePublished" datetime="2023-02-17T03:59:25+08:00">2023-02-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-19 16:48:20" itemprop="dateModified" datetime="2024-02-19T16:48:20+08:00">2024-02-19</time>
+      <time title="Created: 2023-02-17 03:59:25 / Modified: 04:29:59" itemprop="dateCreated datePublished" datetime="2023-02-17T03:59:25+08:00">2023-02-17</time>
     </span>
 
   
@@ -663,15 +929,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2023-02-05 17:04:33" itemprop="dateCreated datePublished" datetime="2023-02-05T17:04:33+08:00">2023-02-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-19 16:48:20" itemprop="dateModified" datetime="2024-02-19T16:48:20+08:00">2024-02-19</time>
+      <time title="Created: 2023-02-05 17:04:33 / Modified: 17:22:03" itemprop="dateCreated datePublished" datetime="2023-02-05T17:04:33+08:00">2023-02-05</time>
     </span>
 
   
@@ -756,7 +1016,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-19 16:48:20" itemprop="dateModified" datetime="2024-02-19T16:48:20+08:00">2024-02-19</time>
+      <time title="Modified: 2023-02-09 23:54:52" itemprop="dateModified" datetime="2023-02-09T23:54:52+08:00">2023-02-09</time>
     </span>
 
   
@@ -787,91 +1047,9 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2023/02/05/macbook-beginner-guide/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.png">
-      <meta itemprop="name" content="Mawchu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mawchu's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Mawchu's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/blog/2023/02/05/macbook-beginner-guide/" class="post-title-link" itemprop="url">Ｍacbook 新手須知</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-02-05 14:27:36" itemprop="dateCreated datePublished" datetime="2023-02-05T14:27:36+08:00">2023-02-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-19 16:48:20" itemprop="dateModified" datetime="2024-02-19T16:48:20+08:00">2024-02-19</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>為方便工作效率將經常使用的 Ｍacbook 快速鍵記錄在這裡：</p>
-<h1 id="Macbook-快捷鍵一覽"><a href="#Macbook-快捷鍵一覽" class="headerlink" title="Macbook 快捷鍵一覽"></a>Macbook 快捷鍵一覽</h1><h2 id="文書處理"><a href="#文書處理" class="headerlink" title="文書處理"></a>文書處理</h2><h4 id="刪除檔案"><a href="#刪除檔案" class="headerlink" title="刪除檔案"></a>刪除檔案</h4><p><kbd>command</kbd> + <kbd>delete</kbd></p>
-<h4 id="顯示隱藏檔案"><a href="#顯示隱藏檔案" class="headerlink" title="顯示隱藏檔案"></a>顯示隱藏檔案</h4><p><kbd>shift</kbd> + <kbd>command</kbd> + <kbd>.</kbd></p>
-<h5 id="剪下檔案並貼上"><a href="#剪下檔案並貼上" class="headerlink" title="剪下檔案並貼上"></a>剪下檔案並貼上</h5><p><kbd>commmand</kbd> + <kbd>C</kbd><br><kbd>ctrl</kbd> + <kbd>command</kbd> + <kbd>V</kbd></p>
-<h4 id="切換或取消全螢幕"><a href="#切換或取消全螢幕" class="headerlink" title="切換或取消全螢幕"></a>切換或取消全螢幕</h4><p><kbd>ctrl</kbd> + <kbd>command</kbd> + <kbd>F</kbd></p>
-<h4 id="開啟工作管理員"><a href="#開啟工作管理員" class="headerlink" title="開啟工作管理員"></a>開啟工作管理員</h4><p><kbd>option</kbd> + <kbd>command</kbd> + <kbd>esc</kbd></p>
-<h4 id="照片位址"><a href="#照片位址" class="headerlink" title="照片位址"></a>照片位址</h4><p>需要特別注意照片匯入時放置在 Finder <strong>圖片</strong>資料夾，照片圖庫才能如期查看，若移至照片則會導致圖片位址找不到該檔案</p>
-<hr>
-<h2 id="開發相關"><a href="#開發相關" class="headerlink" title="開發相關"></a>開發相關</h2><h4 id="快速刪除-terminal-整行指令"><a href="#快速刪除-terminal-整行指令" class="headerlink" title="快速刪除 terminal 整行指令"></a>快速刪除 terminal 整行指令</h4><p><kbd>ctrl</kbd> + <kbd>U</kbd></p>
-<h4 id="開啟-safari-RWD-除錯模式"><a href="#開啟-safari-RWD-除錯模式" class="headerlink" title="開啟 safari RWD 除錯模式"></a>開啟 safari RWD 除錯模式</h4><p><kbd>ctrl</kbd> + <kbd>command</kbd> + <kbd>R</kbd></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/blog/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
 
 </div>
   </main>
