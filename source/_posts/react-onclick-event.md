@@ -2,6 +2,10 @@
 title: React 初學踩坑記 - onClick 事件的無限迴圈
 date: 2024-04-06 22:47:03
 tags:
+  - react
+  - inline function
+  - one-way dataflow
+  - onclick arguments
 ---
 
 終於在前端生涯來到三年多後第一次接觸 React 開發，即便已經知道 React 容易踩坑無限迴圈的議題，仍然一頭栽了進去。
@@ -63,7 +67,7 @@ export default Root;
 
 <img style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/react-onclick-event-0.png' width='100%' height='auto'>
 
-原因在於當前 Component 的 function 一旦傳入參數就視同於立即呼叫，時機在於 Component 渲染後觸發，這並不是我們預期「點擊後觸發」的行為，為了修正錯誤必須更改為箭頭函式以確保元件渲染的當下才定義函式，並且在需要的時候呼叫：
+原因在於當前 Component 的 function 一旦`傳入參數`就視同於立即呼叫，時機在於 Component 渲染後觸發，這並不是我們預期「點擊後觸發」的行為，為了修正錯誤必須更改為箭頭函式以確保元件渲染的當下才定義函式，並且在需要的時候呼叫：
 
 ```bash
 ...
@@ -125,4 +129,58 @@ Inline arrow function 之所以有效，在於他每一次的`函式執行環境
 
 > Using an inline arrow function helps resolve this issue. When you use an inline arrow function, a new function is created each time the component renders. This ensures that `the reference to the function changes`, which prevents the effect from re-rendering. - chatGpt
 
-- 踩坑記先記錄到這裡，期待透過下一次的採坑重新認識每個 Javascript 框架囉～！
+所以就結論而言，`傳入參數(passing arguments)`時必須使用 inline function 來呼叫才是正確做法！
+
+# React router
+
+接下來說說關於 router path 的兩三事，偵測 router path 改變當前頁面按鈕是很常見的使用者體驗優化，在 Vue.js 中很熟悉的做法就是 watch `$router` 變數來操作相應的邏輯，至於 React 則是透過 react-router-dom 套件中的`useLocation()` hook 去監聽路由切換與偵測。
+延續上面的範例，為了讓頁面在指定的路由載入能正確的操作當前頁面按鈕的狀態與樣式，必須要在 React Element 重新渲染的初期就獲取路由名稱，採取相對應的樣式切換：
+
+```bash
+...
+import { Outlet, Link, useLocation } from "react-router-dom";
+
+function Root() {
+  const location = useLocation();
+  const { pathname } = location;
+  // 去掉 slash，並在元件渲染後直接變更當前按鈕
+  const [currentTab, setCurrentTab] = useState(pathname.substring(1));
+
+  const changeCurrentTab = (tabName) => {
+    setCurrentTab(tabName);
+  };
+
+  return (
+    <>
+      <h1>This is main page.</h1>
+      <Space
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+        }}
+      >
+        <Link to={`/app`}>
+          <Button
+            onClick={() => changeCurrentTab("app")}
+            type={currentTab === "app" ? "primary" : ""}
+          >
+            APP
+          </Button>
+        </Link>
+        <Link to={`/library`}>
+          <Button
+            onClick={() => changeCurrentTab("library")}
+            type={currentTab === "library" ? "primary" : ""}
+          >
+            LIBRARY
+          </Button>
+        </Link>
+      </Space>
+      <Outlet />
+    </>
+  );
+}
+
+export default Root;
+
+```
