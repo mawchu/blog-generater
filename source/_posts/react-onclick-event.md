@@ -110,16 +110,18 @@ function Root() {
 export default Root;
 ```
 
+這樣一來畫面的切換跟隨當前的按鈕操作囉！
+
 詳細可以看[這一篇](https://sentry.io/answers/why-can-t-the-react-js-onclick-event-pass-a-value-to-a-method/)的說明
 
 > When you call an onClick event handler function directly with an argument passed in, the function `is executed when the component is mounted`.
-> `An inline function is a function that’s`defined when the component is rendered`. This onClick event handler is now called by React only when the button is clicked by a user.
+> An inline function is a function that’s`defined when the component is rendered`. This onClick event handler is now called by React only when the button is clicked by a user.
 
 ## 為什麼會造成無限迴圈
 
 render 時觸發資料變化 -> re-render -> render 時觸發資料變化 -> re-render -> render 時觸發資料變化 -> re-render ...
 於是造成了渲染渲染再渲染，重複重複再重複的死胡同裡面了。
-<img style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/react-onclick-event-1.gif' width='60%' height='auto'>
+<img style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/react-onclick-event-1.gif' width='80%' height='auto'>
 
 > The reason why passing in a value to a state setter onClick event handler causes an infinite loop, if you call it without an inline function, is that the state is set when the component is rendered. `This causes the component to re-render as the state is updated`. The state is then set again when the component is re-rendered, which causes another re-render. This continues and causes an infinite loop.
 
