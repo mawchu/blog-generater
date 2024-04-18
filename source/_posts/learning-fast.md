@@ -3,6 +3,14 @@ title: 如何高效學習
 date: 2023-02-17 03:59:25
 tags:
 ---
+<div class="visual-image">
+    <div class="visual-image-box">
+        <div>{{ title }}</div>
+        <div>{{ title }}</div>
+        <div>{{ title }}</div>
+        <div>．．．</div>
+    </div>
+</div>
 
 作者 Scott Young 撰寫的**高效學習**這本書透過 Youtuber 薑餅資的分享，掌握快速學習以及提升學習效率的方法：
 
@@ -12,6 +20,7 @@ tags:
 1. 瞭解自己學習的動機。
 2. 需要具備的基礎知識是什麼？
 3. 尋找學習的資源與工具，例如線上課程、教科書等。
+<!-- more -->
 
 # Focus 保持專注力並且集中學習主題
 造成並擾亂專注力的幾個原因：

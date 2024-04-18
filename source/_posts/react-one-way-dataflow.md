@@ -4,13 +4,21 @@ date: 2024-02-24 23:21:17
 tags:
 ---
 
-<img style="margin-right: unset; margin-left: unset; padding-top: 30px" src="/blog/images/react-one-way-data-flow-1.jpg"  width="80%" height="auto">
+<div class="visual-image">
+    <div class="visual-image-box">
+        <div>{{ title }}</div>
+        <div>{{ title }}</div>
+        <div>{{ title }}</div>
+        <div>．．．</div>
+    </div>
+</div>
 
 # 單向資料流的目的
 
 前端框架處理與解決的問題始終著重在：保持資料源頭(Source)的一致與完整性。之所以這樣設計的原因在於減少同時處理資料與操作 DOM 造成的多個變因，為保持來源的單純性，建構在「單向」會使得追蹤問題與除錯更簡單容易，只要聚焦在「正確的」資料、在透過模板渲染並且映射到畫面上的後續動作則透過框架處理成「自動化」。
 
 以下比較使用傳統 JQuery 開發與採用前端框架 React 的容易區別的關鍵思維差異：
+<!-- more -->
 
 ## 資料與渲染元件混雜，無關注點分離
 

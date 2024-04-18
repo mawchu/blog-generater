@@ -1,10 +1,22 @@
 ---
-title: macbook-timeplayer-recording-knowhow
+title: Macbook 錄製影音工具 - timeplayer
 date: 2023-02-05 17:04:33
 tags:
 ---
+
+<div class="visual-image">
+    <div class="visual-image-box">
+        <div>{{ title }}</div>
+        <div>{{ title }}</div>
+        <div>{{ title }}</div>
+        <div>．．．</div>
+    </div>
+</div>
+
 異地工作的習慣已經非常普遍了，在咖啡廳裡一個筆電、一對 Airpods 就開始課程學習並且錄影時，如何避免在錄製 Macbook 畫面影片時排除環境聲音（也就是麥克風）?
 本人使用的是 M2 晶片的 Macbook Pro，2023 1 月入手的產品，以下介紹自己通過網路資料與自己摸索的成功過程！
+
+<!-- more -->
 
 # 安裝 Black Hole 聲道搜集 app
 [Black Hole](https://existential.audio/blackhole/#blackhole_logo)

@@ -1,11 +1,22 @@
 ---
-title:  高速學習的技巧
+title: Fast learnning - 高速學習的技巧
 date: 2023-03-20 19:22:48
 tags:
 ---
+<div class="visual-image">
+    <div class="visual-image-box">
+        <div>{{ title }}</div>
+        <div>{{ title }}</div>
+        <div>{{ title }}</div>
+        <div>．．．</div>
+    </div>
+</div>
+
 經過 Youtube 的神奇演算法我閱覽了分別來自薑餅資與文森先生，關於高效學習的這本書提到的做法，雖然我沒有時間實際閱讀這本書，仍然在先輩的分享獲得許多啟發。
 既然書本的重點中有一點與某北一女畢業生分享的雷同，就應該應用在這篇文章中才恰當囉！也就是 **回想式學習**。
 我先將記得的部分做幾個提問式回想：
+
+<!-- more -->
 
 # 情境式學習
 ## 為什麼學校的學習總是與社會脫節？

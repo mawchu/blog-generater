@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.1.1">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
@@ -18,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"mawchu.github.io","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":true,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/blog/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"mawchu.github.io","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="Mawchu&#39;s blog">
@@ -77,6 +76,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -84,12 +84,38 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </header>
         
@@ -128,11 +154,16 @@
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/mawchu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;mawchu" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
 
         </div>
       </div>
@@ -145,6 +176,98 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2024/04/17/react-immutable-update/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.png">
+      <meta itemprop="name" content="Mawchu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mawchu's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Mawchu's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/blog/2024/04/17/react-immutable-update/" class="post-title-link" itemprop="url">React 思維進化 - immutable update</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-04-17 16:08:09" itemprop="dateCreated datePublished" datetime="2024-04-17T16:08:09+08:00">2024-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-04-18 15:30:54" itemprop="dateModified" datetime="2024-04-18T15:30:54+08:00">2024-04-18</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <div class="visual-image">
+    <div class="visual-image-box">
+        <div>React 思維進化 - immutable update</div>
+        <div>React 思維進化 - immutable update</div>
+        <div>React 思維進化 - immutable update</div>
+        <div>．．．</div>
+    </div>
+</div>
+
+<p>《React 思維進化》已經閱讀到中間的核心章節了，作者提到一個與 Vue 框架在資料管理上比較不一樣的重要概念<code>Immutable</code>，由於 React 的單向資料流理念貫徹了整個框架系統，想當然爾會嚴格控制資料的可不可變也是十分合理的，javascript 在初學階段打下的基礎終於能與 React 框架結合起來，以下從 javascript 的資料型別切入：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2024/04/17/react-immutable-update/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -190,7 +313,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-04-09 23:00:27" itemprop="dateModified" datetime="2024-04-09T23:00:27+08:00">2024-04-09</time>
+      <time title="Modified: 2024-04-18 15:30:54" itemprop="dateModified" datetime="2024-04-18T15:30:54+08:00">2024-04-18</time>
     </span>
 
   
@@ -203,33 +326,24 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>終於在前端生涯來到三年多後第一次接觸 React 開發，即便已經知道 React 容易踩坑無限迴圈的議題，仍然一頭栽了進去。<br>今天要來說說關於<code>「onClick 事件的無限迴圈」</code>，為什麼在 Vue 習以為常的開發手法卻在 React 踢爆鐵板呢？<br>抱持著踩坑的興奮心情與你各位分享ヾ(&#x3D;&#96;ω´&#x3D;)ノ | |：</p>
-<h1 id="React-的重新渲染機制"><a href="#React-的重新渲染機制" class="headerlink" title="React 的重新渲染機制"></a>React 的重新渲染機制</h1><p>Vue 與 React 在運作機制上為了避免高耗能的 DOM 操作採取不同的做法，詳細可以閱讀 Zet 大大在《React 思維進化》中的解說。<br>總的來講，Vue 採用資料與視圖綁定的做法， MVVM 雙向綁定監聽資料變化以最小規模化操作牽動到的 DOM；React 則是採用了 React DOM 操作虛擬物件、一率重繪與單向資料流（One way dataflow）等多重手法來達成目的，這也造成 React 容易無限迴圈的主因。</p>
-<h1 id="OnClick-事件傳入參數的日常"><a href="#OnClick-事件傳入參數的日常" class="headerlink" title="OnClick 事件傳入參數的日常"></a>OnClick 事件傳入參數的日常</h1><p>當我在開發一個簡易的路由切換，給當前按鈕改變顏色時秉持以往撰寫 Vue 的習慣：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Root</span></span>() &#123;</span><br><span class="line">  const [currentTab, setCurrentTab] = useState(<span class="string">&quot;app&quot;</span>);</span><br><span class="line">  const changeCurrentTab = (tabName) =&gt; &#123;</span><br><span class="line">    setCurrentTab(tabName);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="built_in">return</span> (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      &lt;h1&gt;This is main page.&lt;/h1&gt;</span><br><span class="line">      &lt;Space</span><br><span class="line">        style=&#123;&#123;</span><br><span class="line">          display: <span class="string">&quot;flex&quot;</span>,</span><br><span class="line">          flexWrap: <span class="string">&quot;wrap&quot;</span>,</span><br><span class="line">        &#125;&#125;</span><br><span class="line">      &gt;</span><br><span class="line">        &lt;Link to=&#123;`/app`&#125;&gt;</span><br><span class="line">          &lt;Button</span><br><span class="line">            onClick=&#123;changeCurrentTab(<span class="string">&quot;app&quot;</span>)&#125;</span><br><span class="line">            <span class="built_in">type</span>=&#123;currentTab === <span class="string">&quot;app&quot;</span> ? <span class="string">&quot;primary&quot;</span> : <span class="string">&quot;&quot;</span>&#125;</span><br><span class="line">          &gt;</span><br><span class="line">            APP</span><br><span class="line">          &lt;/Button&gt;</span><br><span class="line">        &lt;/Link&gt;</span><br><span class="line">        &lt;Link to=&#123;`/library`&#125;&gt;</span><br><span class="line">          &lt;Button</span><br><span class="line">            onClick=&#123;changeCurrentTab(<span class="string">&quot;library&quot;</span>)&#125;</span><br><span class="line">            <span class="built_in">type</span>=&#123;currentTab === <span class="string">&quot;library&quot;</span> ? <span class="string">&quot;primary&quot;</span> : <span class="string">&quot;&quot;</span>&#125;</span><br><span class="line">          &gt;</span><br><span class="line">            LIBRARY</span><br><span class="line">          &lt;/Button&gt;</span><br><span class="line">        &lt;/Link&gt;</span><br><span class="line">      &lt;/Space&gt;</span><br><span class="line">      &lt;Outlet /&gt;</span><br><span class="line">    &lt;/&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> default Root;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          <div class="visual-image">
+    <div class="visual-image-box">
+        <div>React 初學踩坑記 - onClick 事件的無限迴圈</div>
+        <div>React 初學踩坑記 - onClick 事件的無限迴圈</div>
+        <div>React 初學踩坑記 - onClick 事件的無限迴圈</div>
+        <div>．．．</div>
+    </div>
+</div>
 
-<p>然後就沒有然後了，畫面直接死給你看：</p>
-<img style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/react-onclick-event-0.png' width='100%' height='auto'>
-
-<p>原因在於當前 Component 的 function 一旦<code>傳入參數</code>就視同於立即呼叫，時機在於 Component 渲染後觸發，這並不是我們預期「點擊後觸發」的行為，為了修正錯誤必須更改為箭頭函式以確保元件渲染的當下才定義函式，並且在需要的時候呼叫：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Root</span></span>() &#123;</span><br><span class="line">  const [currentTab, setCurrentTab] = useState(<span class="string">&quot;app&quot;</span>);</span><br><span class="line">  const changeCurrentTab = (tabName) =&gt; &#123;</span><br><span class="line">    setCurrentTab(tabName);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="built_in">return</span> (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      &lt;h1&gt;This is main page.&lt;/h1&gt;</span><br><span class="line">      &lt;Space</span><br><span class="line">        style=&#123;&#123;</span><br><span class="line">          display: <span class="string">&quot;flex&quot;</span>,</span><br><span class="line">          flexWrap: <span class="string">&quot;wrap&quot;</span>,</span><br><span class="line">        &#125;&#125;</span><br><span class="line">      &gt;</span><br><span class="line">        &lt;Link to=&#123;`/app`&#125;&gt;</span><br><span class="line">          &lt;Button</span><br><span class="line">            onClick=&#123;() =&gt; changeCurrentTab(<span class="string">&quot;app&quot;</span>)&#125;</span><br><span class="line">            <span class="built_in">type</span>=&#123;currentTab === <span class="string">&quot;app&quot;</span> ? <span class="string">&quot;primary&quot;</span> : <span class="string">&quot;&quot;</span>&#125;</span><br><span class="line">          &gt;</span><br><span class="line">            APP</span><br><span class="line">          &lt;/Button&gt;</span><br><span class="line">        &lt;/Link&gt;</span><br><span class="line">        &lt;Link to=&#123;`/library`&#125;&gt;</span><br><span class="line">          &lt;Button</span><br><span class="line">            onClick=&#123;() =&gt; changeCurrentTab(<span class="string">&quot;library&quot;</span>)&#125;</span><br><span class="line">            <span class="built_in">type</span>=&#123;currentTab === <span class="string">&quot;library&quot;</span> ? <span class="string">&quot;primary&quot;</span> : <span class="string">&quot;&quot;</span>&#125;</span><br><span class="line">          &gt;</span><br><span class="line">            LIBRARY</span><br><span class="line">          &lt;/Button&gt;</span><br><span class="line">        &lt;/Link&gt;</span><br><span class="line">      &lt;/Space&gt;</span><br><span class="line">      &lt;Outlet /&gt;</span><br><span class="line">    &lt;/&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> default Root;</span><br></pre></td></tr></table></figure>
-
-<p>詳細可以看<a target="_blank" rel="noopener" href="https://sentry.io/answers/why-can-t-the-react-js-onclick-event-pass-a-value-to-a-method/">這一篇</a>的說明</p>
-<blockquote>
-<p>When you call an onClick event handler function directly with an argument passed in, the function <code>is executed when the component is mounted</code>.<br><code>An inline function is a function that’s</code>defined when the component is rendered&#96;. This onClick event handler is now called by React only when the button is clicked by a user.</p>
-</blockquote>
-<h2 id="為什麼會造成無限迴圈"><a href="#為什麼會造成無限迴圈" class="headerlink" title="為什麼會造成無限迴圈"></a>為什麼會造成無限迴圈</h2><p>render 時觸發資料變化 -&gt; re-render -&gt; render 時觸發資料變化 -&gt; re-render -&gt; render 時觸發資料變化 -&gt; re-render …<br>於是造成了渲染渲染再渲染，重複重複再重複的死胡同裡面了。<br><img style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/react-onclick-event-1.gif' width='60%' height='auto'></p>
-<blockquote>
-<p>The reason why passing in a value to a state setter onClick event handler causes an infinite loop, if you call it without an inline function, is that the state is set when the component is rendered. <code>This causes the component to re-render as the state is updated</code>. The state is then set again when the component is re-rendered, which causes another re-render. This continues and causes an infinite loop.</p>
-</blockquote>
-<h2 id="為什麼-inline-function-有解"><a href="#為什麼-inline-function-有解" class="headerlink" title="為什麼 inline function 有解"></a>為什麼 inline function 有解</h2><p>Inline arrow function 之所以有效，在於他每一次的<code>函式執行環境都是「獨立的」</code>，對於 Javascript 來說 function 也是一種物件，物件的特性就是傳參考（by preference），所以 React 在每次渲染創建的 inline arrow function 都是各自獨立的函式，與之前的參考脫鉤也就沒有資料改變的問題，從而解決了因為偵測變化而重新渲染的無限迴圈。</p>
-<blockquote>
-<p>Using an inline arrow function helps resolve this issue. When you use an inline arrow function, a new function is created each time the component renders. This ensures that <code>the reference to the function changes</code>, which prevents the effect from re-rendering. - chatGpt</p>
-</blockquote>
-<p>所以就結論而言，<code>傳入參數(passing arguments)</code>時必須使用 inline function 來呼叫才是正確做法！</p>
-<h1 id="React-router"><a href="#React-router" class="headerlink" title="React router"></a>React router</h1><p>接下來說說關於 router path 的兩三事，偵測 router path 改變當前頁面按鈕是很常見的使用者體驗優化，在 Vue.js 中很熟悉的做法就是 watch <code>$router</code> 變數來操作相應的邏輯，至於 React 則是透過 react-router-dom 套件中的<code>useLocation()</code> hook 去監聽路由切換與偵測。<br>延續上面的範例，為了讓頁面在指定的路由載入能正確的操作當前頁面按鈕的狀態與樣式，必須要在 React Element 重新渲染的初期就獲取路由名稱，採取相對應的樣式切換：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">import &#123; Outlet, Link, useLocation &#125; from <span class="string">&quot;react-router-dom&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Root</span></span>() &#123;</span><br><span class="line">  const location = useLocation();</span><br><span class="line">  const &#123; pathname &#125; = location;</span><br><span class="line">  // 去掉 slash，並在元件渲染後直接變更當前按鈕</span><br><span class="line">  const [currentTab, setCurrentTab] = useState(pathname.substring(1));</span><br><span class="line"></span><br><span class="line">  const changeCurrentTab = (tabName) =&gt; &#123;</span><br><span class="line">    setCurrentTab(tabName);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">return</span> (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      &lt;h1&gt;This is main page.&lt;/h1&gt;</span><br><span class="line">      &lt;Space</span><br><span class="line">        style=&#123;&#123;</span><br><span class="line">          display: <span class="string">&quot;flex&quot;</span>,</span><br><span class="line">          flexWrap: <span class="string">&quot;wrap&quot;</span>,</span><br><span class="line">        &#125;&#125;</span><br><span class="line">      &gt;</span><br><span class="line">        &lt;Link to=&#123;`/app`&#125;&gt;</span><br><span class="line">          &lt;Button</span><br><span class="line">            onClick=&#123;() =&gt; changeCurrentTab(<span class="string">&quot;app&quot;</span>)&#125;</span><br><span class="line">            <span class="built_in">type</span>=&#123;currentTab === <span class="string">&quot;app&quot;</span> ? <span class="string">&quot;primary&quot;</span> : <span class="string">&quot;&quot;</span>&#125;</span><br><span class="line">          &gt;</span><br><span class="line">            APP</span><br><span class="line">          &lt;/Button&gt;</span><br><span class="line">        &lt;/Link&gt;</span><br><span class="line">        &lt;Link to=&#123;`/library`&#125;&gt;</span><br><span class="line">          &lt;Button</span><br><span class="line">            onClick=&#123;() =&gt; changeCurrentTab(<span class="string">&quot;library&quot;</span>)&#125;</span><br><span class="line">            <span class="built_in">type</span>=&#123;currentTab === <span class="string">&quot;library&quot;</span> ? <span class="string">&quot;primary&quot;</span> : <span class="string">&quot;&quot;</span>&#125;</span><br><span class="line">          &gt;</span><br><span class="line">            LIBRARY</span><br><span class="line">          &lt;/Button&gt;</span><br><span class="line">        &lt;/Link&gt;</span><br><span class="line">      &lt;/Space&gt;</span><br><span class="line">      &lt;Outlet /&gt;</span><br><span class="line">    &lt;/&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> default Root;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<p>終於在前端生涯來到三年多後第一次接觸 React 開發，即便已經知道 React 容易踩坑無限迴圈的議題，仍然一頭栽了進去。<br>今天要來說說關於<code>「onClick 事件的無限迴圈」</code>，為什麼在 Vue 習以為常的開發手法卻在 React 踢爆鐵板呢？<br>抱持著踩坑的興奮心情與你各位分享ヾ(&#x3D;&#96;ω´&#x3D;)ノ | |：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2024/04/06/react-onclick-event/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -291,7 +405,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-03-16 13:39:00" itemprop="dateModified" datetime="2024-03-16T13:39:00+08:00">2024-03-16</time>
+      <time title="Modified: 2024-04-18 15:30:54" itemprop="dateModified" datetime="2024-04-18T15:30:54+08:00">2024-04-18</time>
     </span>
 
   
@@ -304,19 +418,25 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <img style="margin-right: unset; margin-left: unset; padding-top: 30px" src="/blog/images/react-one-way-data-flow-1.jpg"  width="80%" height="auto">
+          <div class="visual-image">
+    <div class="visual-image-box">
+        <div>React 思維進化 - One-way dataflow</div>
+        <div>React 思維進化 - One-way dataflow</div>
+        <div>React 思維進化 - One-way dataflow</div>
+        <div>．．．</div>
+    </div>
+</div>
 
 <h1 id="單向資料流的目的"><a href="#單向資料流的目的" class="headerlink" title="單向資料流的目的"></a>單向資料流的目的</h1><p>前端框架處理與解決的問題始終著重在：保持資料源頭(Source)的一致與完整性。之所以這樣設計的原因在於減少同時處理資料與操作 DOM 造成的多個變因，為保持來源的單純性，建構在「單向」會使得追蹤問題與除錯更簡單容易，只要聚焦在「正確的」資料、在透過模板渲染並且映射到畫面上的後續動作則透過框架處理成「自動化」。</p>
 <p>以下比較使用傳統 JQuery 開發與採用前端框架 React 的容易區別的關鍵思維差異：</p>
-<h2 id="資料與渲染元件混雜，無關注點分離"><a href="#資料與渲染元件混雜，無關注點分離" class="headerlink" title="資料與渲染元件混雜，無關注點分離"></a>資料與渲染元件混雜，無關注點分離</h2><p>JQuery 的開發思維若不夠謹慎，容易在開發時資料與渲染邏輯(UI)混合，資料揉在操作元件之內需同步處理，極可能在過程中因疏失或未查導致資料操作與畫面渲染不同步而在多個 DOM 或多個資料片段的邏輯拆解中遺漏未對齊，而使資料被污染也無法查找原始檔案作比較。</p>
-<p>不過有經驗的工程師仍可以藉由單獨管理資料、整理出 data model 後再一併渲染畫面來落實**關注點分離(Seperation of concerns)**，</p>
-<h1 id="React-如何實現前端效能優化"><a href="#React-如何實現前端效能優化" class="headerlink" title="React 如何實現前端效能優化"></a>React 如何實現前端效能優化</h1><p>前端解決操作 DOM 的渲染效能問題，有兩大類實作方式：</p>
-<ol>
-<li>模塊化最小範圍的 View-Model，比較資料（Model）差異後更新牽連的 DOM（View），著重在監聽資料的變化，是以 Two-way-binding 的資料流的框架 Vue.js 為代表。</li>
-<li>僅操作 Virtual Dom 虛擬對象（object），並且利用保留的版本比對差異無後顧之憂地一律重繪，持續透過 Virtual Dom 單向產出最終版的 Real Dom，</li>
-</ol>
-<h2 id="無視差異，一率重繪"><a href="#無視差異，一率重繪" class="headerlink" title="無視差異，一率重繪"></a>無視差異，一率重繪</h2><p>免去考慮模塊相關邏輯對應的 DOM（View），也不用一一拆分受影響的 DOM 有哪些、Model data 是什麼，一鍵清除重新歸零後再渲染新的 html 結構。</p>
-<h2 id="React-Element-不可變，保留原始結構"><a href="#React-Element-不可變，保留原始結構" class="headerlink" title="React Element 不可變，保留原始結構"></a>React Element 不可變，保留原始結構</h2><h2 id="Diff-新舊版結構，更新差異處到-DOM"><a href="#Diff-新舊版結構，更新差異處到-DOM" class="headerlink" title="Diff 新舊版結構，更新差異處到 DOM"></a>Diff 新舊版結構，更新差異處到 DOM</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2024/02/24/react-one-way-dataflow/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -378,7 +498,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-24 12:00:36" itemprop="dateModified" datetime="2024-02-24T12:00:36+08:00">2024-02-24</time>
+      <time title="Modified: 2024-04-18 15:30:54" itemprop="dateModified" datetime="2024-04-18T15:30:54+08:00">2024-04-18</time>
     </span>
 
   
@@ -391,34 +511,24 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>承襲上一篇『React 思維進化』核心理念的出發點——Virtual Dom 為基底，第二層的關鍵因素就是 React Element，筆者佔用了相當大的篇幅與頻繁地提及次數都在在彰顯其份量，可以從幾個粗淺但切中要害的方式分析：</p>
-<h1 id="React-Element-為構築畫面的最小單位"><a href="#React-Element-為構築畫面的最小單位" class="headerlink" title="React Element 為構築畫面的最小單位"></a>React Element 為構築畫面的最小單位</h1><p>筆者從開頭就破題「組成 React 最小畫面的元素單位並非 component 而是 React Element」，以及「React Element 就是 React 實作 Virtual Dom 作為優化瀏覽器重新渲染造成的效能消耗必要手段之一。」來當作所有思維的基礎。</p>
-<h2 id="Virtual-Dom-是概念、React-Element-是實作、DOM-是結果"><a href="#Virtual-Dom-是概念、React-Element-是實作、DOM-是結果" class="headerlink" title="Virtual Dom 是概念、React Element 是實作、DOM 是結果"></a>Virtual Dom 是概念、React Element 是實作、DOM 是結果</h2><p>Virtual Dom 的美好藍圖必須透過某些框架手法來轉換為現實，就是透過 React 的最小構築畫面單位——React Element，該方法可以傳入三個參數：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import React from &#x27;react&#x27;;</span><br><span class="line">import ReactDOM from &#x27;react-dom/client&#x27;;</span><br><span class="line"></span><br><span class="line">// 準備容器根節點(注意！該範圍內會直接為 React 所掌控與覆蓋，盡量避免直接透過其他 js 手法寫入此容器)</span><br><span class="line">const rootContainerElement = document.getElementById(&#x27;root-container&#x27;);</span><br><span class="line">const root = ReactDOM.creatRoot(rootContainerElement);</span><br><span class="line"></span><br><span class="line">// 注入React Element</span><br><span class="line">const buttonReactElement = React.creactElement(</span><br><span class="line">    &#x27;button&#x27;,           // 元素類型</span><br><span class="line">    &#123; id: &#x27;button1&#x27; &#125;,  // 屬性值</span><br><span class="line">    &#x27;I am a button&#x27;     // 子元素，可以往後傳入多個</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+          <div class="visual-image">
+    <div class="visual-image-box">
+        <div>React 思維進化 - React Element X JSX</div>
+        <div>React 思維進化 - React Element X JSX</div>
+        <div>React 思維進化 - React Element X JSX</div>
+        <div>．．．</div>
+    </div>
+</div>
 
-<p>產生的實際 DOM 樣貌：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">    ...</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div id=&quot;root-container&quot;&gt;</span><br><span class="line">            &lt;button id=&quot;button1&quot;&gt;I am a button&lt;/button&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>React.creactElement 實際產生的是一個普通的 React javascript 物件，用來模擬實際產生的 DOM 樣貌，</p>
-</blockquote>
-<h2 id="React-Element-Child-可以多個或嵌套"><a href="#React-Element-Child-可以多個或嵌套" class="headerlink" title="React Element Child 可以多個或嵌套"></a>React Element Child 可以多個或嵌套</h2><p>從第三個參數開始可以不斷透過 React Element 持續撰寫撰寫平行的兄弟、巢狀嵌套的父子等子元素：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">const buttonReactElement = React.creactElement(</span><br><span class="line">    &#x27;div&#x27;,           // 元素類型</span><br><span class="line">    &#123; id: &#x27;wrapper&#x27;, className: &#x27;wrapper&#x27; &#125;,  // 屬性值</span><br><span class="line">    React.creactElement(  // 子元素，可以往後傳入多個</span><br><span class="line">        &#x27;ul&#x27;,</span><br><span class="line">        &#123; id: &#x27;list&#x27; &#125;,</span><br><span class="line">        React.creactElement(&#x27;li&#x27;, &#123; className: &#x27;list-item&#x27; &#125;, &#x27;item 1&#x27;),</span><br><span class="line">        React.creactElement(&#x27;li&#x27;, &#123; className: &#x27;list-item&#x27; &#125;, &#x27;item 2&#x27;),</span><br><span class="line">        React.creactElement(&#x27;li&#x27;, &#123; className: &#x27;list-item&#x27; &#125;, &#x27;item 3&#x27;),</span><br><span class="line">    ),</span><br><span class="line">    React.creactElement(</span><br><span class="line">        &#x27;button&#x27;,</span><br><span class="line">        &#123; id: &#x27;button1&#x27; &#125;,</span><br><span class="line">        &#x27;I am a button&#x27;</span><br><span class="line">    )</span><br><span class="line">    ...</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<h2 id="React-Element-的-immutable-特性"><a href="#React-Element-的-immutable-特性" class="headerlink" title="React Element 的 immutable 特性"></a>React Element 的 immutable 特性</h2><p>為了實現效能優化，React 發展出不可變(immutable)的特性，每個產生的 React Element 都不能為後續的修改而變動，這是為了確保每個版本的 React Element 都有白紙黑字的根據，以便後續與新的版本做對照與比較(Diff)，進而方便 React 鎖定比較後的結構細節並且縮小範圍。</p>
-<p>不過 React.creactElement 這樣的撰寫方式不夠直覺好懂，所以發展出第三個核心理念——JSX。</p>
-<h1 id="JSX-菀菀類卿，除卻巫山不是雲"><a href="#JSX-菀菀類卿，除卻巫山不是雲" class="headerlink" title="JSX 菀菀類卿，除卻巫山不是雲"></a>JSX 菀菀類卿，除卻巫山不是雲</h1><p>JSX 長得像 HTML、本質上卻是 Virtual DOM，這是因為如同 <code>class</code> 是 functional constructor 的語法糖一樣，他不過是 React Element 方法的語法糖，並非一個新的語言、也不是獨創的，撕開面具他不過就是透過 Babel 從高階語言轉換成另一個高階語言的「轉譯」(Transpiler)手法而已，讓你可以用 HTML 的概念去寫 Virtual DOM 並且呼叫 React.creactElement 方法，目的就是好維護、夠直觀。</p>
-<p>透過 JSX 撰寫 React.creactElement：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const reactElement = (</span><br><span class="line">    &lt;div id=&quot;wrapper&quot; className=&quot;wrapper&quot;&gt;</span><br><span class="line">        &lt;ul id=&quot;list&quot;&gt;</span><br><span class="line">            &lt;li className=&quot;list-item&quot;&gt;item 1&lt;/li&gt;</span><br><span class="line">            &lt;li className=&quot;list-item&quot;&gt;item 2&lt;/li&gt;</span><br><span class="line">            &lt;li className=&quot;list-item&quot;&gt;item 3&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">        &lt;button id=&quot;button1&quot;&gt;I am a button&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>避免與 <code>class</code> 重複而使用 <code>className</code> 並非 JSX 的規定，而是為了映射到 React.creactElement 呼叫時的寫法。</p>
-</blockquote>
-<p>完全等同以下的寫法(Babel 轉譯結果)：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const buttonReactElement = React.creactElement(</span><br><span class="line">    &#x27;div&#x27;, // 元素類型</span><br><span class="line">    &#123; id: &#x27;wrapper&#x27;, className: &#x27;wrapper&#x27; &#125;, // 屬性值</span><br><span class="line">    React.creactElement( // 子元素，可以往後傳入多個</span><br><span class="line">        &#x27;ul&#x27;,</span><br><span class="line">        &#123; id: &#x27;list&#x27; &#125;,</span><br><span class="line">        React.creactElement(&#x27;li&#x27;, &#123; className: &#x27;list-item&#x27; &#125;, &#x27;item 1&#x27;),</span><br><span class="line">        React.creactElement(&#x27;li&#x27;, &#123; className: &#x27;list-item&#x27; &#125;, &#x27;item 2&#x27;),</span><br><span class="line">        React.creactElement(&#x27;li&#x27;, &#123; className: &#x27;list-item&#x27; &#125;, &#x27;item 3&#x27;),</span><br><span class="line">    ),</span><br><span class="line">    React.creactElement(</span><br><span class="line">        &#x27;button&#x27;,</span><br><span class="line">        &#123; id: &#x27;button1&#x27; &#125;,</span><br><span class="line">        &#x27;I am a button&#x27;</span><br><span class="line">    )</span><br><span class="line">    ...</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>下一篇將跟隨『React 思維進化』筆者的引導，深入檢討 React 與 Vue 各自在優化前端效能上採用的做法，以及如何呼應到瀏覽器的渲染行為。</p>
-
+<p>承襲上一篇『React 思維進化』核心理念的出發點——Virtual Dom 為基底，第二層的關鍵因素就是 React Element，筆者佔用了相當大的篇幅與頻繁地提及次數都在在彰顯其份量，可以從幾個粗淺但切中要害的方式分析：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2024/02/22/react-element/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -480,7 +590,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-24 12:00:04" itemprop="dateModified" datetime="2024-02-24T12:00:04+08:00">2024-02-24</time>
+      <time title="Modified: 2024-04-18 15:30:54" itemprop="dateModified" datetime="2024-04-18T15:30:54+08:00">2024-04-18</time>
     </span>
 
   
@@ -493,32 +603,25 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>新年換新工作後的第一篇文章，就獻給來自『React 思維進化』本書提到的動量級概念——Virtual dom。</p>
-<p>對於主流框架來說操作原生 DOM 的代價無疑是巨大的，所以紛紛發展出各自的優秀手段來減少操作所耗費的能量，以下歸納出來自書中提及的、關於為什麼要操作虛擬 DOM 以及操作手法的重點，源自一篇優秀的<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/31809713?utm_id=0">濃縮精華文章</a>。</p>
-<h1 id="Virtual-dom-真的必要嗎？又沒比較快！"><a href="#Virtual-dom-真的必要嗎？又沒比較快！" class="headerlink" title="Virtual dom 真的必要嗎？又沒比較快！"></a>Virtual dom 真的必要嗎？又沒比較快！</h1><p>文章開頭的疑問是，在測試操作原生方法來改變渲染的 DOM 結構之後發現 React 或 Angular 都不見效率(時間)上的優勢，那為何要這些框架？這個提問的人顯然非常簡單粗暴說出大部分新手的知識誤區：「快就是好！沒必要優化。」</p>
-<p>但發明框架一定有它的道理，從三個方面來說：</p>
-<h2 id="好維護"><a href="#好維護" class="headerlink" title="好維護"></a>好維護</h2><p>如果不使用框架開發應用程式，將一個肥大的專案打開後滿滿的都是 document.querySelector，你想要從某個功能入手修改的時候你不頭疼？就邏輯歸納來說就好像幫你雜亂的桌子理出個櫃子，每個抽屜好好放入同一個分類的東西，當你想找或者想使用的時候難道沒幫你省下不少時間嗎？<br>分類的優勢若從 vue 與 react 來說可以切入：</p>
-<ul>
-<li>vue 的 三大模組切分法(template, style, script)</li>
-<li>react 的函式導向設計法(functional programming) + hooks</li>
-</ul>
-<p>框架幫你掩蓋了底層的操作邏輯，給予多個易於操作的 api 讓你專注開發。</p>
-<h2 id="瀏覽器的渲染行為"><a href="#瀏覽器的渲染行為" class="headerlink" title="瀏覽器的渲染行為"></a>瀏覽器的渲染行為</h2><p>當你在享受著框架帶來的便利與舒適，一邊訴說與原生 js 的 DOM 操作無差別時，應該思考虛擬 DOM 被發明的意義與出發點，首先對於瀏覽器來說為什麼 DOM 操作代價昂貴——重新渲染。</p>
-<p>瀏覽器在 DOM 改變後、渲染畫面經歷的階段：</p>
-<ol>
-<li>DOM Tree Update</li>
-<li>Reflow&#x2F;Layout-計算畫面的位置與大小</li>
-<li>Repaint</li>
-<li>Composite-將畫面元素與 css 繪製合成</li>
-<li>Rendering</li>
-</ol>
-<p>當這一連串的執行經常發生，就會造成瀏覽畫面的卡頓，其一原理包含了瀏覽器在背後每 16 FPS 渲染畫面的動作，也就是每秒刷新頁面 60 次。<br>而省去這些成本的大功臣來自於 Virtual dom 背後的辛苦。</p>
-<h2 id="Virtual-dom-為什麼重要"><a href="#Virtual-dom-為什麼重要" class="headerlink" title="Virtual dom 為什麼重要"></a>Virtual dom 為什麼重要</h2><p>先講結論：只更新 『必要的』元素。</p>
-<p>不同於原生 DOM 操作習慣，例如 innerHTML 每次必定全部渲染，虛擬 DOM 先在藍圖草稿上，操作低成本的 js 對象，規劃與彩排各種情況的 DOM tree，多次演練編排過後的結果才會真正地透過瀏覽器操作原生 DOM。這個過程之所以比預期的慢，是因為進行了幾個背後的努力：</p>
-<h3 id="Virtual-dom-react"><a href="#Virtual-dom-react" class="headerlink" title="Virtual dom - react"></a>Virtual dom - react</h3><p>React 採取持續不斷的檢查與比對 DOM 結構(Diff)，過程中建立與修改一個個 js dom object 規劃新的 DOM 長相，包含 type, prop, children 等敘述，以便 Diff 完成以後的最終版(patch) 如實透過原生 DOM 產出。</p>
-<h3 id="Virtual-dom-vue"><a href="#Virtual-dom-vue" class="headerlink" title="Virtual dom - vue"></a>Virtual dom - vue</h3><p>Vue 則是透過 MVVM 的資料繫結、數據收集後比對差異與變化，各自對應的最小範圍資料經由 ViewModel&#x2F;Scope 歸納、決定哪些虛擬 DOM 受到影響，這中間產生的複用議題則不如 React 表現好，但仍透過 track by $index 躍升了效能，與之平起平坐。</p>
-<h1 id="效率並非時間導向"><a href="#效率並非時間導向" class="headerlink" title="效率並非時間導向"></a>效率並非時間導向</h1><p>效率這個假議題從『時間』被拉出來討論背後實際的『渲染』問題才是重點，框架解決的從不是快不快，而是好不好用，能不能直觀開發與維護。</p>
+          <div class="visual-image">
+    <div class="visual-image-box">
+        <div>React 思維進化 - Virtual dom</div>
+        <div>React 思維進化 - Virtual dom</div>
+        <div>React 思維進化 - Virtual dom</div>
+        <div>．．．</div>
+    </div>
+</div>
 
+<p>新年換新工作後的第一篇文章，就獻給來自『React 思維進化』本書提到的動量級概念——Virtual dom。</p>
+<p>對於主流框架來說操作原生 DOM 的代價無疑是巨大的，所以紛紛發展出各自的優秀手段來減少操作所耗費的能量，以下歸納出來自書中提及的、關於為什麼要操作虛擬 DOM 以及操作手法的重點，源自一篇優秀的<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/31809713?utm_id=0">濃縮精華文章</a>。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2024/02/18/virtual-dom/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -562,7 +665,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/blog/2023/03/20/fast-learning/" class="post-title-link" itemprop="url">高速學習的技巧</a>
+          <a href="/blog/2023/03/20/fast-learning/" class="post-title-link" itemprop="url">Fast learnning - 高速學習的技巧</a>
         </h2>
 
         <div class="post-meta-container">
@@ -572,9 +675,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-03-20 19:22:48 / Modified: 19:37:30" itemprop="dateCreated datePublished" datetime="2023-03-20T19:22:48+08:00">2023-03-20</time>
+      <time title="Created: 2023-03-20 19:22:48" itemprop="dateCreated datePublished" datetime="2023-03-20T19:22:48+08:00">2023-03-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-04-18 15:30:54" itemprop="dateModified" datetime="2024-04-18T15:30:54+08:00">2024-04-18</time>
     </span>
 
   
@@ -587,12 +696,24 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>經過 Youtube 的神奇演算法我閱覽了分別來自薑餅資與文森先生，關於高效學習的這本書提到的做法，雖然我沒有時間實際閱讀這本書，仍然在先輩的分享獲得許多啟發。<br>既然書本的重點中有一點與某北一女畢業生分享的雷同，就應該應用在這篇文章中才恰當囉！也就是 <strong>回想式學習</strong>。<br>我先將記得的部分做幾個提問式回想：</p>
-<h1 id="情境式學習"><a href="#情境式學習" class="headerlink" title="情境式學習"></a>情境式學習</h1><h2 id="為什麼學校的學習總是與社會脫節？"><a href="#為什麼學校的學習總是與社會脫節？" class="headerlink" title="為什麼學校的學習總是與社會脫節？"></a>為什麼學校的學習總是與社會脫節？</h2><p>因為學校教學內容分散且流於表面，很難將一個技能實際運用在真正的技能場景上，導致學生在學習過程的環境與學習內容，甚至到工具都與情境脫節，導致學習的成果不如市場預期。</p>
-<h1 id="後設學習-（meta-learning）"><a href="#後設學習-（meta-learning）" class="headerlink" title="後設學習 （meta learning）"></a>後設學習 （meta learning）</h1><h2 id="為何當資源充足時學習成果卻不如預期？"><a href="#為何當資源充足時學習成果卻不如預期？" class="headerlink" title="為何當資源充足時學習成果卻不如預期？"></a>為何當資源充足時學習成果卻不如預期？</h2><p>當資源廣泛而且容易取得時暴露的缺點就是，學習沒有預設的目標與焦點集中，導致學習非常分散沒有效率，就我個人從事軟體工程師相關工作的經驗是，在學習任何主題之前必須設立學習地圖（roadmap），甚至上求職網查詢想要獲得的職位頭銜需要具備的技能，讓自己的進修範圍可以更精確，節省許多在學習上迷路的時間。</p>
-<h1 id="回想式學習"><a href="#回想式學習" class="headerlink" title="回想式學習"></a>回想式學習</h1><h2 id="為什麼心理學家將實驗人員分組學習方式，分配到回想式學習的組別成果最好？"><a href="#為什麼心理學家將實驗人員分組學習方式，分配到回想式學習的組別成果最好？" class="headerlink" title="為什麼心理學家將實驗人員分組學習方式，分配到回想式學習的組別成果最好？"></a>為什麼心理學家將實驗人員分組學習方式，分配到回想式學習的組別成果最好？</h2><p>經過實驗可以發現回想式學習會讓腦袋自動將認爲重要的資訊加強記憶，讓這些碎片盡可能儲存在長期記憶中，也因為主動式的歸納資訊的重要性讓自己更能快速找到不夠熟悉、缺失的學習重點，就像請隔壁同學抽考一樣，提前找到自己在重複閱讀時被動學習而不夠理解的地方。</p>
-<p>其他的忘了，回想式學習找到不夠理解的地方ＸＤ</p>
+          <div class="visual-image">
+    <div class="visual-image-box">
+        <div>Fast learnning - 高速學習的技巧</div>
+        <div>Fast learnning - 高速學習的技巧</div>
+        <div>Fast learnning - 高速學習的技巧</div>
+        <div>．．．</div>
+    </div>
+</div>
 
+<p>經過 Youtube 的神奇演算法我閱覽了分別來自薑餅資與文森先生，關於高效學習的這本書提到的做法，雖然我沒有時間實際閱讀這本書，仍然在先輩的分享獲得許多啟發。<br>既然書本的重點中有一點與某北一女畢業生分享的雷同，就應該應用在這篇文章中才恰當囉！也就是 <strong>回想式學習</strong>。<br>我先將記得的部分做幾個提問式回想：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2023/03/20/fast-learning/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -646,9 +767,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-03-05 20:06:31 / Modified: 23:47:48" itemprop="dateCreated datePublished" datetime="2023-03-05T20:06:31+08:00">2023-03-05</time>
+      <time title="Created: 2023-03-05 20:06:31" itemprop="dateCreated datePublished" datetime="2023-03-05T20:06:31+08:00">2023-03-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-04-18 15:30:54" itemprop="dateModified" datetime="2024-04-18T15:30:54+08:00">2024-04-18</time>
     </span>
 
   
@@ -661,25 +788,24 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="產生本機電腦的公私鑰"><a href="#產生本機電腦的公私鑰" class="headerlink" title="產生本機電腦的公私鑰"></a>產生本機電腦的公私鑰</h1><p>進入本地終端機後，輸入以下的命令就可以在 user （或者是設定的登入id）資料夾自動產生隱藏的 <code>.ssh</code> 資料夾中一組公（public key）私 (private key)鑰。</p>
-<h2 id="ssh-cmd"><a href="#ssh-cmd" class="headerlink" title="ssh cmd"></a>ssh cmd</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -b 4096</span><br></pre></td></tr></table></figure>
-<p>其中的 <code>-t</code> 為公私鑰的類型 type； <code>-b</code> 為鑰匙的長度大小 bytes。<br>產生之後將得到的私鑰保存好並且記得在連線時輸入，公鑰則提供給系統管理員進行權限的設定。</p>
-<h1 id="取得-FileZilla-連線"><a href="#取得-FileZilla-連線" class="headerlink" title="取得 FileZilla 連線"></a>取得 FileZilla 連線</h1><p>去 FileZilla 下載應用程式，協定選擇 SFTP - SSH file transfer protocol、登入形式選擇金鑰檔案，輸入伺服器的 ipv4、伺服器方設定好的 id、以及私鑰密碼檔案路徑後就可以進行連線。<br><img style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/establish-ssh-connection-1.jpg' width='80%' height='auto'></p>
-<h1 id="下載-vscode-remote-ssh-套件"><a href="#下載-vscode-remote-ssh-套件" class="headerlink" title="下載 vscode remote - ssh 套件"></a>下載 vscode remote - ssh 套件</h1><p>若能在開發時直接與伺服器連線就可以省去手動上傳檔案的麻煩，首先至 vscode 的套件市場下載並安裝 remote - ssh，按照以下步驟完成連線與設定：<br><img style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/establish-ssh-connection-2.jpg' width='80%' height='auto'></p>
-<h2 id="mac-pro-按下-fn-f1"><a href="#mac-pro-按下-fn-f1" class="headerlink" title="mac pro 按下 fn + f1"></a>mac pro 按下 <kbd>fn</kbd> + <kbd>f1</kbd></h2><p>開啟 vscode 的 f1 後在終端機輸入 Remote - ssh: Add New SSH Host…<br><img style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/establish-ssh-connection-3.jpg' width='80%' height='auto'></p>
-<h2 id="輸入-userId-與-server-ip-連線-SHH"><a href="#輸入-userId-與-server-ip-連線-SHH" class="headerlink" title="輸入 userId 與 server ip 連線 SHH"></a>輸入 userId 與 server ip 連線 SHH</h2><p>例如以下的格式：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mawchu@192.123.45.678</span><br></pre></td></tr></table></figure>
-<p>按下 enter 後就可以在左邊的側欄控制面板看見連線的伺服器：<br><img style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/establish-ssh-connection-4.jpg' width='80%' height='auto'></p>
-<h2 id="錯誤處理"><a href="#錯誤處理" class="headerlink" title="錯誤處理"></a>錯誤處理</h2><p>若連線伺服器後無法對檔案新增或刪除等寫入功能，可以進行以下設定，終端機輸入：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-add &lt;path-to-private-key&gt;</span><br></pre></td></tr></table></figure>
-<p>路徑為使用者根目錄下的隱藏資料夾，路徑可輸入：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
-<p>確認私鑰密碼是否正確可以輸入以下的命令行查看：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-add -l</span><br></pre></td></tr></table></figure>
+          <div class="visual-image">
+    <div class="visual-image-box">
+        <div>如何與 server 進行 ssh 連線</div>
+        <div>如何與 server 進行 ssh 連線</div>
+        <div>如何與 server 進行 ssh 連線</div>
+        <div>．．．</div>
+    </div>
+</div>
 
-<h2 id="切換專案資料夾"><a href="#切換專案資料夾" class="headerlink" title="切換專案資料夾"></a>切換專案資料夾</h2><p>點選左下角的遠端伺服器 ip，連線到主機後出現選擇資料夾，就可以隨意切換想要的路徑：<br><img style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/establish-ssh-connection-5.jpg' width='80%' height='auto'></p>
-
+<h1 id="產生本機電腦的公私鑰"><a href="#產生本機電腦的公私鑰" class="headerlink" title="產生本機電腦的公私鑰"></a>產生本機電腦的公私鑰</h1><p>進入本地終端機後，輸入以下的命令就可以在 user （或者是設定的登入id）資料夾自動產生隱藏的 <code>.ssh</code> 資料夾中一組公（public key）私 (private key)鑰。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2023/03/05/establish-ssh-connection/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -741,7 +867,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-02-26 15:16:56" itemprop="dateModified" datetime="2023-02-26T15:16:56+08:00">2023-02-26</time>
+      <time title="Modified: 2024-04-18 15:30:55" itemprop="dateModified" datetime="2024-04-18T15:30:55+08:00">2024-04-18</time>
     </span>
 
   
@@ -754,41 +880,24 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="前言提要"><a href="#前言提要" class="headerlink" title="前言提要"></a>前言提要</h1><p>建置 Hexo 部落格已經兩年多，如今更換 Ｍac 之後建制的新環境 Node 版本已經不相容，peer packages 貼心的設計也種下了難以收拾的坑 （難解的 sass loader），舊的部落格所選用的 Minos 框架在少數的使用量與停止維護下造就了相容性衝突也是在所難免，如今只能硬著頭皮重新學習建置一包 Hexo 了。<br>踩過的坑我們懂得避免，這次選用最多人使用與維護的 ＮexT 模板作為新部落格的皮膚。</p>
-<h1 id="建立-NexT-主題專案包"><a href="#建立-NexT-主題專案包" class="headerlink" title="建立 ＮexT 主題專案包"></a>建立 ＮexT 主題專案包</h1><p>NexT 建置了貼心的官網提供完整的說明，<a target="_blank" rel="noopener" href="https://theme-next.js.org/">點我</a>。<br>再建置好 Hexo 專案包後，執行以下命令取得 ＮexT theme。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> hexo-site</span><br><span class="line">$ npm install hexo-theme-next</span><br></pre></td></tr></table></figure>
+          <div class="visual-image">
+    <div class="visual-image-box">
+        <div>部署 Ｈexo 部落格至 Github Pages</div>
+        <div>部署 Ｈexo 部落格至 Github Pages</div>
+        <div>部署 Ｈexo 部落格至 Github Pages</div>
+        <div>．．．</div>
+    </div>
+</div>
 
-<h4 id="更換-config-yml-主題"><a href="#更換-config-yml-主題" class="headerlink" title="更換 __config.yml 主題"></a>更換 __config.yml 主題</h4><p>將 Hexo 專案根目錄下的 __config.yml 配置更改為：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ theme: next</span><br></pre></td></tr></table></figure>
-<h4 id="新增部落格文章"><a href="#新增部落格文章" class="headerlink" title="新增部落格文章"></a>新增部落格文章</h4><p>cd 至專案目錄後，透過以下指令建立文章：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new post your-post-name</span><br></pre></td></tr></table></figure>
-
-<h1 id="如何搭配-Github-pages-部署網站"><a href="#如何搭配-Github-pages-部署網站" class="headerlink" title="如何搭配 Github pages 部署網站"></a>如何搭配 Github pages 部署網站</h1><p>先說我個人的案例，去年第一個部落格我的做法是去建立新的 Github 帳號，將專案直接部署在 <my-name>.github.io 的 repository 上，原因是個人帳號的 github.io 已經被舊專案所佔據了，這個做法不是很好，白白浪費了舊帳號的 pages 空間。於是乎在新部落格建置後決定好好利用舊帳號的 Github pages。<br>原先在 google 搜尋引擎上查不太到好的解法，所以就求救了 ChatGpt 老師～，沒想到各種問題都能一一擊破，真的是太厲害了！</p>
-<h4 id="建立新的-Git-repository"><a href="#建立新的-Git-repository" class="headerlink" title="建立新的 Git repository"></a>建立新的 Git repository</h4><p>去想要使用的 Account 建立一個新的倉庫，並且隨意命名，我使用 blog 這個名稱當作主網站的 router。</p>
-<h4 id="專案包中安裝自動部署工具"><a href="#專案包中安裝自動部署工具" class="headerlink" title="專案包中安裝自動部署工具"></a>專案包中安裝自動部署工具</h4><p>cd 至專案包路徑後，執行以下的命令安裝 Hexo 自動部署工具。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<h4 id="連結-Github-repository-至部落格"><a href="#連結-Github-repository-至部落格" class="headerlink" title="連結 Github repository 至部落格"></a>連結 Github repository 至部落格</h4><p>cd 開啟專案中的 __config.yml 檔案改寫以下內容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/your-username/blog.git</span><br><span class="line">  branch: gh-pages</span><br><span class="line">  tkn: your-pat-tkn</span><br></pre></td></tr></table></figure>
-<p>直得注意的是分支 <code>gh-pages</code> 會為 github 部屬時自動辨別為子專案使用，待下一個步驟設定完成並建立後將子專案推至此分支。<br><img style="margin-right: unset; margin-left: unset; padding-top: 30px" src="/blog/images/deploy-hexo-by-github-pages-1.jpg"  width="80%" height="auto"></p>
-<h4 id="事前作業"><a href="#事前作業" class="headerlink" title="事前作業"></a>事前作業</h4><p>為了讓 url 可以指向正確的路徑，需要調整 <code>__config.yml</code> 中的幾個設定：</p>
-<h5 id="url"><a href="#url" class="headerlink" title="url"></a>url</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line">    url: https://user-name.github.io/blog</span><br><span class="line">    root: /</span><br></pre></td></tr></table></figure>
-<h4 id="public-dir"><a href="#public-dir" class="headerlink" title="public dir"></a>public dir</h4><p>調整發布的資料夾名稱為 docs，在部署後會自動建立一個資料夾名稱為 docs。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Directory</span></span><br><span class="line">    source_dir: <span class="built_in">source</span></span><br><span class="line">    public_dir: docs</span><br></pre></td></tr></table></figure>
-
-<p>執行命令建立該資料夾：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<h5 id="錯誤處理"><a href="#錯誤處理" class="headerlink" title="錯誤處理"></a>錯誤處理</h5><p>在部署後有發生錯誤訊息：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ github-pages 228 | Error: No such file or directory @ dir_chdir - /github/workspace/docs</span><br></pre></td></tr></table></figure>
-
-<p>ChatGpt 的回覆：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You can also update the url setting <span class="keyword">in</span> your Hexo project<span class="string">&#x27;s _config.yml file to match your new deployment environment. For example, if your site is deployed to https://your-username.github.io/blog, you can update your url setting like this:</span></span><br></pre></td></tr></table></figure>
-<p>原因是我忘了將上一個步驟中的 url 指向調整到 <code>/blog</code>，導致網站開啟後 css 與 javascript 直接掛掉找不到路徑。<br>將這一段調整後重新操作部署指令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
-<p>就可以在子路由中看到 Hexo 部落格搭建好囉！完美的與舊專案並存在 github.io domain 下啦！</p>
-<h1 id="參考網站"><a href="#參考網站" class="headerlink" title="參考網站"></a>參考網站</h1><p> <a target="_blank" rel="noopener" href="https://medium.com/%E9%80%B2%E6%93%8A%E7%9A%84-git-git-git/%E5%BE%9E%E9%9B%B6%E9%96%8B%E5%A7%8B-%E7%94%A8github-pages-%E4%B8%8A%E5%82%B3%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99-fa2ae83e6276">從零開始 用 github pages 上傳靜態網站</a><br> <a target="_blank" rel="noopener" href="https://chat.openai.com/chat/">ChatGpt</a></p>
-
+<h1 id="前言提要"><a href="#前言提要" class="headerlink" title="前言提要"></a>前言提要</h1><p>建置 Hexo 部落格已經兩年多，如今更換 Ｍac 之後建制的新環境 Node 版本已經不相容，peer packages 貼心的設計也種下了難以收拾的坑 （難解的 sass loader），舊的部落格所選用的 Minos 框架在少數的使用量與停止維護下造就了相容性衝突也是在所難免，如今只能硬著頭皮重新學習建置一包 Hexo 了。<br>踩過的坑我們懂得避免，這次選用最多人使用與維護的 ＮexT 模板作為新部落格的皮膚。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2023/02/25/deploy-hexo-by-github-pages/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -842,9 +951,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-02-17 03:59:25 / Modified: 04:29:59" itemprop="dateCreated datePublished" datetime="2023-02-17T03:59:25+08:00">2023-02-17</time>
+      <time title="Created: 2023-02-17 03:59:25" itemprop="dateCreated datePublished" datetime="2023-02-17T03:59:25+08:00">2023-02-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-04-18 15:30:54" itemprop="dateModified" datetime="2024-04-18T15:30:54+08:00">2024-04-18</time>
     </span>
 
   
@@ -857,31 +972,29 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>作者 Scott Young 撰寫的<strong>高效學習</strong>這本書透過 Youtuber 薑餅資的分享，掌握快速學習以及提升學習效率的方法：</p>
+          <div class="visual-image">
+    <div class="visual-image-box">
+        <div>如何高效學習</div>
+        <div>如何高效學習</div>
+        <div>如何高效學習</div>
+        <div>．．．</div>
+    </div>
+</div>
+
+<p>作者 Scott Young 撰寫的<strong>高效學習</strong>這本書透過 Youtuber 薑餅資的分享，掌握快速學習以及提升學習效率的方法：</p>
 <h1 id="Meta-learning-加乘學習"><a href="#Meta-learning-加乘學習" class="headerlink" title="Meta learning 加乘學習"></a>Meta learning 加乘學習</h1><p>學習一項技能之前先掌握以及規劃學習的方法與地圖：</p>
 <ol>
 <li>瞭解自己學習的動機。</li>
 <li>需要具備的基礎知識是什麼？</li>
-<li>尋找學習的資源與工具，例如線上課程、教科書等。</li>
-</ol>
-<h1 id="Focus-保持專注力並且集中學習主題"><a href="#Focus-保持專注力並且集中學習主題" class="headerlink" title="Focus 保持專注力並且集中學習主題"></a>Focus 保持專注力並且集中學習主題</h1><p>造成並擾亂專注力的幾個原因：</p>
-<ol>
-<li>拖延症 - 沒有設立達成目標的步驟拆解並且寫下明確的小目標，容易被龐大與模糊的想像擊潰。</li>
-<li>容易分心</li>
-<li>無法專注<br>2 &amp; 3 打造乾淨的工作環境，關閉手機社交媒體的通知避免思考中斷，並且將靈光一閃的思緒寫下來提醒自己。</li>
-</ol>
-<h1 id="Directness-直接了當"><a href="#Directness-直接了當" class="headerlink" title="Directness 直接了當"></a>Directness 直接了當</h1><p>將學習內容直接應用，例如使用外語交談、撰寫一段程式碼實際執行或建立專案、尋找一份相關工作等等累積實務經驗。</p>
-<h1 id="Drill-訓練熟練度"><a href="#Drill-訓練熟練度" class="headerlink" title="Drill 訓練熟練度"></a>Drill 訓練熟練度</h1><p>將學習中理解困難的地方予以多次練習，或者通過他人分享重點整理的影片教學快速掌握學習要點。</p>
-<h1 id="Retrieval-測試"><a href="#Retrieval-測試" class="headerlink" title="Retrieval 測試"></a>Retrieval 測試</h1><p>透過四個實驗組發現自由回想的組別獲得較好的學習效率，也就是透過測驗找到自己的學習弱點進而積極的尋找答案加深印象。</p>
-<h1 id="Feedback-意見回饋"><a href="#Feedback-意見回饋" class="headerlink" title="Feedback 意見回饋"></a>Feedback 意見回饋</h1><ol>
-<li>淺層回饋、結果回饋：知道事情的好或不好</li>
-<li>資訊型的回饋：透過分析工具掌握學習的優點</li>
-<li>修正型的回饋：通過事後的思考與反饋了解自身學習的弱點並且精進</li>
-</ol>
-<h1 id="Spaced-Repetition-間隔重複"><a href="#Spaced-Repetition-間隔重複" class="headerlink" title="Spaced Repetition 間隔重複"></a>Spaced Repetition 間隔重複</h1><p>記憶會隨時間衰退，透過不斷複習打破遺忘曲線；將自己學習的內容設定複習的頻率與周間</p>
-<h1 id="Feynman-Technique-費曼技巧"><a href="#Feynman-Technique-費曼技巧" class="headerlink" title="Feynman Technique 費曼技巧"></a>Feynman Technique 費曼技巧</h1><p>強迫自己用自己的語言重新詮釋學習的內容來提升學習效率</p>
-<h1 id="Experimentation-勇於實驗"><a href="#Experimentation-勇於實驗" class="headerlink" title="Experimentation 勇於實驗"></a>Experimentation 勇於實驗</h1><p>根據成長心態（Growth Mindset）相信學習能力可以成長，透過多種方式提升學習能力；「先模仿，再創造」，借鏡學習領域中的翹楚並且模仿對方的學習步驟與精髓，在轉化與提煉成自己需要與適合的方式，站在巨人的肩膀上</p>
-
+<li>尋找學習的資源與工具，例如線上課程、教科書等。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2023/02/17/learning-fast/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -925,86 +1038,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/blog/2023/02/05/macbook-timeplayer-recording-knowhow/" class="post-title-link" itemprop="url">macbook-timeplayer-recording-knowhow</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2023-02-05 17:04:33 / Modified: 17:22:03" itemprop="dateCreated datePublished" datetime="2023-02-05T17:04:33+08:00">2023-02-05</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>異地工作的習慣已經非常普遍了，在咖啡廳裡一個筆電、一對 Airpods 就開始課程學習並且錄影時，如何避免在錄製 Macbook 畫面影片時排除環境聲音（也就是麥克風）?<br>本人使用的是 M2 晶片的 Macbook Pro，2023 1 月入手的產品，以下介紹自己通過網路資料與自己摸索的成功過程！</p>
-<h1 id="安裝-Black-Hole-聲道搜集-app"><a href="#安裝-Black-Hole-聲道搜集-app" class="headerlink" title="安裝 Black Hole 聲道搜集 app"></a>安裝 Black Hole 聲道搜集 app</h1><p><a target="_blank" rel="noopener" href="https://existential.audio/blackhole/#blackhole_logo">Black Hole</a><br>申請 email 後收信並且取得下載連結後，一路安裝完成。</p>
-<h1 id="搜尋-Bar-找-音訊-MIDI-設定"><a href="#搜尋-Bar-找-音訊-MIDI-設定" class="headerlink" title="搜尋 Bar 找 音訊 MIDI 設定"></a>搜尋 Bar 找 音訊 MIDI 設定</h1><ol>
-<li>點選左下角「＋」號的聚集裝置選項。</li>
-<li>選取 Airpods 輸出裝置、不選輸入，並且勾選 Black Hole 2h 同時含輸出與輸入裝置。</li>
-<li>至系統設定裡的聲音選項中，於輸出選擇剛才新增的聚集裝置。</li>
-<li><kbd>shift</kbd> + <kbd>command</kbd> + <kbd>5</kbd> 開啟內建 QuickTime Player 的錄製軟體。</li>
-<li>點選螢幕錄製的 icon 後、旁邊「option」選項設定裡的「麥克風」點擊聚集裝置。</li>
-<li>就可以成功開始錄製不含環境雜音的螢幕聲音囉！</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2023/02/05/css-grid-concept/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.png">
-      <meta itemprop="name" content="Mawchu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mawchu's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Mawchu's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/blog/2023/02/05/css-grid-concept/" class="post-title-link" itemprop="url">css-grid-concept</a>
+          <a href="/blog/2023/02/05/macbook-timeplayer-recording-knowhow/" class="post-title-link" itemprop="url">Macbook 錄製影音工具 - timeplayer</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1015,14 +1049,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2023-02-05 15:16:13" itemprop="dateCreated datePublished" datetime="2023-02-05T15:16:13+08:00">2023-02-05</time>
+      <time title="Created: 2023-02-05 17:04:33" itemprop="dateCreated datePublished" datetime="2023-02-05T17:04:33+08:00">2023-02-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-02-09 23:54:52" itemprop="dateModified" datetime="2023-02-09T23:54:52+08:00">2023-02-09</time>
+      <time title="Modified: 2024-04-18 15:30:54" itemprop="dateModified" datetime="2024-04-18T15:30:54+08:00">2024-04-18</time>
     </span>
 
   
@@ -1035,7 +1069,24 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          
+          <div class="visual-image">
+    <div class="visual-image-box">
+        <div>Macbook 錄製影音工具 - timeplayer</div>
+        <div>Macbook 錄製影音工具 - timeplayer</div>
+        <div>Macbook 錄製影音工具 - timeplayer</div>
+        <div>．．．</div>
+    </div>
+</div>
+
+<p>異地工作的習慣已經非常普遍了，在咖啡廳裡一個筆電、一對 Airpods 就開始課程學習並且錄影時，如何避免在錄製 Macbook 畫面影片時排除環境聲音（也就是麥克風）?<br>本人使用的是 M2 晶片的 Macbook Pro，2023 1 月入手的產品，以下介紹自己通過網路資料與自己摸索的成功過程！</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2023/02/05/macbook-timeplayer-recording-knowhow/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1093,7 +1144,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
 <script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/next-boot.js"></script>
 
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/blog/js/third-party/search/local-search.js"></script>
+
 
 
 

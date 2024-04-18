@@ -3,6 +3,15 @@ title: Ｍacbook 新手須知
 date: 2023-02-05 14:27:36
 tags:
 ---
+<div class="visual-image">
+    <div class="visual-image-box">
+        <div>{{ title }}</div>
+        <div>{{ title }}</div>
+        <div>{{ title }}</div>
+        <div>．．．</div>
+    </div>
+</div>
+
 為方便工作效率將經常使用的 Ｍacbook 快速鍵記錄在這裡：
 
 # Macbook 快捷鍵一覽
@@ -10,6 +19,7 @@ tags:
 ## 文書處理
 #### 刪除檔案
 <kbd>command</kbd> + <kbd>delete</kbd>
+<!-- more -->
 
 #### 顯示隱藏檔案
 <kbd>shift</kbd> + <kbd>command</kbd> + <kbd>.</kbd>

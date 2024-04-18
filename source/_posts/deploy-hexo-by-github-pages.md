@@ -3,10 +3,20 @@ title: 部署 Ｈexo 部落格至 Github Pages
 date: 2023-02-25 20:20:41
 tags:
 ---
+<div class="visual-image">
+    <div class="visual-image-box">
+        <div>{{ title }}</div>
+        <div>{{ title }}</div>
+        <div>{{ title }}</div>
+        <div>．．．</div>
+    </div>
+</div>
 
 # 前言提要
 建置 Hexo 部落格已經兩年多，如今更換 Ｍac 之後建制的新環境 Node 版本已經不相容，peer packages 貼心的設計也種下了難以收拾的坑 （難解的 sass loader），舊的部落格所選用的 Minos 框架在少數的使用量與停止維護下造就了相容性衝突也是在所難免，如今只能硬著頭皮重新學習建置一包 Hexo 了。
 踩過的坑我們懂得避免，這次選用最多人使用與維護的 ＮexT 模板作為新部落格的皮膚。
+
+<!-- more -->
 
 # 建立 ＮexT 主題專案包
 NexT 建置了貼心的官網提供完整的說明，[點我](https://theme-next.js.org)。
