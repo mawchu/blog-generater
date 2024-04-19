@@ -7,14 +7,8 @@ tags:
 - immutable & mutable
 - React 思維進化
 ---
-<div class="visual-image">
-    <div class="visual-image-box">
-        <div>{{ title }}</div>
-        <div>{{ title }}</div>
-        <div>{{ title }}</div>
-        <div>．．．</div>
-    </div>
-</div>
+
+{% include_md %}
 
 《React 思維進化》已經閱讀到中間的核心章節了，作者提到一個與 Vue 框架在資料管理上比較不一樣的重要概念`Immutable`，由於 React 的單向資料流理念貫徹了整個框架系統，想當然爾會嚴格控制資料的可不可變也是十分合理的，javascript 在初學階段打下的基礎終於能與 React 框架結合起來，以下從 javascript 的資料型別切入：
 <!-- more -->
@@ -55,4 +49,33 @@ tags:
 單向資料流的概念為保持資料源頭的一致性，根據當前資料的 snapshot 來創造一份新的 react element，而渲染的觸發的機制根據 ‵useState‵ 提供的 ‵setState‵ 方法來更新資料，繞過的話是不能觸發渲染更新的哦！
 
 ## Object.is() 判斷是否重新渲染
-Object.is() 是 React 用來判定是否重新渲染的依據
+Object.is() 是 React 用來判定是否重新渲染的依據：
+
+### Primative data 純值(原始型別)
+純值(原始型別)較單純，比對不同就觸發渲染
+
+<iframe height="300" style="width: 100%;" scrolling="no" title="React - immutable update" src="https://codepen.io/mawchu/embed/GRLYOvN?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/mawchu/pen/GRLYOvN">
+  React - immutable update</a> by Jamie Hsieh (<a href="https://codepen.io/mawchu">@mawchu</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+### Object data 物件型別
+物件型別則是比對「每一層」的記憶體參考位址，一旦發現不同就觸發渲染，這裡就必須呼應本文主旨——Immutable update。
+Mutable update 最常見的做法就是針對 Address 內的屬性值改變，會導致 React Hooks 沒有辦法察覺更新觸發渲染，或是丟失原始的歷史資料而比對異常等問題：
+
+- use mutable updating
+    使用 accessing reference 的方式污染資料，導致 react 重新渲染異常無法更改資料！
+<iframe height="300" style="width: 100%;" scrolling="no" title="React - mutable update - object" src="https://codepen.io/mawchu/embed/vYMVdYV?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/mawchu/pen/vYMVdYV">
+  React - mutable update - object</a> by Jamie Hsieh (<a href="https://codepen.io/mawchu">@mawchu</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+- use immutable updating
+    使用 updating function 的方式取得前一次(prev)的資料，並且更新資料參考使 react 重新渲染正常運作！
+<iframe height="300" style="width: 100%;" scrolling="no" title="React - immutable update - object" src="https://codepen.io/mawchu/embed/VwNErVK?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/mawchu/pen/VwNErVK">
+  React - immutable update - object</a> by Jamie Hsieh (<a href="https://codepen.io/mawchu">@mawchu</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>

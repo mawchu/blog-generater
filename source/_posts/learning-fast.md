@@ -1,16 +1,10 @@
 ---
-title: 如何高效學習
+title: 高速學習的技巧 - Ultralearnning
 date: 2023-02-17 03:59:25
 tags:
 ---
-<div class="visual-image">
-    <div class="visual-image-box">
-        <div>{{ title }}</div>
-        <div>{{ title }}</div>
-        <div>{{ title }}</div>
-        <div>．．．</div>
-    </div>
-</div>
+
+{% include_md %}
 
 作者 Scott Young 撰寫的**高效學習**這本書透過 Youtuber 薑餅資的分享，掌握快速學習以及提升學習效率的方法：
 

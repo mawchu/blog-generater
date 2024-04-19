@@ -8,14 +8,7 @@ tags:
   - onclick arguments
 ---
 
-<div class="visual-image">
-    <div class="visual-image-box">
-        <div>{{ title }}</div>
-        <div>{{ title }}</div>
-        <div>{{ title }}</div>
-        <div>．．．</div>
-    </div>
-</div>
+{% include_md %}
 
 終於在前端生涯來到三年多後第一次接觸 React 開發，即便已經知道 React 容易踩坑無限迴圈的議題，仍然一頭栽了進去。
 今天要來說說關於`「onClick 事件的無限迴圈」`，為什麼在 Vue 習以為常的開發手法卻在 React 踢爆鐵板呢？

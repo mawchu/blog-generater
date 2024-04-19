@@ -1,19 +1,28 @@
 
 .collection-year {
-    color: $theme-color;
+    color: $post-title-color;
 }
 
 
 .posts-collapse .post-content .collection-year::before {
-    background: $theme-color;
+    background: $post-title-color;
 }
 
-.post-body h1:not(.site-title) {
-    color: $theme-color;
+.post-body h1:not(.site-title),
+.post-body h2:not(.site-title),
+.post-body h3:not(.site-title),
+.post-body h4:not(.site-title),
+.post-body h5:not(.site-title),
+.post-body h6:not(.site-title) {
+    color: $post-title-color;
+}
+
+.post-body h1 {
+    border-bottom: 2px solid $post-title-color;
 }
 
 .with-love {
-    color: $theme-color;
+    color: $post-title-color;
 }
 
 .post-body .visual-image-box {
@@ -24,7 +33,7 @@
 
 .post-body .visual-image-box div:nth-child(1),
 .post-body .visual-image-box div:nth-child(2) {
-    color: rgba(242, 193, 70, 1);
+    color: $post-title-bg-color;
     @media all and (max-width: 960px) {
         display: none;
     }
@@ -32,7 +41,7 @@
 
 .post-body .visual-image-box div:nth-child(3),
 .post-body .visual-image-box div:nth-child(4) {
-    color: white;
+    color: $post-title-color;
     font-weight: 800;
     text-shadow:
         calc(var(--stroke-width) * -1) calc(var(--stroke-width) * -1) 0 transparent,  
@@ -44,7 +53,7 @@
 .post-body .visual-image {
     --stroke-width: 1px;
     margin-bottom: 20px;
-    background: $theme-color;
+    background: $post-title-bg-color;
     text-transform: capitalize;
     width: 100%;
     height: 200px
@@ -54,14 +63,29 @@
         font-size: 1.5rem;
     }
     @media all and (max-width: 600px) {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
     display: flex;
     justify-content: center;
     align-items: center;
     text-shadow:
-        calc(var(--stroke-width) * -1) calc(var(--stroke-width) * -1) 0 white,  
-        var(--stroke-width) calc(var(--stroke-width) * -1) 0 white,
-        calc(var(--stroke-width) * -1)  var(--stroke-width) 0 white,
-        var(--stroke-width)  var(--stroke-width) 0 white;
+        calc(var(--stroke-width) * -1) calc(var(--stroke-width) * -1) 0 $post-title-color,  
+        var(--stroke-width) calc(var(--stroke-width) * -1) 0 $post-title-color,
+        calc(var(--stroke-width) * -1)  var(--stroke-width) 0 $post-title-color,
+        var(--stroke-width)  var(--stroke-width) 0 $post-title-color;
+}
+
+.main-inner .post-block,
+.main-inner .post-block:not(:first-child):not(:first-child) {
+    box-shadow: unset;
+}
+
+.pagination .page-number.current {
+    background: $theme-color;
+    border-color: $theme-color;
+}
+
+.back-to-top {
+    background: $theme-color;
+    opacity: 1;
 }

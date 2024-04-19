@@ -2548,8 +2548,16 @@ mark.search-keyword {
 .posts-collapse .post-content .collection-year::before {
   background: #f2c146;
 }
-.post-body h1:not(.site-title) {
+.post-body h1:not(.site-title),
+.post-body h2:not(.site-title),
+.post-body h3:not(.site-title),
+.post-body h4:not(.site-title),
+.post-body h5:not(.site-title),
+.post-body h6:not(.site-title) {
   color: #f2c146;
+}
+.post-body h1 {
+  border-bottom: 2px solid #f2c146;
 }
 .with-love {
   color: #f2c146;
@@ -2560,7 +2568,7 @@ mark.search-keyword {
 }
 .post-body .visual-image-box div:nth-child(1),
 .post-body .visual-image-box div:nth-child(2) {
-  color: #f2c146;
+  color: #f5f2e4;
 }
 @media all and (max-width: 960px) {
   .post-body .visual-image-box div:nth-child(1),
@@ -2570,14 +2578,14 @@ mark.search-keyword {
 }
 .post-body .visual-image-box div:nth-child(3),
 .post-body .visual-image-box div:nth-child(4) {
-  color: #fff;
+  color: #f2c146;
   font-weight: 800;
   text-shadow: calc(var(--stroke-width) * -1) calc(var(--stroke-width) * -1) 0 transparent, var(--stroke-width) calc(var(--stroke-width) * -1) 0 transparent, calc(var(--stroke-width) * -1) var(--stroke-width) 0 transparent, var(--stroke-width) var(--stroke-width) 0 transparent;
 }
 .post-body .visual-image {
   --stroke-width: 1px;
   margin-bottom: 20px;
-  background: #f2c146;
+  background: #f5f2e4;
   text-transform: capitalize;
   width: 100%;
   height: 200px;
@@ -2586,7 +2594,7 @@ mark.search-keyword {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-shadow: calc(var(--stroke-width) * -1) calc(var(--stroke-width) * -1) 0 #fff, var(--stroke-width) calc(var(--stroke-width) * -1) 0 #fff, calc(var(--stroke-width) * -1) var(--stroke-width) 0 #fff, var(--stroke-width) var(--stroke-width) 0 #fff;
+  text-shadow: calc(var(--stroke-width) * -1) calc(var(--stroke-width) * -1) 0 #f2c146, var(--stroke-width) calc(var(--stroke-width) * -1) 0 #f2c146, calc(var(--stroke-width) * -1) var(--stroke-width) 0 #f2c146, var(--stroke-width) var(--stroke-width) 0 #f2c146;
 }
 @media all and (max-width: 960px) {
   .post-body .visual-image {
@@ -2595,6 +2603,18 @@ mark.search-keyword {
 }
 @media all and (max-width: 600px) {
   .post-body .visual-image {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
+}
+.main-inner .post-block,
+.main-inner .post-block:not(:first-child):not(:first-child) {
+  box-shadow: unset;
+}
+.pagination .page-number.current {
+  background: #f2c146;
+  border-color: #f2c146;
+}
+.back-to-top {
+  background: #f2c146;
+  opacity: 1;
 }

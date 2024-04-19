@@ -8,14 +8,7 @@ tags:
 - browser
 ---
 
-<div class="visual-image">
-    <div class="visual-image-box">
-        <div>{{ title }}</div>
-        <div>{{ title }}</div>
-        <div>{{ title }}</div>
-        <div>．．．</div>
-    </div>
-</div>
+{% include_md %}
 
 新年換新工作後的第一篇文章，就獻給來自『React 思維進化』本書提到的動量級概念——Virtual dom。
 

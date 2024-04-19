@@ -1,16 +1,12 @@
 ---
-title: Ｍacbook 新手須知
+title: 新手須知 - Macbook beginner
 date: 2023-02-05 14:27:36
 tags:
+- macbook
+- shortcut
 ---
-<div class="visual-image">
-    <div class="visual-image-box">
-        <div>{{ title }}</div>
-        <div>{{ title }}</div>
-        <div>{{ title }}</div>
-        <div>．．．</div>
-    </div>
-</div>
+
+{% include_md %}
 
 為方便工作效率將經常使用的 Ｍacbook 快速鍵記錄在這裡：
 

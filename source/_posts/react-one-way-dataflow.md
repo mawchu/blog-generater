@@ -2,16 +2,12 @@
 title: React 思維進化 - One-way dataflow
 date: 2024-02-24 23:21:17
 tags:
+- react
+- one-way dataflow
+- virtual dom
 ---
 
-<div class="visual-image">
-    <div class="visual-image-box">
-        <div>{{ title }}</div>
-        <div>{{ title }}</div>
-        <div>{{ title }}</div>
-        <div>．．．</div>
-    </div>
-</div>
+{% include_md %}
 
 # 單向資料流的目的
 
