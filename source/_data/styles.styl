@@ -89,3 +89,17 @@
     background: $theme-color;
     opacity: 1;
 }
+
+.main-inner .pagination {
+    background: transparent;
+    box-shadow: unset;
+}
+
+.pagination .page-number {
+    background: white;
+    text-shadow:
+        calc(var(--stroke-width) * -1) calc(var(--stroke-width) * -1) 0 $post-title-color,  
+        var(--stroke-width) calc(var(--stroke-width) * -1) 0 $post-title-color,
+        calc(var(--stroke-width) * -1)  var(--stroke-width) 0 $post-title-color,
+        var(--stroke-width)  var(--stroke-width) 0 $post-title-color;
+}
