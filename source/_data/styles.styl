@@ -28,6 +28,7 @@
 .post-body .visual-image-box {
     text-align: center;
     line-height: 1.6rem;
+    z-index: 10;
 }
 
 
@@ -40,7 +41,8 @@
 }
 
 .post-body .visual-image-box div:nth-child(3),
-.post-body .visual-image-box div:nth-child(4) {
+.post-body .visual-image-box div:nth-child(4), 
+.post-body .visual-image-box div:nth-child(5) {
     color: $post-title-color;
     font-weight: 800;
     text-shadow:
@@ -73,6 +75,21 @@
         var(--stroke-width) calc(var(--stroke-width) * -1) 0 $post-title-color,
         calc(var(--stroke-width) * -1)  var(--stroke-width) 0 $post-title-color,
         var(--stroke-width)  var(--stroke-width) 0 $post-title-color;
+}
+
+.post-body .visual-image {
+    position: relative;
+}
+
+.post-body .visual-image-deco {
+    position: absolute;
+    bottom: -25px; right: -10px;
+    width: 180px;
+    height: auto;
+    z-index: 2;
+    @media all and (max-width: 796px) {
+        width: 110px;
+    }
 }
 
 .main-inner .post-block,

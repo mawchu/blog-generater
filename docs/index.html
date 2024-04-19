@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+  <link rel="mask-icon" href="/blog/images/favicon.svg" color="#222">
 
 <link rel="stylesheet" href="/blog/css/main.css">
 
@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"mawchu.github.io","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"mawchu.github.io","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/blog/js/config.js"></script>
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="Mawchu&#39;s blog">
@@ -141,7 +141,7 @@
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Mawchu"
-      src="/blog/images/avatar.png">
+      src="/blog/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">Mawchu</p>
   <div class="site-description" itemprop="description"></div>
 </div>
@@ -188,7 +188,7 @@
     <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2024/04/17/react-immutable-update/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.png">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
       <meta itemprop="name" content="Mawchu">
     </span>
 
@@ -221,7 +221,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-04-19 15:01:04" itemprop="dateModified" datetime="2024-04-19T15:01:04+08:00">2024-04-19</time>
+      <time title="Modified: 2024-04-19 23:28:40" itemprop="dateModified" datetime="2024-04-19T23:28:40+08:00">2024-04-19</time>
     </span>
 
   
@@ -236,6 +236,7 @@
     <div class="post-body" itemprop="articleBody">
           <div class="visual-image">
         <div class="visual-image-box">
+            <image class="visual-image-deco" src="/blog/images/mawchu_logo_w.svg" />
             <div>React  - immutable update</div>
             <div>React  - immutable update</div>
             <div>React  - immutable update</div>
@@ -243,7 +244,7 @@
         </div>
     </div>
 
-<p>《React 思維進化》已經閱讀到中間的核心章節了，作者提到一個與 Vue 框架在資料管理上比較不一樣的重要概念<code>Immutable</code>，由於 React 的單向資料流理念貫徹了整個框架系統，想當然爾會嚴格控制資料的可不可變也是十分合理的，javascript 在初學階段打下的基礎終於能與 React 框架結合起來，以下從 javascript 的資料型別切入：</p>
+<p>《React 思維進化》已經閱讀到中間的核心章節了，作者提到一個與 Vue 框架在資料管理上比較不一樣的重要概念—— <code>Immutable</code>，由於 <strong>React 的單向資料流理念</strong>貫徹了整個框架系統，想當然爾會<strong>嚴格控制資料的不可變</strong>也是十分合理的，javascript 在初學階段打下的基礎終於能與 React 框架結合起來，以下從 javascript 的資料型別切入：</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/blog/2024/04/17/react-immutable-update/#more" rel="contents">
@@ -280,7 +281,7 @@
     <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2024/04/06/react-onclick-event/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.png">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
       <meta itemprop="name" content="Mawchu">
     </span>
 
@@ -313,7 +314,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-04-19 15:02:48" itemprop="dateModified" datetime="2024-04-19T15:02:48+08:00">2024-04-19</time>
+      <time title="Modified: 2024-04-19 22:51:04" itemprop="dateModified" datetime="2024-04-19T22:51:04+08:00">2024-04-19</time>
     </span>
 
   
@@ -328,6 +329,7 @@
     <div class="post-body" itemprop="articleBody">
           <div class="visual-image">
         <div class="visual-image-box">
+            <image class="visual-image-deco" src="/blog/images/mawchu_logo_w.svg" />
             <div>React  - onClick </div>
             <div>React  - onClick </div>
             <div>React  - onClick </div>
@@ -372,7 +374,7 @@
     <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2024/02/24/react-one-way-dataflow/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.png">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
       <meta itemprop="name" content="Mawchu">
     </span>
 
@@ -405,7 +407,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-04-19 15:02:40" itemprop="dateModified" datetime="2024-04-19T15:02:40+08:00">2024-04-19</time>
+      <time title="Modified: 2024-04-19 22:51:04" itemprop="dateModified" datetime="2024-04-19T22:51:04+08:00">2024-04-19</time>
     </span>
 
   
@@ -420,6 +422,7 @@
     <div class="post-body" itemprop="articleBody">
           <div class="visual-image">
         <div class="visual-image-box">
+            <image class="visual-image-deco" src="/blog/images/mawchu_logo_w.svg" />
             <div>React  - One-way dataflow</div>
             <div>React  - One-way dataflow</div>
             <div>React  - One-way dataflow</div>
@@ -465,7 +468,7 @@
     <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2024/02/22/react-element/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.png">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
       <meta itemprop="name" content="Mawchu">
     </span>
 
@@ -498,7 +501,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-04-19 15:02:52" itemprop="dateModified" datetime="2024-04-19T15:02:52+08:00">2024-04-19</time>
+      <time title="Modified: 2024-04-19 22:51:04" itemprop="dateModified" datetime="2024-04-19T22:51:04+08:00">2024-04-19</time>
     </span>
 
   
@@ -513,6 +516,7 @@
     <div class="post-body" itemprop="articleBody">
           <div class="visual-image">
         <div class="visual-image-box">
+            <image class="visual-image-deco" src="/blog/images/mawchu_logo_w.svg" />
             <div>React  - React Element X JSX</div>
             <div>React  - React Element X JSX</div>
             <div>React  - React Element X JSX</div>
@@ -557,7 +561,7 @@
     <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2024/02/18/virtual-dom/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.png">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
       <meta itemprop="name" content="Mawchu">
     </span>
 
@@ -590,7 +594,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-04-19 15:04:10" itemprop="dateModified" datetime="2024-04-19T15:04:10+08:00">2024-04-19</time>
+      <time title="Modified: 2024-04-19 22:51:04" itemprop="dateModified" datetime="2024-04-19T22:51:04+08:00">2024-04-19</time>
     </span>
 
   
@@ -605,6 +609,7 @@
     <div class="post-body" itemprop="articleBody">
           <div class="visual-image">
         <div class="visual-image-box">
+            <image class="visual-image-deco" src="/blog/images/mawchu_logo_w.svg" />
             <div>React  - Virtual dom</div>
             <div>React  - Virtual dom</div>
             <div>React  - Virtual dom</div>
@@ -650,7 +655,7 @@
     <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2023/03/20/fast-learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.png">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
       <meta itemprop="name" content="Mawchu">
     </span>
 
@@ -683,7 +688,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-04-19 15:07:04" itemprop="dateModified" datetime="2024-04-19T15:07:04+08:00">2024-04-19</time>
+      <time title="Modified: 2024-04-19 22:51:04" itemprop="dateModified" datetime="2024-04-19T22:51:04+08:00">2024-04-19</time>
     </span>
 
   
@@ -698,6 +703,7 @@
     <div class="post-body" itemprop="articleBody">
           <div class="visual-image">
         <div class="visual-image-box">
+            <image class="visual-image-deco" src="/blog/images/mawchu_logo_w.svg" />
             <div> - Ultralearnning II</div>
             <div> - Ultralearnning II</div>
             <div> - Ultralearnning II</div>
@@ -742,7 +748,7 @@
     <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2023/03/05/establish-ssh-connection/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.png">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
       <meta itemprop="name" content="Mawchu">
     </span>
 
@@ -775,7 +781,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-04-19 15:01:28" itemprop="dateModified" datetime="2024-04-19T15:01:28+08:00">2024-04-19</time>
+      <time title="Modified: 2024-04-19 22:51:04" itemprop="dateModified" datetime="2024-04-19T22:51:04+08:00">2024-04-19</time>
     </span>
 
   
@@ -790,6 +796,7 @@
     <div class="post-body" itemprop="articleBody">
           <div class="visual-image">
         <div class="visual-image-box">
+            <image class="visual-image-deco" src="/blog/images/mawchu_logo_w.svg" />
             <div> server  ssh </div>
             <div> server  ssh </div>
             <div> server  ssh </div>
@@ -834,7 +841,7 @@
     <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2023/02/25/deploy-hexo-by-github-pages/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.png">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
       <meta itemprop="name" content="Mawchu">
     </span>
 
@@ -867,7 +874,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-04-19 15:05:04" itemprop="dateModified" datetime="2024-04-19T15:05:04+08:00">2024-04-19</time>
+      <time title="Modified: 2024-04-19 22:51:04" itemprop="dateModified" datetime="2024-04-19T22:51:04+08:00">2024-04-19</time>
     </span>
 
   
@@ -882,6 +889,7 @@
     <div class="post-body" itemprop="articleBody">
           <div class="visual-image">
         <div class="visual-image-box">
+            <image class="visual-image-deco" src="/blog/images/mawchu_logo_w.svg" />
             <div> Hexo  Github Pages</div>
             <div> Hexo  Github Pages</div>
             <div> Hexo  Github Pages</div>
@@ -926,7 +934,7 @@
     <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2023/02/17/learning-fast/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.png">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
       <meta itemprop="name" content="Mawchu">
     </span>
 
@@ -959,7 +967,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-04-19 15:07:00" itemprop="dateModified" datetime="2024-04-19T15:07:00+08:00">2024-04-19</time>
+      <time title="Modified: 2024-04-19 22:51:04" itemprop="dateModified" datetime="2024-04-19T22:51:04+08:00">2024-04-19</time>
     </span>
 
   
@@ -974,6 +982,7 @@
     <div class="post-body" itemprop="articleBody">
           <div class="visual-image">
         <div class="visual-image-box">
+            <image class="visual-image-deco" src="/blog/images/mawchu_logo_w.svg" />
             <div> - Ultralearnning</div>
             <div> - Ultralearnning</div>
             <div> - Ultralearnning</div>
@@ -1023,7 +1032,7 @@
     <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2023/02/05/macbook-timeplayer-recording-knowhow/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.png">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
       <meta itemprop="name" content="Mawchu">
     </span>
 
@@ -1056,7 +1065,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-04-19 15:02:56" itemprop="dateModified" datetime="2024-04-19T15:02:56+08:00">2024-04-19</time>
+      <time title="Modified: 2024-04-19 22:51:04" itemprop="dateModified" datetime="2024-04-19T22:51:04+08:00">2024-04-19</time>
     </span>
 
   
@@ -1071,6 +1080,7 @@
     <div class="post-body" itemprop="articleBody">
           <div class="visual-image">
         <div class="visual-image-box">
+            <image class="visual-image-deco" src="/blog/images/mawchu_logo_w.svg" />
             <div>Macbook  - timeplayer</div>
             <div>Macbook  - timeplayer</div>
             <div>Macbook  - timeplayer</div>
