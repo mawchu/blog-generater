@@ -2565,6 +2565,7 @@ mark.search-keyword {
 .post-body .visual-image-box {
   text-align: center;
   line-height: 1.6rem;
+  z-index: 10;
 }
 .post-body .visual-image-box div:nth-child(1),
 .post-body .visual-image-box div:nth-child(2) {
@@ -2577,7 +2578,8 @@ mark.search-keyword {
   }
 }
 .post-body .visual-image-box div:nth-child(3),
-.post-body .visual-image-box div:nth-child(4) {
+.post-body .visual-image-box div:nth-child(4),
+.post-body .visual-image-box div:nth-child(5) {
   color: #f2c146;
   font-weight: 800;
   text-shadow: calc(var(--stroke-width) * -1) calc(var(--stroke-width) * -1) 0 transparent, var(--stroke-width) calc(var(--stroke-width) * -1) 0 transparent, calc(var(--stroke-width) * -1) var(--stroke-width) 0 transparent, var(--stroke-width) var(--stroke-width) 0 transparent;
@@ -2604,6 +2606,22 @@ mark.search-keyword {
 @media all and (max-width: 600px) {
   .post-body .visual-image {
     font-size: 1.2rem;
+  }
+}
+.post-body .visual-image {
+  position: relative;
+}
+.post-body .visual-image-deco {
+  position: absolute;
+  bottom: -25px;
+  right: -10px;
+  width: 180px;
+  height: auto;
+  z-index: 2;
+}
+@media all and (max-width: 796px) {
+  .post-body .visual-image-deco {
+    width: 110px;
   }
 }
 .main-inner .post-block,
