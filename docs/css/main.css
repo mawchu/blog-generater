@@ -2618,3 +2618,11 @@ mark.search-keyword {
   background: #f2c146;
   opacity: 1;
 }
+.main-inner .pagination {
+  background: transparent;
+  box-shadow: unset;
+}
+.pagination .page-number {
+  background: #fff;
+  text-shadow: calc(var(--stroke-width) * -1) calc(var(--stroke-width) * -1) 0 #f2c146, var(--stroke-width) calc(var(--stroke-width) * -1) 0 #f2c146, calc(var(--stroke-width) * -1) var(--stroke-width) 0 #f2c146, var(--stroke-width) var(--stroke-width) 0 #f2c146;
+}
