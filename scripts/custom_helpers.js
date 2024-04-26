@@ -3,10 +3,11 @@ hexo.extend.tag.register("include_md", function () {
   return `<div class="visual-image">
         <div class="visual-image-box">
             <image class="visual-image-deco" src="/blog/images/mawchu_logo_w.svg" />
-            <div>${title}</div>
-            <div>${title}</div>
-            <div>${title}</div>
-            <div>．．．</div>
+            <div class="stroke">${title}</div>
+            <div class="stroke">${title}</div>
+            <div class="plain main-title">${title}</div>
+            <div class="plain">．．．</div>
         </div>
     </div>`;
 });
+``
