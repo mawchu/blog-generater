@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://mawchu.github.io/</loc>
+    
+    <lastmod>{{ posts[0].updated | formatDate }}</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
   {% for post in posts %}
   <url>
     <loc>{{ post.permalink | uriencode }}</loc>
