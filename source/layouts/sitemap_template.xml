@@ -19,7 +19,7 @@
   </url>
 
   <url>
-    <loc>https://mawchu.github.io/blog</loc>
+    <loc>https://mawchu.github.io/blog/</loc>
     
     <lastmod>{{ posts[0].updated | formatDate }}</lastmod>
     
