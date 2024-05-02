@@ -8,7 +8,10 @@ tags:
 - React useMemo
 - React memo
 - React useCallback
+- computed
 - react hooks dependency
+categories:
+- React
 ---
 
 {% include_md %}

@@ -2,8 +2,9 @@
 title: 新手須知 - Macbook beginner
 date: 2023-02-05 14:27:36
 tags:
-- macbook
 - shortcut
+categories:
+- Macbook
 ---
 
 {% include_md %}

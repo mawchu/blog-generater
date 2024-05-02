@@ -2,10 +2,13 @@
 title: React 思維進化 - immutable update
 date: 2024-04-17 16:08:09
 tags:
-  - immutable update
-  - primitive & object
-  - immutable & mutable
-  - React 思維進化
+- immutable update
+- primitive & object
+- immutable & mutable
+- React 思維進化
+categories:
+- React
+- Book learning
 ---
 
 {% include_md %}

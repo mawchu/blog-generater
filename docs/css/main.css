@@ -2559,6 +2559,11 @@ mark.search-keyword {
 .post-body h1 {
   border-bottom: 2px solid #f2c146;
 }
+.post-body h1,
+.post-body h2,
+.post-body h3 {
+  border-bottom: 1px dotted #f2c146;
+}
 .with-love {
   color: #f2c146;
 }
@@ -2663,6 +2668,7 @@ blockquote {
   border-left: 4px solid #f2c146;
   background: #fefaf1;
   padding: 16px;
+  font-style: italic;
 }
 blockquote code {
   font-weight: bolder;

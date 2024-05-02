@@ -1,7 +1,9 @@
 ---
-title: 高速學習的技巧 - Ultralearnning II
+title: Ultralearnning 高速學習的技巧 II
 date: 2023-03-20 19:22:48
-tags:
+tags: Ultralearnning
+categories:
+- Book learning
 ---
 
 {% include_md %}

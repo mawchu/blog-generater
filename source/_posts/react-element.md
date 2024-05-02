@@ -2,11 +2,15 @@
 title: React 思維進化 - React Element X JSX
 date: 2024-02-22 22:10:09
 tags:
-  - react
-  - react思維進化
-  - react-element
-  - virtual-dom
-  - browser-render
+- react
+- react思維進化
+- react-element
+- virtual-dom
+- browser-render
+- template
+categories:
+- React
+- Book learning
 ---
 
 {% include_md %}

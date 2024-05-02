@@ -6,6 +6,8 @@ tags:
 - rsa
 - publicKey
 - privateKey
+categories:
+- SSH
 ---
 
 {% include_md %}

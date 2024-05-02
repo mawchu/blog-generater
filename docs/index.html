@@ -84,7 +84,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/blog/tags/" rel="section"><i class="fa fa-bookmark fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/blog/categories/" rel="section"><i class="fa fa-folder-open fa-fw"></i>Categories</a></li><li class="menu-item menu-item-posts"><a href="/blog/archives/" rel="section"><i class="fa fa-pencil-square fa-fw"></i>posts</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
@@ -149,17 +149,26 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/blog/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">32</span>
-        <span class="site-state-item-name">tags</span>
+          <a href="/blog/tags/">
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
   <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://mawchu.github.io/" title="Website → https:&#x2F;&#x2F;mawchu.github.io" rel="noopener me"><i class="fa fa-address-book fa-fw"></i>Website</a>
+      </span>
       <span class="links-of-author-item">
         <a href="https://github.com/mawchu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;mawchu" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
@@ -176,6 +185,199 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2024/05/02/react-useContext/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+      <meta itemprop="name" content="Mawchu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mawchu's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Mawchu's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/blog/2024/05/02/react-useContext/" class="post-title-link" itemprop="url">React - useContext hook 使用說明</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-05-02 14:35:10 / Modified: 17:00:32" itemprop="dateCreated datePublished" datetime="2024-05-02T14:35:10+08:00">2024-05-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <div class="visual-image">
+        <div class="visual-image-box">
+            <image class="visual-image-deco" src="/blog/images/mawchu_logo_w.svg" />
+            <div class="stroke">React - useContext hook </div>
+            <div class="stroke">React - useContext hook </div>
+            <div class="plain main-title">React - useContext hook </div>
+            <div class="plain">．．．</div>
+        </div>
+    </div>
+
+<h1 id="Prop-drilling-資料瀑布"><a href="#Prop-drilling-資料瀑布" class="headerlink" title="Prop drilling 資料瀑布"></a>Prop drilling 資料瀑布</h1><p>在前端工程領域有一個詞彙 <strong>prop drilling</strong> 資料瀑布（對我自己翻的）描述了多代巢狀、跨元件結構所衍生的資料傳遞問題，前端任何熱門框架都會想方設法解決這個燙手山芋，一旦資料龐大或者使用流程複雜很容易走入 UI 的多重宇宙，一層又一層層的傳下去，元件嵌套了好幾層或者跨多個兄弟元件的情況下如何將資料垂直傳遞、水平傳遞？</p>
+<p>以下比較 Vue &amp; React 解決 prop drilling 的工具：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2024/05/02/react-useContext/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2024/05/02/react-useEffect/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+      <meta itemprop="name" content="Mawchu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mawchu's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Mawchu's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/blog/2024/05/02/react-useEffect/" class="post-title-link" itemprop="url">React - useEffect hook 使用說明</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-05-02 10:35:10 / Modified: 15:32:09" itemprop="dateCreated datePublished" datetime="2024-05-02T10:35:10+08:00">2024-05-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <div class="visual-image">
+        <div class="visual-image-box">
+            <image class="visual-image-deco" src="/blog/images/mawchu_logo_w.svg" />
+            <div class="stroke">React - useEffect hook </div>
+            <div class="stroke">React - useEffect hook </div>
+            <div class="plain main-title">React - useEffect hook </div>
+            <div class="plain">．．．</div>
+        </div>
+    </div>
+
+<p>React 所有鉤子都不容易在閱讀官方解說之後馬上理解，需要透過案例演練或者採坑的經驗後慢慢掌握，這一篇來記錄一下初學 React 時界定最模糊但最常用的鉤子 <code>useEffect()</code>，到底怎麼用、為什麼這樣用？</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2024/05/02/react-useEffect/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -221,7 +423,16 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-04-30 15:06:31" itemprop="dateModified" datetime="2024-04-30T15:06:31+08:00">2024-04-30</time>
+      <time title="Modified: 2024-05-02 15:30:09" itemprop="dateModified" datetime="2024-05-02T15:30:09+08:00">2024-05-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
     </span>
 
   
@@ -314,7 +525,20 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-04-25 10:58:26" itemprop="dateModified" datetime="2024-04-25T10:58:26+08:00">2024-04-25</time>
+      <time title="Modified: 2024-05-02 11:30:19" itemprop="dateModified" datetime="2024-05-02T11:30:19+08:00">2024-05-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/React/Book-learning/" itemprop="url" rel="index"><span itemprop="name">Book learning</span></a>
+        </span>
     </span>
 
   
@@ -407,7 +631,16 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-04-19 15:02:48" itemprop="dateModified" datetime="2024-04-19T15:02:48+08:00">2024-04-19</time>
+      <time title="Modified: 2024-05-02 11:31:46" itemprop="dateModified" datetime="2024-05-02T11:31:46+08:00">2024-05-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
     </span>
 
   
@@ -500,7 +733,20 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-04-19 15:02:40" itemprop="dateModified" datetime="2024-04-19T15:02:40+08:00">2024-04-19</time>
+      <time title="Modified: 2024-05-02 11:31:38" itemprop="dateModified" datetime="2024-05-02T11:31:38+08:00">2024-05-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/React/Book-learning/" itemprop="url" rel="index"><span itemprop="name">Book learning</span></a>
+        </span>
     </span>
 
   
@@ -594,7 +840,20 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-04-19 15:02:52" itemprop="dateModified" datetime="2024-04-19T15:02:52+08:00">2024-04-19</time>
+      <time title="Modified: 2024-05-02 15:30:46" itemprop="dateModified" datetime="2024-05-02T15:30:46+08:00">2024-05-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/React/Book-learning/" itemprop="url" rel="index"><span itemprop="name">Book learning</span></a>
+        </span>
     </span>
 
   
@@ -687,7 +946,20 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-04-19 15:04:10" itemprop="dateModified" datetime="2024-04-19T15:04:10+08:00">2024-04-19</time>
+      <time title="Modified: 2024-05-02 11:29:18" itemprop="dateModified" datetime="2024-05-02T11:29:18+08:00">2024-05-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/React/Book-learning/" itemprop="url" rel="index"><span itemprop="name">Book learning</span></a>
+        </span>
     </span>
 
   
@@ -763,7 +1035,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/blog/2023/03/20/fast-learning/" class="post-title-link" itemprop="url">高速學習的技巧 - Ultralearnning II</a>
+          <a href="/blog/2023/03/20/fast-learning/" class="post-title-link" itemprop="url">Ultralearnning 高速學習的技巧 II</a>
         </h2>
 
         <div class="post-meta-container">
@@ -781,7 +1053,16 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-04-19 15:07:04" itemprop="dateModified" datetime="2024-04-19T15:07:04+08:00">2024-04-19</time>
+      <time title="Modified: 2024-05-02 11:39:50" itemprop="dateModified" datetime="2024-05-02T11:39:50+08:00">2024-05-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/Book-learning/" itemprop="url" rel="index"><span itemprop="name">Book learning</span></a>
+        </span>
     </span>
 
   
@@ -797,9 +1078,9 @@
           <div class="visual-image">
         <div class="visual-image-box">
             <image class="visual-image-deco" src="/blog/images/mawchu_logo_w.svg" />
-            <div class="stroke"> - Ultralearnning II</div>
-            <div class="stroke"> - Ultralearnning II</div>
-            <div class="plain main-title"> - Ultralearnning II</div>
+            <div class="stroke">Ultralearnning  II</div>
+            <div class="stroke">Ultralearnning  II</div>
+            <div class="plain main-title">Ultralearnning  II</div>
             <div class="plain">．．．</div>
         </div>
     </div>
@@ -874,7 +1155,16 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-04-19 15:01:28" itemprop="dateModified" datetime="2024-04-19T15:01:28+08:00">2024-04-19</time>
+      <time title="Modified: 2024-05-02 11:29:28" itemprop="dateModified" datetime="2024-05-02T11:29:28+08:00">2024-05-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/SSH/" itemprop="url" rel="index"><span itemprop="name">SSH</span></a>
+        </span>
     </span>
 
   
@@ -923,197 +1213,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2023/02/25/deploy-hexo-by-github-pages/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.jpg">
-      <meta itemprop="name" content="Mawchu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mawchu's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Mawchu's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/blog/2023/02/25/deploy-hexo-by-github-pages/" class="post-title-link" itemprop="url">部署 Hexo 部落格至 Github Pages</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-02-25 20:20:41" itemprop="dateCreated datePublished" datetime="2023-02-25T20:20:41+08:00">2023-02-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-04-19 15:05:04" itemprop="dateModified" datetime="2024-04-19T15:05:04+08:00">2024-04-19</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <div class="visual-image">
-        <div class="visual-image-box">
-            <image class="visual-image-deco" src="/blog/images/mawchu_logo_w.svg" />
-            <div class="stroke"> Hexo  Github Pages</div>
-            <div class="stroke"> Hexo  Github Pages</div>
-            <div class="plain main-title"> Hexo  Github Pages</div>
-            <div class="plain">．．．</div>
-        </div>
-    </div>
-
-<h1 id="前言提要"><a href="#前言提要" class="headerlink" title="前言提要"></a>前言提要</h1><p>建置 Hexo 部落格已經兩年多，如今更換 Ｍac 之後建制的新環境 Node 版本已經不相容，peer packages 貼心的設計也種下了難以收拾的坑 （難解的 sass loader），舊的部落格所選用的 Minos 框架在少數的使用量與停止維護下造就了相容性衝突也是在所難免，如今只能硬著頭皮重新學習建置一包 Hexo 了。<br>踩過的坑我們懂得避免，這次選用最多人使用與維護的 ＮexT 模板作為新部落格的皮膚。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/blog/2023/02/25/deploy-hexo-by-github-pages/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2023/02/17/learning-fast/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.jpg">
-      <meta itemprop="name" content="Mawchu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mawchu's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Mawchu's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/blog/2023/02/17/learning-fast/" class="post-title-link" itemprop="url">高速學習的技巧 - Ultralearnning</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-02-17 03:59:25" itemprop="dateCreated datePublished" datetime="2023-02-17T03:59:25+08:00">2023-02-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-04-19 15:07:00" itemprop="dateModified" datetime="2024-04-19T15:07:00+08:00">2024-04-19</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <div class="visual-image">
-        <div class="visual-image-box">
-            <image class="visual-image-deco" src="/blog/images/mawchu_logo_w.svg" />
-            <div class="stroke"> - Ultralearnning</div>
-            <div class="stroke"> - Ultralearnning</div>
-            <div class="plain main-title"> - Ultralearnning</div>
-            <div class="plain">．．．</div>
-        </div>
-    </div>
-
-<p>作者 Scott Young 撰寫的<strong>高效學習</strong>這本書透過 Youtuber 薑餅資的分享，掌握快速學習以及提升學習效率的方法：</p>
-<h1 id="Meta-learning-加乘學習"><a href="#Meta-learning-加乘學習" class="headerlink" title="Meta learning 加乘學習"></a>Meta learning 加乘學習</h1><p>學習一項技能之前先掌握以及規劃學習的方法與地圖：</p>
-<ol>
-<li>瞭解自己學習的動機。</li>
-<li>需要具備的基礎知識是什麼？</li>
-<li>尋找學習的資源與工具，例如線上課程、教科書等。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/blog/2023/02/17/learning-fast/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/blog/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1129,7 +1228,7 @@
   &copy; 
   <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-paw"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Mawchu</span>
 </div>

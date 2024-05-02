@@ -6,6 +6,9 @@ tags:
 - vue
 - virtual-dom
 - browser
+categories:
+- React
+- Book learning
 ---
 
 {% include_md %}

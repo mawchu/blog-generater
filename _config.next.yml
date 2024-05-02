@@ -94,9 +94,9 @@ open_graph:
 menu:
   home: / || fa fa-home
   # about: /about/ || fa fa-user
-  #tags: /tags/ || fa fa-tags
-  # categories: /categories/ || fa fa-th
-  archives: /archives/ || fa fa-archive
+  tags: /tags/ || fa fa-bookmark
+  categories: /categories/ || fa fa-folder-open
+  posts: /archives/ || fa fa-pencil-square
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
@@ -150,6 +150,7 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
+  Website: https://mawchu.github.io || fa fa-address-book
   GitHub: https://github.com/mawchu || fab fa-github
   #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
@@ -202,7 +203,7 @@ footer:
   # Icon between year and copyright info.
   icon:
     # Icon name in Font Awesome. See: https://fontawesome.com/icons
-    name: fa fa-heart
+    name: fa fa-paw
     # If you want to animate the icon, set it to true.
     animated: false
     # Change the color of icon, using Hex Code.

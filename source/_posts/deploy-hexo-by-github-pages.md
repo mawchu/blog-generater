@@ -5,7 +5,10 @@ tags:
 - hexo
 - blog
 - github pages
-- next theme
+- next themec
+- hexo
+- github
+categories: Github
 ---
 
 {% include_md %}

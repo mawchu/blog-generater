@@ -6,6 +6,8 @@ tags:
   - inline function
   - one-way dataflow
   - onclick arguments
+categories:
+- React
 ---
 
 {% include_md %}

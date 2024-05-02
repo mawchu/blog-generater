@@ -5,6 +5,9 @@ tags:
 - react
 - one-way dataflow
 - virtual dom
+categories:
+- React
+- Book learning
 ---
 
 {% include_md %}
