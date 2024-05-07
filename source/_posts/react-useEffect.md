@@ -54,7 +54,11 @@ useEffect 的寫法會在 **return function** 內，標記著元件移除時要�
   on <a href="https://codepen.io">CodePen</a>.
 </iframe>
 
-若資料在**不會改變**的前提下平心而論確實差不多，因為沒有重新渲染的問題；倘若資料會改變而影響 component re-render 就會開始看到差異，使用 useEffect 可以將函式區域內的資料都維持在**第一次渲染後**、**資料更新前**的版本，例如以上範例，即使非同步 SetTimeout Callback 的執行其實更早(0 毫秒早於首次渲染以前)，data 仍凍結在初始值 `I'm a data.`，體現了 useEffect 在這裡的優點。
+若資料在**不會改變**的前提下平心而論確實差不多，因為沒有重新渲染的問題；倘若資料會改變而影響 component re-render 就會開始看到差異。
+
+使用 `useEffect` 可以將函式區域內的資料都維持在**第一次渲染後**、**資料更新前**的版本，例如以上範例，即使非同步 SetTimeout Callback 的執行其實更早(0 毫秒早於首次渲染以前)，data 仍凍結在初始值 `I'm a data.`，體現了 useEffect 在這裡的優點。
+
+然而撰寫在 function component 內、useEffect 外且沒有使用其他 Hooks 的函式，會緊跟隨每次元件的渲染重建、渲染前執行計算、渲染後顯示結果，生命週期因渲染重新誕生、因元件毀滅而消失（除了監聽事件）。
 
 # useEffect X empty array 是微任務
 用 **宏任務(Macro task)** 或 **微任務(Micro task)** 來理解 React hooks 是狹隘的做法，畢竟怎麼為 event loop 安排還是取決於開發者的程式邏輯與使用鉤子的目的上，不過在上一個案例中 useEffect X empty array 的搭配就很接近微任務了，React 設計這些接口的初衷就是提供符合設計動機的時間點，讓開發者根據業務需求信手拈來安排想要的流程脈絡，不過理解背後的運作順序還是有助於避免採坑。
