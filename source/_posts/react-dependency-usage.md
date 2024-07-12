@@ -59,7 +59,7 @@ React Hooks 依據不同需求開發出的 Hooks，不管是 `useEffect`、`useM
 ## useMemo() 動態渲染
 有時候也可以依據條件動態切換渲染的子元件，十分好用：
 
-```
+{% codeblock lang:javascript %}
 import React, { useMemo } from 'react';
 
 const MyComponent = ({ condition }) => {
@@ -74,11 +74,11 @@ const MyComponent = ({ condition }) => {
 
   return memoizedComponent;
 };
-```
+{% endcodeblock %}
 
 在 Vue 框架裡的寫法：
 
-```
+{% codeblock lang:javascript %}
 <template>
   <component :is="dynamicComponent"></component>
 </template>
@@ -100,7 +100,7 @@ export default {
   }
 };
 </script>
-```
+{% endcodeblock %}
 
 ## useMemo hook 教學影片
 在我看過許多坊間的教學文章都有隔靴搔癢之感，有的敘述用來快取元件本身、有的敘述用來監聽變化，對於 React 新手很難快速抓出使用的時機。

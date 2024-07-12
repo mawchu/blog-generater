@@ -50,7 +50,7 @@ categories:
 ## vue 版本的寫法
 
 - 父元件達成點擊子元件以外範圍、關閉全部子元件。
-```
+```js
 <template>
   <div class="wrapper" @click="handleParentClick">
     <Collapse
@@ -110,7 +110,7 @@ export default {
 ```
 
 - 子元件設定 `e.stopPropagation()` 來阻止事件冒泡。
-```
+```js
 <template>
   <article class="py-2">
     <button class="rounded-lg bg-amber-200 px-2 py-1 my-2 font-semibold relative z-10" @click="handleClick">
@@ -159,7 +159,7 @@ export default {
 > `.stop` 的作用就如同大家熟知的 `event.strpPropagation()`，用來阻止事件冒泡。
 
 <br />
-```
+```js
 <template>
   /* 修飾符寫法 */
   <article class="py-2" @click.stop="handleClick"> 

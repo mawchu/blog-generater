@@ -8,6 +8,7 @@ tags:
 
 Axois 與 Fetch 兩大 Library 會給予客製化錯誤控制與處理流程，根據返回的 `Promise` 會按照 HTTP **response status** 情況歸納至 `then()` 以及 `catch()`：
 
+<!-- more -->
 # response status code
 公定的錯誤訊息可以當作初步判定大方向的依據，健康的一次前後端交流應當能透過此方式排查錯誤。
 在之前的就網站上 [這篇文章](https://maomaoxie.github.io/2022/03/01/zh-tw/http-status-code/)有詳細描述 code 的幾個大致情況，重新複習一下：
@@ -35,7 +36,8 @@ Axois 與 Fetch 兩大 Library 會給予客製化錯誤控制與處理流程，�
 ## Fetch 的成功判斷
 ## response.ok 
 當 HTTP status 在範圍 200-299 內時 response.ok 為 `true`，示例如下：
-```
+
+{% codeblock lang:javascript %}
 fetch('https://api.example.com/data')
   .then(response => {
     // Check if the HTTP status code is not in the range 200-299
@@ -54,11 +56,12 @@ fetch('https://api.example.com/data')
     // Handle errors: network issues or HTTP errors
     console.error('Fetch error:', error.message);
   });
-```
+{% endcodeblock %}
 
 ## Axios 的種類判斷
 Axios 的錯誤控制範例：
-```
+
+{% codeblock lang:javascript %}
 import axios from 'axios';
 
 axios.get('https://api.example.com/data')
@@ -80,7 +83,8 @@ axios.get('https://api.example.com/data')
       console.error('Error:', error.message);
     }
   });
-```
+{% endcodeblock %}
+
 ### then
 #### response.data
 倘若要求成功回應會帶上 data，並且協帶一個 data 物件。

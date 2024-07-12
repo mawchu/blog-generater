@@ -27,36 +27,36 @@ categories:
 
 Virtual Dom 的美好藍圖必須透過某些框架手法來轉換為現實，就是透過 React 的最小構築畫面單位——React Element，該方法可以傳入三個參數：
 
-```
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+{% codeblock lang:javascript %}
+    import React from 'react';
+    import ReactDOM from 'react-dom/client';
 
-// 準備容器根節點(注意！該範圍內會直接為 React 所掌控與覆蓋，盡量避免直接透過其他 js 手法寫入此容器)
-const rootContainerElement = document.getElementById('root-container');
-const root = ReactDOM.creatRoot(rootContainerElement);
+    // 準備容器根節點(注意！該範圍內會直接為 React 所掌控與覆蓋，盡量避免直接透過其他 js 手法寫入此容器)
+    const rootContainerElement = document.getElementById('root-container');
+    const root = ReactDOM.creatRoot(rootContainerElement);
 
-// 注入React Element
-const buttonReactElement = React.creactElement(
-    'button',           // 元素類型
-    { id: 'button1' },  // 屬性值
-    'I am a button'     // 子元素，可以往後傳入多個
-)
-```
+    // 注入React Element
+    const buttonReactElement = React.creactElement(
+        'button',           // 元素類型
+        { id: 'button1' },  // 屬性值
+        'I am a button'     // 子元素，可以往後傳入多個
+    )
+{% endcodeblock %}
 
 產生的實際 DOM 樣貌：
 
-```
-<html>
-    <head>
-    ...
-    </head>
-    <body>
-        <div id="root-container">
-            <button id="button1">I am a button</button>
-        </div>
-    </body>
-</html>
-```
+{% codeblock lang:javascript %}
+    <html>
+        <head>
+        ...
+        </head>
+        <body>
+            <div id="root-container">
+                <button id="button1">I am a button</button>
+            </div>
+        </body>
+    </html>
+{% endcodeblock %}
 
 > React.creactElement 實際產生的是一個普通的 React javascript 物件，用來模擬實際產生的 DOM 樣貌，
 
@@ -64,25 +64,25 @@ const buttonReactElement = React.creactElement(
 
 從第三個參數開始可以不斷透過 React Element 持續撰寫撰寫平行的兄弟、巢狀嵌套的父子等子元素：
 
-```
-const buttonReactElement = React.creactElement(
-    'div',           // 元素類型
-    { id: 'wrapper', className: 'wrapper' },  // 屬性值
-    React.creactElement(  // 子元素，可以往後傳入多個
-        'ul',
-        { id: 'list' },
-        React.creactElement('li', { className: 'list-item' }, 'item 1'),
-        React.creactElement('li', { className: 'list-item' }, 'item 2'),
-        React.creactElement('li', { className: 'list-item' }, 'item 3'),
-    ),
-    React.creactElement(
-        'button',
-        { id: 'button1' },
-        'I am a button'
+{% codeblock lang:javascript %}
+    const buttonReactElement = React.creactElement(
+        'div',           // 元素類型
+        { id: 'wrapper', className: 'wrapper' },  // 屬性值
+        React.creactElement(  // 子元素，可以往後傳入多個
+            'ul',
+            { id: 'list' },
+            React.creactElement('li', { className: 'list-item' }, 'item 1'),
+            React.creactElement('li', { className: 'list-item' }, 'item 2'),
+            React.creactElement('li', { className: 'list-item' }, 'item 3'),
+        ),
+        React.creactElement(
+            'button',
+            { id: 'button1' },
+            'I am a button'
+        )
+        ...
     )
-    ...
-)
-```
+{% endcodeblock %}
 
 ## React Element 的 immutable 特性
 
@@ -96,43 +96,42 @@ JSX 長得像 HTML、本質上卻是 Virtual DOM，這是因為如同 `class` �
 
 透過 JSX 撰寫 React.creactElement：
 
-```
-const reactElement = (
-    <div id="wrapper" className="wrapper">
-        <ul id="list">
-            <li className="list-item">item 1</li>
-            <li className="list-item">item 2</li>
-            <li className="list-item">item 3</li>
-        </ul>
-        <button id="button1">I am a button</button>
-    </div>
-)
-```
+{% codeblock lang:javascript %}
+    const reactElement = (
+        <div id="wrapper" className="wrapper">
+            <ul id="list">
+                <li className="list-item">item 1</li>
+                <li className="list-item">item 2</li>
+                <li className="list-item">item 3</li>
+            </ul>
+            <button id="button1">I am a button</button>
+        </div>
+    )
+{% endcodeblock %}
 
 > 避免與 `class` 重複而使用 `className` 並非 JSX 的規定，而是為了映射到 React.creactElement 呼叫時的寫法。
 
 完全等同以下的寫法(Babel 轉譯結果)：
 
-```
-
-const buttonReactElement = React.creactElement(
-    'div', // 元素類型
-    { id: 'wrapper', className: 'wrapper' }, // 屬性值
-    React.creactElement( // 子元素，可以往後傳入多個
-        'ul',
-        { id: 'list' },
-        React.creactElement('li', { className: 'list-item' }, 'item 1'),
-        React.creactElement('li', { className: 'list-item' }, 'item 2'),
-        React.creactElement('li', { className: 'list-item' }, 'item 3'),
-    ),
-    React.creactElement(
-        'button',
-        { id: 'button1' },
-        'I am a button'
+{% codeblock lang:javascript %}
+    const buttonReactElement = React.creactElement(
+        'div', // 元素類型
+        { id: 'wrapper', className: 'wrapper' }, // 屬性值
+        React.creactElement( // 子元素，可以往後傳入多個
+            'ul',
+            { id: 'list' },
+            React.creactElement('li', { className: 'list-item' }, 'item 1'),
+            React.creactElement('li', { className: 'list-item' }, 'item 2'),
+            React.creactElement('li', { className: 'list-item' }, 'item 3'),
+        ),
+        React.creactElement(
+            'button',
+            { id: 'button1' },
+            'I am a button'
+        )
+        ...
     )
-    ...
-)
 
-```
+{% endcodeblock %}
 
 下一篇將跟隨『React 思維進化』筆者的引導，深入檢討 React 與 Vue 各自在優化前端效能上採用的做法，以及如何呼應到瀏覽器的渲染行為。

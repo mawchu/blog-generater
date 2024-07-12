@@ -7,7 +7,7 @@ tags:
 {% include_md %}
 
 在工作上遭遇到 canvas 繪製的獎品轉盤(Spin Wheel)在**切換視窗後再回來 canvas 遺失的問題**，由於轉盤是前人開發的又剛好在自測時發現 issue，就抱持著試試看的心態來查[解決方法](https://stackoverflow.com/questions/71201403/html-canvas-disappears-in-chrome-after-browser-window-tab-becomes-inactive)，意外的查到兩個從未碰過的技術：canvas API `createImageBitmap()`global function 用來保存 Canvas (或其他圖像技術)資源在 windows 與 workers 生命週期中，另一個是監聽視窗標籤(Tabs) 甚麼時候切換為可見的事件 `onvisibilitychange` event。
-
+<!-- more -->
 不過該問題似乎只存在於開發者模式下，少部分的使用者才會遇到。
 > Given that this is all behind dev flags, few of your users should face it, and it's probably not worth the effort to implement a workaround for it.
 But if you really need one, you can create an ImageBitmap in the visibilitychange event and do the restore yourself:
@@ -21,19 +21,20 @@ But if you really need one, you can create an ImageBitmap in the visibilitychang
 
 # example code
 [範例來源](https://stackoverflow.com/questions/71201403/html-canvas-disappears-in-chrome-after-browser-window-tab-becomes-inactive)
-```
-const canvas = document.querySelector("canvas");
-const ctx = canvas.getContext("2d");
-ctx.fillStyle = "red";
-ctx.fillRect(0, 0, 40, 40);
-let bmp;
-document.onvisibilitychange = async(evt) => {
-  if (document.visibilityState === "hidden") {
-    bmp = await createImageBitmap(canvas);
-  } else {
-    ctx.globalCompositeOperation = "copy";
-    ctx.drawImage(bmp, 0, 0);
-    ctx.globalCompositeOperation = "source-over";
-  }
-};
-```
+
+{% codeblock lang:javascript %}
+  const canvas = document.querySelector("canvas");
+  const ctx = canvas.getContext("2d");
+  ctx.fillStyle = "red";
+  ctx.fillRect(0, 0, 40, 40);
+  let bmp;
+  document.onvisibilitychange = async(evt) => {
+    if (document.visibilityState === "hidden") {
+      bmp = await createImageBitmap(canvas);
+    } else {
+      ctx.globalCompositeOperation = "copy";
+      ctx.drawImage(bmp, 0, 0);
+      ctx.globalCompositeOperation = "source-over";
+    }
+  };
+{% endcodeblock %}

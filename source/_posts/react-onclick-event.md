@@ -26,7 +26,7 @@ Vue 與 React 在運作機制上為了避免高耗能的 DOM 操作採取不同�
 
 當我在開發一個簡易的路由切換，給當前按鈕改變顏色時秉持以往撰寫 Vue 的習慣：
 
-```bash
+```js
 ...
 function Root() {
   const [currentTab, setCurrentTab] = useState("app");
@@ -74,7 +74,7 @@ export default Root;
 
 原因在於當前 Component 的 function 一旦`傳入參數`就視同於立即呼叫，時機在於 Component 渲染後觸發，這並不是我們預期「點擊後觸發」的行為，為了修正錯誤必須更改為箭頭函式以確保元件渲染的當下才定義函式，並且在需要的時候呼叫：
 
-```bash
+```js
 ...
 function Root() {
   const [currentTab, setCurrentTab] = useState("app");
@@ -143,7 +143,7 @@ Inline arrow function 之所以有效，在於他每一次的`函式執行環境
 接下來說說關於 router path 的兩三事，偵測 router path 改變當前頁面按鈕是很常見的使用者體驗優化，在 Vue.js 中很熟悉的做法就是 watch `$router` 變數來操作相應的邏輯，至於 React 則是透過 react-router-dom 套件中的`useLocation()` hook 去監聽路由切換與偵測。
 延續上面的範例，為了讓頁面在指定的路由載入能正確的操作當前頁面按鈕的狀態與樣式，必須要在 React Element 重新渲染的初期就獲取路由名稱，採取相對應的樣式切換：
 
-```bash
+```js
 ...
 import { Outlet, Link, useLocation } from "react-router-dom";
 

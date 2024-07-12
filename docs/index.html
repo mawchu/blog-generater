@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"mawchu.github.io","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"mawchu.github.io","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="Mawchu&#39;s blog">
@@ -37,6 +37,9 @@
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Mawchu's blog</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEH407PQV9"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-MEH407PQV9","only_pageview":false}</script>
+  <script src="/blog/js/third-party/analytics/google-analytics.js"></script>
 
 
 
@@ -149,18 +152,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/blog/categories/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/blog/tags/">
-        <span class="site-state-item-count">58</span>
+        <span class="site-state-item-count">63</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -185,6 +188,188 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2024/07/12/main-thread-and-web-workers/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+      <meta itemprop="name" content="Mawchu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mawchu's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Mawchu's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/blog/2024/07/12/main-thread-and-web-workers/" class="post-title-link" itemprop="url">Web Workers - Main thread's helper 主執行緒的好幫手</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-07-12 17:58:57 / Modified: 18:16:54" itemprop="dateCreated datePublished" datetime="2024-07-12T17:58:57+08:00">2024-07-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/Web-worker/" itemprop="url" rel="index"><span itemprop="name">Web worker</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <div class="visual-image">
+        <div class="visual-image-box">
+            <image class="visual-image-deco" src="/blog/images/mawchu_logo_w.svg" />
+            <div class="stroke">Web Workers - Main threads helper </div>
+            <div class="stroke">Web Workers - Main threads helper </div>
+            <div class="plain main-title">Web Workers - Main threads helper </div>
+            <div class="plain">．．．</div>
+        </div>
+    </div>
+
+<p>前端新時代根據 <strong>異步執行(Asynchronous)</strong> 原理產生新的技術與套件，例如 Promise 與 Async Await 使得 <strong>宏任務(Macro Task)</strong> 與 <strong>微任務(Micro Task)</strong> 在 <strong>事件迴圈(Event Loop)</strong> 的完美委派下讓人忘記 Javascript 其實是 <strong>單線程(Single Thread)</strong> 的程式語言，而昂貴或者繁雜的計算成本很可能會阻塞(Block)主執行緒的前進，這時候分擔任務的好幫手 Web workers 就是出場的好時機了。</p>
+<h1 id="Parallel-Executive-Concept-平行的工作節奏"><a href="#Parallel-Executive-Concept-平行的工作節奏" class="headerlink" title="Parallel Executive Concept 平行的工作節奏"></a>Parallel Executive Concept 平行的工作節奏</h1><p>主執行緒與 Web worker 的工作模式是併發的(Concurrency)，同時並且消耗額外的 CPU 空間來運算而不會導致當下的工作會互享影響，能更有效率的分工合作完成任務外還營造給使用者絲滑的使用體驗(User Experience)，使用之前先對應用場景有基本的概念：</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2024/06/25/vue-mixins-pitfalls/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+      <meta itemprop="name" content="Mawchu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mawchu's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Mawchu's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/blog/2024/06/25/vue-mixins-pitfalls/" class="post-title-link" itemprop="url">你不知道的 Vue Mixins Pitfalls 小陷阱</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-06-25 09:22:49 / Modified: 10:52:22" itemprop="dateCreated datePublished" datetime="2024-06-25T09:22:49+08:00">2024-06-25</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <div class="visual-image">
+        <div class="visual-image-box">
+            <image class="visual-image-deco" src="/blog/images/mawchu_logo_w.svg" />
+            <div class="stroke"> Vue Mixins Pitfalls </div>
+            <div class="stroke"> Vue Mixins Pitfalls </div>
+            <div class="plain main-title"> Vue Mixins Pitfalls </div>
+            <div class="plain">．．．</div>
+        </div>
+    </div>
+
+<p>在工作上第一次接觸到專案開發使用 <strong>Vue mixins</strong> 到有點氾濫的情況（甚至追朔至2-3個 mixins），所以採到的一個奇妙的雷。<br>前述一下遭遇的業務邏輯場景：</p>
+<ol>
+<li>頁面中存在父子組件同時需要應用一組 Mixins，共有一個 data <strong>token</strong>。</li>
+<li>由父組件來控制呼叫 API 改變臨時 token 以防用戶誤觸或者有心人士連擊。</li>
+<li>子組件則拿更新後的 token 來執行出入金。</li>
+</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2024/06/25/vue-mixins-pitfalls/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -224,7 +409,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-06-20 11:41:06 / Modified: 14:51:07" itemprop="dateCreated datePublished" datetime="2024-06-20T11:41:06+08:00">2024-06-20</time>
+      <time title="Created: 2024-06-20 11:41:06 / Modified: 16:24:27" itemprop="dateCreated datePublished" datetime="2024-06-20T11:41:06+08:00">2024-06-20</time>
     </span>
 
   
@@ -247,51 +432,15 @@
         </div>
     </div>
 
-<p>在錯誤控制與處理上 Axois 會給予兩種情況客製化處理流程，返回的 Promise 會分別按照 HTTP response 情況分別歸納至 <code>then()</code> 以及 <code>catch()</code>，分類的區別在純熟的兩大套件 AXIOS 與 FETCH 可能不同，錯誤分成幾種大類：</p>
-<h1 id="Error-types"><a href="#Error-types" class="headerlink" title="Error types"></a>Error types</h1><p>公定的錯誤訊息可以當作初步判定大方向的依據，健康的一次前後端交流應當能透過此方式排查錯誤。</p>
-<h2 id="response-status-code"><a href="#response-status-code" class="headerlink" title="response status code"></a>response status code</h2><p>在之前的就網站上<a target="_blank" rel="noopener" href="https://maomaoxie.github.io/2022/03/01/zh-tw/http-status-code/">這篇文章</a>有詳細描述 code 的幾個大致情況，重新複習一下：</p>
-<h3 id="Informational-response-1XX"><a href="#Informational-response-1XX" class="headerlink" title="Informational response 1XX"></a>Informational response 1XX</h3><p>代表要求已接受並了解了，因某些問題要求仍在繼續但尚未回應需要等候一陣時間。</p>
-<h3 id="Successful-response-2XX"><a href="#Successful-response-2XX" class="headerlink" title="Successful response 2XX"></a>Successful response 2XX</h3><p>通常代表成功情況，request &amp; response 完成了一次資料的交流。</p>
-<h3 id="Redirection-messages-3XX"><a href="#Redirection-messages-3XX" class="headerlink" title="Redirection messages　3XX"></a>Redirection messages　3XX</h3><p>網站可能遭遇重新導向的問題。</p>
-<h3 id="Client-error-responses-4XX"><a href="#Client-error-responses-4XX" class="headerlink" title="Client error responses 4XX"></a>Client error responses 4XX</h3><p>通常代表著 request 方面的缺失或者錯誤，權限不足或者 input 不正確導致不回應。</p>
-<h3 id="Server-error-responses-5XX"><a href="#Server-error-responses-5XX" class="headerlink" title="Server error responses 5XX"></a>Server error responses 5XX</h3><p>伺服器端的問題導致回應失敗。</p>
-<h2 id="server-customized-error-code"><a href="#server-customized-error-code" class="headerlink" title="server customized error code"></a>server customized error code</h2><p>與後端協調制定的客製化錯誤訊息。由於公定的 HTTP status code 並不足夠闡述各種業務端口的 issue，所以各家公司的服務需要透過 <code>response.data.messages</code> 或者 <code>response.data.code</code> 來描述實際的錯誤內容以利於工程師互相溝通或者提供業務與客戶理解。</p>
-<h1 id="Handling-Response-Error-Library"><a href="#Handling-Response-Error-Library" class="headerlink" title="Handling Response Error Library"></a>Handling Response Error Library</h1><p>以下介紹兩大錯誤處理套件 AXIOS 與 FETCH 在邏輯上的些微差異：</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Fetch</th>
-<th>Axios</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>note</td>
-<td>需要客製化設定錯誤情況，制定錯誤事件</td>
-<td>套件經過包裝簡化了判斷</td>
-</tr>
-<tr>
-<td>then</td>
-<td>response.ok or customized successful condition</td>
-<td>HTTP status 200-299</td>
-</tr>
-<tr>
-<td>catch</td>
-<td>throw new Error() triggers error</td>
-<td>outside HTTP status 200-299</td>
-</tr>
-</tbody></table>
-<h2 id="Fetch-的成功判斷"><a href="#Fetch-的成功判斷" class="headerlink" title="Fetch 的成功判斷"></a>Fetch 的成功判斷</h2><h2 id="response-ok"><a href="#response-ok" class="headerlink" title="response.ok"></a>response.ok</h2><p>當 HTTP status 在範圍 200-299 內時 response.ok 為 <code>true</code>，示例如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">fetch(&#x27;https://api.example.com/data&#x27;)</span><br><span class="line">  .then(response =&gt; &#123;</span><br><span class="line">    // Check if the HTTP status code is not in the range 200-299</span><br><span class="line">    if (!response.ok) &#123;</span><br><span class="line">      // Throw an error to be caught in the .catch() block</span><br><span class="line">      throw new Error(`HTTP error! Status: $&#123;response.status&#125;`);</span><br><span class="line">    &#125;</span><br><span class="line">    // If response is OK, parse it as JSON</span><br><span class="line">    return response.json();</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(data =&gt; &#123;</span><br><span class="line">    // Handle the JSON data</span><br><span class="line">    console.log(&#x27;Data:&#x27;, data);</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(error =&gt; &#123;</span><br><span class="line">    // Handle errors: network issues or HTTP errors</span><br><span class="line">    console.error(&#x27;Fetch error:&#x27;, error.message);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-
-<h2 id="Axios-的種類判斷"><a href="#Axios-的種類判斷" class="headerlink" title="Axios 的種類判斷"></a>Axios 的種類判斷</h2><p>Axios 的錯誤控制範例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import axios from &#x27;axios&#x27;;</span><br><span class="line"></span><br><span class="line">axios.get(&#x27;https://api.example.com/data&#x27;)</span><br><span class="line">  .then(response =&gt; &#123;</span><br><span class="line">    // Handle the response data</span><br><span class="line">    console.log(&#x27;Data:&#x27;, response.data);</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(error =&gt; &#123;</span><br><span class="line">    if (error.response) &#123;</span><br><span class="line">      // The request was made and the server responded with a status code</span><br><span class="line">      // that falls out of the range of 2xx</span><br><span class="line">      console.error(&#x27;HTTP error! Status:&#x27;, error.response.status);</span><br><span class="line">      console.error(&#x27;Response data:&#x27;, error.response.data);</span><br><span class="line">    &#125; else if (error.request) &#123;</span><br><span class="line">      // The request was made but no response was received</span><br><span class="line">      console.error(&#x27;Network error:&#x27;, error.request);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      // Something happened in setting up the request that triggered an Error</span><br><span class="line">      console.error(&#x27;Error:&#x27;, error.message);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="then"><a href="#then" class="headerlink" title="then"></a>then</h3><h4 id="response-data"><a href="#response-data" class="headerlink" title="response.data"></a>response.data</h4><p>倘若要求成功回應會帶上 data，並且協帶一個 data 物件。</p>
-<h3 id="catch"><a href="#catch" class="headerlink" title="catch"></a>catch</h3><p>當要求失敗會提供的判斷訊息，依據錯誤的不同提供幾種錯誤：</p>
-<h4 id="error-response"><a href="#error-response" class="headerlink" title="error.response"></a>error.response</h4><p>當 HTTP status code 在 200-299 以外時，可以透過 <code>error.response.status</code> 查詢錯誤代碼以及 <code>error.reponse.data</code> 取得伺服器回應的錯誤內容。</p>
-<h4 id="error-request"><a href="#error-request" class="headerlink" title="error.request"></a>error.request</h4><p>要求成功但沒有回應。</p>
-<h4 id="error-messages"><a href="#error-messages" class="headerlink" title="error.messages"></a>error.messages</h4><p>要求設定發生問題導致錯誤。</p>
-
+<p>Axois 與 Fetch 兩大 Library 會給予客製化錯誤控制與處理流程，根據返回的 <code>Promise</code> 會按照 HTTP <strong>response status</strong> 情況歸納至 <code>then()</code> 以及 <code>catch()</code>：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2024/06/20/error-handle-in-axios/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -345,9 +494,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-05-20 14:30:10 / Modified: 15:01:06" itemprop="dateCreated datePublished" datetime="2024-05-20T14:30:10+08:00">2024-05-20</time>
+      <time title="Created: 2024-05-20 14:30:10" itemprop="dateCreated datePublished" datetime="2024-05-20T14:30:10+08:00">2024-05-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-06-25 10:53:06" itemprop="dateModified" datetime="2024-06-25T10:53:06+08:00">2024-06-25</time>
     </span>
 
   
@@ -371,17 +526,14 @@
     </div>
 
 <p>在工作上遭遇到 canvas 繪製的獎品轉盤(Spin Wheel)在<strong>切換視窗後再回來 canvas 遺失的問題</strong>，由於轉盤是前人開發的又剛好在自測時發現 issue，就抱持著試試看的心態來查<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/71201403/html-canvas-disappears-in-chrome-after-browser-window-tab-becomes-inactive">解決方法</a>，意外的查到兩個從未碰過的技術：canvas API <code>createImageBitmap()</code>global function 用來保存 Canvas (或其他圖像技術)資源在 windows 與 workers 生命週期中，另一個是監聽視窗標籤(Tabs) 甚麼時候切換為可見的事件 <code>onvisibilitychange</code> event。</p>
-<p>不過該問題似乎只存在於開發者模式下，少部分的使用者才會遇到。</p>
-<blockquote>
-<p>Given that this is all behind dev flags, few of your users should face it, and it’s probably not worth the effort to implement a workaround for it.<br>But if you really need one, you can create an ImageBitmap in the visibilitychange event and do the restore yourself:</p>
-</blockquote>
-<h1 id="createImageBitmap-function"><a href="#createImageBitmap-function" class="headerlink" title="createImageBitmap function"></a>createImageBitmap function</h1><p>該方法並存於 Windows 以及 Workers，接收資源作為參數後創建一個圖像位元地圖(ImageBitmap)，會裁減一部分的資源存取起來，接收多種圖像資源並且 <strong>回傳一個 Promise</strong> 乘載著 <code>ImageBitmap</code> 可以繪製到 canvas 上面。</p>
-<blockquote>
-<p>The createImageBitmap() method creates a bitmap from a given source, optionally cropped to contain only a portion of that source. The method exists on the global scope in both windows and workers. It accepts a variety of different image sources, and returns a Promise which resolves to an ImageBitmap.</p>
-</blockquote>
-<h1 id="onvisibilitychange-event"><a href="#onvisibilitychange-event" class="headerlink" title="onvisibilitychange event"></a>onvisibilitychange event</h1><p>事件監聽器的一種，觸發時機為當下子視窗(Tabs) 切換可視時，SPA 框架下應記得適時的移除監聽器。</p>
-<h1 id="example-code"><a href="#example-code" class="headerlink" title="example code"></a>example code</h1><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/71201403/html-canvas-disappears-in-chrome-after-browser-window-tab-becomes-inactive">範例來源</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const canvas = document.querySelector(&quot;canvas&quot;);</span><br><span class="line">const ctx = canvas.getContext(&quot;2d&quot;);</span><br><span class="line">ctx.fillStyle = &quot;red&quot;;</span><br><span class="line">ctx.fillRect(0, 0, 40, 40);</span><br><span class="line">let bmp;</span><br><span class="line">document.onvisibilitychange = async(evt) =&gt; &#123;</span><br><span class="line">  if (document.visibilityState === &quot;hidden&quot;) &#123;</span><br><span class="line">    bmp = await createImageBitmap(canvas);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    ctx.globalCompositeOperation = &quot;copy&quot;;</span><br><span class="line">    ctx.drawImage(bmp, 0, 0);</span><br><span class="line">    ctx.globalCompositeOperation = &quot;source-over&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2024/05/20/keep-canvas-switch-tabs/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -616,7 +768,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-05-10 18:00:49" itemprop="dateModified" datetime="2024-05-10T18:00:49+08:00">2024-05-10</time>
+      <time title="Modified: 2024-06-20 16:00:42" itemprop="dateModified" datetime="2024-06-20T16:00:42+08:00">2024-06-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -802,9 +954,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-05-07 10:31:46 / Modified: 10:44:06" itemprop="dateCreated datePublished" datetime="2024-05-07T10:31:46+08:00">2024-05-07</time>
+      <time title="Created: 2024-05-07 10:31:46" itemprop="dateCreated datePublished" datetime="2024-05-07T10:31:46+08:00">2024-05-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-06-20 16:16:20" itemprop="dateModified" datetime="2024-06-20T16:16:20+08:00">2024-06-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -906,7 +1064,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-05-07 18:05:29" itemprop="dateModified" datetime="2024-05-07T18:05:29+08:00">2024-05-07</time>
+      <time title="Modified: 2024-06-20 16:38:53" itemprop="dateModified" datetime="2024-06-20T16:38:53+08:00">2024-06-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -946,209 +1104,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/blog/2024/05/06/react-useRef-dom/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2024/05/03/react-useRef/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.jpg">
-      <meta itemprop="name" content="Mawchu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mawchu's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Mawchu's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/blog/2024/05/03/react-useRef/" class="post-title-link" itemprop="url">React - useRef & useState 比較</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-05-03 10:33:36" itemprop="dateCreated datePublished" datetime="2024-05-03T10:33:36+08:00">2024-05-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-05-06 11:46:36" itemprop="dateModified" datetime="2024-05-06T11:46:36+08:00">2024-05-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/React/Book-learning/" itemprop="url" rel="index"><span itemprop="name">Book learning</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <div class="visual-image">
-        <div class="visual-image-box">
-            <image class="visual-image-deco" src="/blog/images/mawchu_logo_w.svg" />
-            <div class="stroke">React - useRef & useState </div>
-            <div class="stroke">React - useRef & useState </div>
-            <div class="plain main-title">React - useRef & useState </div>
-            <div class="plain">．．．</div>
-        </div>
-    </div>
-
-<p>雖然在 React 的框架中的一貫宗旨是 Immutable Update，強調每次的渲染都需要根據<strong>「新的參考」</strong>變化才會觸發，但有些特殊情況是依賴舊的參考來運作的，需要應用到 Mutable value 追蹤與更新值，但不需要重新渲染畫面，useRef 顧名思義就是使用「參考」該值與元件生命週期脫鉤不受渲染影響、創造的可變值(Mutable Value)也不會觸發渲染。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/blog/2024/05/03/react-useRef/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mawchu.github.io/blog/2024/05/02/react-useContext/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.jpg">
-      <meta itemprop="name" content="Mawchu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mawchu's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Mawchu's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/blog/2024/05/02/react-useContext/" class="post-title-link" itemprop="url">React - useContext hook 使用說明</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-05-02 14:35:10 / Modified: 17:00:32" itemprop="dateCreated datePublished" datetime="2024-05-02T14:35:10+08:00">2024-05-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <div class="visual-image">
-        <div class="visual-image-box">
-            <image class="visual-image-deco" src="/blog/images/mawchu_logo_w.svg" />
-            <div class="stroke">React - useContext hook </div>
-            <div class="stroke">React - useContext hook </div>
-            <div class="plain main-title">React - useContext hook </div>
-            <div class="plain">．．．</div>
-        </div>
-    </div>
-
-<h1 id="Prop-drilling-資料瀑布"><a href="#Prop-drilling-資料瀑布" class="headerlink" title="Prop drilling 資料瀑布"></a>Prop drilling 資料瀑布</h1><p>在前端工程領域有一個詞彙 <strong>prop drilling</strong> 資料瀑布（對我自己翻的）描述了多代巢狀、跨元件結構所衍生的資料傳遞問題，前端任何熱門框架都會想方設法解決這個燙手山芋，一旦資料龐大或者使用流程複雜很容易走入 UI 的多重宇宙，一層又一層層的傳下去，元件嵌套了好幾層或者跨多個兄弟元件的情況下如何將資料垂直傳遞、水平傳遞？</p>
-<p>以下比較 Vue &amp; React 解決 prop drilling 的工具：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/blog/2024/05/02/react-useContext/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>

@@ -14,23 +14,23 @@ categories:
 <!-- more -->
 # 準備一個 iframe
 常見場景是使用一個彈出視窗提醒使用者閱畢後同意條款，簡單的展示一下結構。
-```
+{% codeblock lang:javascript %}
 <Dialog>
     <iframe url="" />
     <CheckBox />
     <Button>Agree</Button>
 </Dialog>
-```
+{% endcodeblock %}
 
 # 將 PDF url 傳入 iframe
 PDF 上傳到 server 獲得網址後塞進 iframe。
-```
+{% codeblock lang:javascript %}
 <Dialog>
     <iframe title="contract update" url={pdfURL} />
     <CheckBox />
     <Button>Agree</Button>
 </Dialog>
-```
+{% endcodeblock %}
 
 呈現的畫面會如下，超簡單吧！
 ![mawchu blog - iframe pdf reader](/images/iframe-pdf-reader-0.jpg)

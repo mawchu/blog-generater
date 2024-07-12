@@ -41,7 +41,7 @@ categories:
 # 解答A
 因為領悟力不太好又剛開始刷題，看了很久想出來的第一個版本：
 
-```
+{% codeblock lang:javascript %}
 /**
  * @param {number[]} nums
  * @param {number} target
@@ -57,7 +57,8 @@ var twoSum = function(nums, target) {
         }
     }
 };
-```
+{% endcodeblock %}
+
 一開始還忘了跳出迴圈要使用 break，加上去後 runtime 就往前排好幾格了。
 但這個版本有很致命的雙層迴圈，需要想方法優化演算法。
 
@@ -99,19 +100,19 @@ Object 的 key 值順序不一取決於瀏覽器引擎的習慣，但 Map 迭代
 # 解答B
 經過上面概念的拆解與資料結構應用，可以更好的掌握 Map 映射的優勢與運算效能：
 
-```
+{% codeblock lang:javascript %}
 var twoSum = function(nums, target) {
   let numMap = new Map();
   console.log('numMap', numMap)
   for(let i=0;;i++) {
-      if(numMap.has(target-nums[i])) {
-        return [i, numMap.get(target-nums[i])]
+      if(numMap.has(target - nums[i])) {
+        return [i, numMap.get(target - nums[i])]
       } else {
         numMap.set(nums[i], i);
       }
     }
 };
-```
+{% endcodeblock %}
 簡單的想法拆解：
 - 繞不過一層迴圈，但找到答案就回傳並結束減少次數
 - 運用 `target-nums[i]` 直接找到第二個值，並取得該值的 index

@@ -22,7 +22,7 @@ categories:
 Vue 的使用概念比較像匯出跟匯入，
 在提供資料的元件使用 `provide()` 提供出去；在接收資料的元件使用 `inject` 注入。
 
-``` 
+```js
 // App.vue
 <template>
   <div>
@@ -47,7 +47,7 @@ export default {
 </script>
 ``` 
 
-``` 
+```js
 // ChildA.vue
 <template>
   <div>
@@ -66,7 +66,7 @@ export default {
 </script>
 ``` 
 
-``` 
+``` js
 // ChildB.vue
 <template>
   <div>
@@ -85,7 +85,7 @@ export default {
 </script>
 ``` 
 
-``` 
+```js
 // GrandChild.vue
 <template>
   <div>
@@ -107,7 +107,7 @@ export default {
 
 ### 操作說明書
 - **`createContext`** 創建一個 context 上下文。
-  ``` 
+  ```js
   // AppContext.js
   import React, { createContext } from 'react';
 
@@ -117,7 +117,7 @@ export default {
   ``` 
 
 - **`CustomContext.Provider`** 提供一個 Provider 容器，將需要共享資料的元件放入，注意這裡的 Provider 首字大寫。
-  ``` 
+  ```js
   // App.js
   import React from 'react';
   import ChildA from './ChildA';
@@ -138,7 +138,7 @@ export default {
   export default App;
   ``` 
 - **`useContext`** 提供接口讓元件承接注入的資料。
-  ``` 
+  ```js
   // ChildA.js
   import React from 'react';
   import GrandChild from './GrandChild';
@@ -153,7 +153,7 @@ export default {
 
   export default ChildA;
   ``` 
-  ``` 
+  ```js
   // ChildB.js
   import React from 'react';
   import GrandChild from './GrandChild';
@@ -168,7 +168,7 @@ export default {
 
   export default ChildB;
   ``` 
-  ``` 
+  ```js
   // GrandChild.js
   import React, { useContext } from 'react';
   import AppContext from './AppContext';
