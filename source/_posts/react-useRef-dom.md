@@ -13,10 +13,11 @@ categories:
 ---
 
 {% include_md %}
+<!-- more -->
 
 # 尋常的 Javascript DOM 操作在 React 會失敗
 `useRef` 最常見的做法就是用來 DOM 操作，尋常的 Javascript DOM 操作為什麼不起作用呢？這是因為初始化的元件必須在第一次的 return render function 渲染後才會存在 DOM，也才能被選擇、操作，Javascript 基本用法 `querySelector`、`getElementById` 都需要 DOM 已經生成為前提。
-<!-- more -->
+
 # 利用 useRef 保持參考的特性存取 DOM
 由於 `useRef` 可以不受限於渲染迭代階段，即便每一次的渲染無論在 React 啟動了 **diff 機制** 刪改或保留真實 DOM 後，都能以渲染為最小時間單位重新綁定參考或者維持參考，這也解釋了為什麼該 hook 能夠幫助開發者追蹤 DOM 並且持續取得值或者綁定事件。
 

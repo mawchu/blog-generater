@@ -13,9 +13,10 @@ categories:
 ---
 
 {% include_md %}
+<!-- more -->
 
 從小數理就不好的我對於刷題存在滿滿的恐懼，但漸漸在學習編程語言中理解邏輯是可以透過訓練來提高靈敏度，幾次面試都直接傳一題 Leetcode 定生死讓我不得不重視自己的邏輯思考與演算概念，決定來直面自己的害怕從 Easy 開始練習。
-<!-- more -->
+
 # 拆解題目
 ## Two Sum
 >Given an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to target.

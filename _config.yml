@@ -4,16 +4,16 @@
 
 # Site
 title: Mawchu's blog
-subtitle: ''
-description: ''
-keywords:
+subtitle: '貓奴前端 | 毛球的技術筆記'
+description: '我是毛球 (Mawchu)，半路從資深平面設計師轉職前端工程師的技術學習筆記，希望能透過平易近人的解釋幫助到任何一個迷途羔羊與我自己。'
+keywords: 'mawchu、貓奴前端、毛球、謝佳芳、轉職前端工程師、前端、網頁技術、Javascript、Vue、React、React思維進化、平面設計、frontend。'
 author: Mawchu
 language: en
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://mawchu.github.io/blog
+url: https://mawchu.github.io/blog/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -98,8 +98,7 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 # Feed Atom
 
-plugins:
-  hexo-generator-feed
+plugins: hexo-generator-feed
 #Feed Atom
 feed:
   enable: true
@@ -108,7 +107,7 @@ feed:
   limit: 20
 
 sitemap:
-  path: 
+  path:
     - sitemap.xml
     - sitemap.txt
   template: ./source/layouts/sitemap_template.xml
@@ -123,7 +122,6 @@ social:
 
 ## Themes: https://hexo.io/themes/
 theme: next
-
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment

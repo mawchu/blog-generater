@@ -8,6 +8,7 @@ categories:
 ---
 
 {% include_md %}
+<!-- more -->
 
 為方便工作效率將經常使用的 Ｍacbook 快速鍵記錄在這裡：
 
@@ -16,7 +17,7 @@ categories:
 ## 文書處理
 #### 刪除檔案
 <kbd>command</kbd> + <kbd>delete</kbd>
-<!-- more -->
+
 
 #### 顯示隱藏檔案
 <kbd>shift</kbd> + <kbd>command</kbd> + <kbd>.</kbd>

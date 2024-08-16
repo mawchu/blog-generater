@@ -15,9 +15,10 @@ categories:
 ---
 
 {% include_md %}
+<!-- more -->
 
 React Hooks 依據不同需求開發出的 Hooks，不管是 `useEffect`、`useMemo`、`useCallback` 等等都提供了第二參數 **dependency** 來控制「觸發鉤子的時機」，本篇特別說明依賴應用上自己混淆的地方，順一下思維邏輯上打結的點：
-<!-- more -->
+
 
 # dependency 的背後運作機制
 當指定的資料放進 dependency array 時，會告訴 React 啟動 `Object.is()` 比對前後資料，經判定有改變後 Hooks 內的程式碼片段就會被執行。

@@ -9,10 +9,11 @@ tags:
 ---
 
 {% include_md %}
+<!-- more -->
 
 演算法聽起來很有距離感，文組人會閃很遠的那種東西，但就跟文言文一樣只是簡單用幾個字說完一個敘述而已：
 Udemy 資料結構與演算法 (JavaScript) [學習紀錄](https://www.udemy.com/course/algorithm-data-structure/)
-<!-- more -->
+
 ## 定義
 - 演算法是一個依據被定義好的(Well-defined)、次序有限的(finite)電腦可操作指令，用來解決問題或者完成演算。
 - 簡單來說就是解決某個問題的程序(Step-by-step)與手法(procedure)。

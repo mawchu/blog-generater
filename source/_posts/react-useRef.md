@@ -13,9 +13,10 @@ categories:
 ---
 
 {% include_md %}
+<!-- more -->
 
 雖然在 React 的框架中的一貫宗旨是 Immutable Update，強調每次的渲染都需要根據**「新的參考」**變化才會觸發，但有些特殊情況是依賴舊的參考來運作的，需要應用到 Mutable value 追蹤與更新值，但不需要重新渲染畫面，useRef 顧名思義就是使用「參考」該值與元件生命週期脫鉤不受渲染影響、創造的可變值(Mutable Value)也不會觸發渲染。
-<!-- more -->
+
 # useRef 的應用場景
 `useRef()` 會創建一個僅包含 `currenct` property 的 Javascript 物件，讓你在跨渲染之間保持參考，得益於此特性延伸的幾個應用場景：
 

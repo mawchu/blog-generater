@@ -11,11 +11,12 @@ categories:
 ---
 
 {% include_md %}
+<!-- more -->
 
 # 產生本機電腦的公私鑰
 進入本地終端機後，輸入以下的命令就可以在 user （或者是設定的登入id）資料夾自動產生隱藏的 `.ssh` 資料夾中一組公（public key）私 (private key)鑰。
 
-<!-- more -->
+
 
 ## ssh cmd
 ``` bash

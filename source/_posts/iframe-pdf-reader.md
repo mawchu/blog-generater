@@ -9,9 +9,10 @@ categories:
 ---
 
 {% include_md %}
+<!-- more -->
 
 這篇記錄一下合約更新後提供 PDF 閱讀器提醒使用者合約條款更新的優雅作法，以為很難其實超簡單！
-<!-- more -->
+
 # 準備一個 iframe
 常見場景是使用一個彈出視窗提醒使用者閱畢後同意條款，簡單的展示一下結構。
 {% codeblock lang:javascript %}

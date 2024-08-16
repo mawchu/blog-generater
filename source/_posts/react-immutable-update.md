@@ -12,10 +12,11 @@ categories:
 ---
 
 {% include_md %}
+<!-- more -->
 
 《React 思維進化》已經閱讀到中間的核心章節了，作者提到一個與 Vue 框架在資料管理上比較不一樣的重要概念—— `Immutable`，由於 **React 的單向資料流理念**貫徹了整個框架系統，想當然爾會**嚴格控制資料的不可變**也是十分合理的，javascript 在初學階段打下的基礎終於能與 React 框架結合起來，以下從 javascript 的資料型別切入：
 
-<!-- more -->
+
 
 # 習以為常的 Immutable
 

@@ -14,10 +14,11 @@ categories:
 ---
 
 {% include_md %}
+<!-- more -->
 
 承襲上一篇『React 思維進化』核心理念的出發點——Virtual Dom 為基底，第二層的關鍵因素就是 React Element，筆者佔用了相當大的篇幅與頻繁地提及次數都在在彰顯其份量，可以從幾個粗淺但切中要害的方式分析：
 
-<!-- more -->
+
 
 # React Element 為構築畫面的最小單位
 

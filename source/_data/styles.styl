@@ -1,4 +1,10 @@
 
+.site-subtitle {
+    color: white;
+    letter-spacing: 1.5px;
+    margin-top: 0;
+}
+
 .collection-year {
     color: $post-title-color;
 }
@@ -61,7 +67,8 @@
     position: relative;
     z-index: 5;
     color: $post-title-color;
-    font-weight: 800;
+    font-weight: bolder;
+    margin-top: -1px;
     text-shadow:
         calc(var(--stroke-width) * -1) calc(var(--stroke-width) * -1) 0 transparent,  
         var(--stroke-width) calc(var(--stroke-width) * -1) 0 transparent,
@@ -171,6 +178,54 @@ blockquote p {
 }
 
 mark.search-keyword {
-    border-bottom: 1px solid #fc6423;
-    color: #fc6423;
+    border-bottom: 1px solid var(--theme-color);
+    color: var(--theme-color);
+}
+
+@media (max-width: 991px) {
+    .sidebar {
+        display: block;
+    }
+}
+
+.links-of-author-item {
+    width: calc(100% / 4);
+}
+
+.site-nav-toggle .toggle {
+    cursor: pointer;
+}
+
+.posts-expand .post-header {
+    margin-bottom: 1rem;
+}
+.main-menu {
+    color: var(--theme-color);
+}
+
+.main-menu i {
+    color: #e9e9e9;
+}
+
+.main-menu .menu-item-active i {
+    color: var(--theme-color);
+}
+
+.main-menu .menu-item-active {
+    font-weight: bold;
+}
+
+.sidebar-toc-active .sidebar-nav-toc, .sidebar-overview-active .sidebar-nav-overview {
+    font-weight: bold;
+}
+
+.followme {
+    border-left: 3px solid var(--theme-color);
+}
+
+.search-popup .search-header {
+    background: var(--theme-color);
+}
+.search-popup .search-icon, .search-popup .popup-btn-close, .search-popup .search-input-container .search-input::placeholder {
+    color: white;
 }
