@@ -2612,6 +2612,15 @@ mark.search-keyword {
     padding: 10px 12px;
   }
 }
+ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+blockquote li,
+blockquote p {
+  line-height: 28px;
+  font-size: 18px;
+}
 .site-subtitle {
   color: #fff;
   letter-spacing: 1.5px;
@@ -2763,8 +2772,8 @@ blockquote p {
   border: 1px solid #333;
 }
 mark.search-keyword {
-  border-bottom: 1px solid #fc6423;
-  color: #fc6423;
+  border-bottom: 1px solid var(--theme-color);
+  color: var(--theme-color);
 }
 @media (max-width: 991px) {
   .sidebar {
@@ -2772,7 +2781,7 @@ mark.search-keyword {
   }
 }
 .links-of-author-item {
-  width: calc(100% / 3);
+  width: calc(100% / 4);
 }
 .site-nav-toggle .toggle {
   cursor: pointer;
@@ -2791,4 +2800,23 @@ mark.search-keyword {
 }
 .main-menu .menu-item-active {
   font-weight: bold;
+}
+.sidebar-toc-active .sidebar-nav-toc,
+.sidebar-overview-active .sidebar-nav-overview {
+  font-weight: bold;
+}
+.followme {
+  border-left: 3px solid var(--theme-color);
+}
+.search-popup .search-header {
+  background: var(--theme-color);
+}
+.search-popup .search-icon,
+.search-popup .popup-btn-close,
+.search-popup .search-input-container .search-input::placeholder {
+  color: #fff;
+}
+.post-img {
+  max-width: 460px;
+  height: auto;
 }
