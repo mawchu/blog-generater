@@ -1,5 +1,5 @@
 ---
-title: vue3 x Typescript knowhow 關於型別的兩三事
+title: Vue3 x Typescript knowhow 關於型別的兩三事
 date: 2024-08-16 10:33:33
 tags:
 - Javascript

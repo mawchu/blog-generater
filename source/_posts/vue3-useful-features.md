@@ -33,10 +33,66 @@ watch 若沒有指定 `immediate: true` 則第一次的創造 watcher 時不會�
 watchEffect 會自動在第一次就監聽到變化，可以節省撰寫 immediate 或者 mounted 額外執行第一次的行為，另外重要的一點是 watchEffect 只追蹤 Callback 觸及的 Source。
 
 # Component features
-## withDefaults & defineProps
+## defineProps & withDefaults
+[defineProps 官方文件](https://cn.vuejs.org/guide/typescript/composition-api.html#typing-component-props)
+應用上主要為了解決型別的定義(Typescript)而產生。
 
-## attrs & get
+### defineProps
+定義 props 的型別小工具，基礎用法。
 
+```js
+const props = defineProps({
+  buttonType: {
+    type: String,
+    default: 'default', // default, pending, complete, rejected
+  },
+  textColor: {
+    type: String,
+  },
+  ...
+});
+
+```
+
+### withDefaults
+處理解構後的預設值(default props)，可以清楚分開定義型別與預設值，搭配 `defineProps` 的進階用法。
+```js
+const props = withDefaults(
+  defineProps<{
+    dataTestId?: string | number;
+    activeCollapse: string;
+    backgroundColor?: string;
+    headerHeight?: number;
+  }>(),
+  {
+    dataTestId: 'link',
+    activeCollapse: '0',
+    backgroundColor: '#fff',
+    headerHeight: 48,
+  }
+);
+
+```
+
+## attrs & v-bind
+[attrs 官方文件](https://cn.vuejs.org/guide/components/attrs)
+`attr` & `v-bind` 是全開 props 的雙刀流，當使用三方 UI 套件時不限制元件的 props 資料可用，父元件傳的資料全盤接收到子元件上，擴展使用靈活度。
+1. 使用 useAttrs() API 取得所有 props attributes。
+2. 將元件 v-bind 傳入資料。
+```js
+<script setup>
+import { useAttrs } from 'vue'
+
+const attrs = useAttrs()
+const getBindValues = computed(() => ({
+  ...attrs,
+  otherData: 'other props'
+}))
+</script>
+<template>
+  <el-component v-bind="getBindValues"></el-component>
+</template>
+```
 ## useVModel
 [useVModel 官方文件](https://github.com/vueuse/vueuse/blob/main/packages/core/useVModel/index.ts)
 > Shorthand for v-model binding, props + emit -> ref
