@@ -5,10 +5,9 @@ tags:
 ---
 
 {% include_md %}
-<!-- more -->
 
 Axois 與 Fetch 兩大 Library 會給予客製化錯誤控制與處理流程，根據返回的 `Promise` 會按照 HTTP **response status** 情況歸納至 `then()` 以及 `catch()`：
-
+<!-- more -->
 
 # response status code
 公定的錯誤訊息可以當作初步判定大方向的依據，健康的一次前後端交流應當能透過此方式排查錯誤。

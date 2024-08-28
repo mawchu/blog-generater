@@ -8,9 +8,9 @@ categories:
 ---
 
 {% include_md %}
-<!-- more -->
 
-為方便工作效率將經常使用的 Ｍacbook 快速鍵記錄在這裡：
+為方便工作效率將經常使用的 Ｍacbook 快速鍵記錄在這裡。
+<!-- more -->
 
 # Macbook 快捷鍵一覽
 

@@ -15,6 +15,7 @@ categories:
 ---
 
 {% include_md %}
+在學習任何技術之前必須先制定好攻略，這是高速學習裡傳授的第一個技巧「Meta learning 加乘學習」，所以學習 React 的你是否該先認識一下常用的老朋友呢? 來看看各種 use 工具吧!
 <!-- more -->
 
 React Hooks 依據不同需求開發出的 Hooks，不管是 `useEffect`、`useMemo`、`useCallback` 等等都提供了第二參數 **dependency** 來控制「觸發鉤子的時機」，本篇特別說明依賴應用上自己混淆的地方，順一下思維邏輯上打結的點：

@@ -5,8 +5,7 @@ tags:
 ---
 
 {% include_md %}
-工程師百百種撰寫的 commit 也百百種，為了明確每個改動的 commit git 以免大家的個人特色太明顯XD (遇過每個 commit 都是 FuXk you 的)，
-其實有規範的大方向可以依循，以下列舉專案中制定的規則：
+工程師百百種撰寫的 commit 也百百種，為了明確每個改動的 commit git 以免大家的個人特色太明顯XD (遇過每個 commit 都是 FuXk you 的)，其實有規範的大方向可以依循，以下列舉專案中制定的規則：
 <!-- more -->
 
 # Commit type

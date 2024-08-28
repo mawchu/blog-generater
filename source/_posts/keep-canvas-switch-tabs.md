@@ -5,9 +5,10 @@ tags:
 ---
 
 {% include_md %}
+在工作上遭遇到 canvas 繪製的獎品轉盤(Spin Wheel)在**切換視窗後再回來 canvas 遺失的問題**，由於轉盤是前人開發的又剛好在自測時發現 issue，就抱持著試試看的心態來查[解決方法](https://stackoverflow.com/questions/71201403/html-canvas-disappears-in-chrome-after-browser-window-tab-becomes-inactive)。
 <!-- more -->
 
-在工作上遭遇到 canvas 繪製的獎品轉盤(Spin Wheel)在**切換視窗後再回來 canvas 遺失的問題**，由於轉盤是前人開發的又剛好在自測時發現 issue，就抱持著試試看的心態來查[解決方法](https://stackoverflow.com/questions/71201403/html-canvas-disappears-in-chrome-after-browser-window-tab-becomes-inactive)，意外的查到兩個從未碰過的技術：canvas API `createImageBitmap()`global function 用來保存 Canvas (或其他圖像技術)資源在 windows 與 workers 生命週期中，另一個是監聽視窗標籤(Tabs) 甚麼時候切換為可見的事件 `onvisibilitychange` event。
+意外的查到兩個從未碰過的技術：canvas API `createImageBitmap()`global function 用來保存 Canvas (或其他圖像技術)資源在 windows 與 workers 生命週期中，另一個是監聽視窗標籤(Tabs) 甚麼時候切換為可見的事件 `onvisibilitychange` event。
 
 不過該問題似乎只存在於開發者模式下，少部分的使用者才會遇到。
 > Given that this is all behind dev flags, few of your users should face it, and it's probably not worth the effort to implement a workaround for it.

@@ -12,6 +12,7 @@ categories:
 ---
 
 {% include_md %}
+關於 React 的 useContext 可以理解為使用「上下文」，延伸為跨元件的共享資料，在學習 Vuex 時也可以見到參數被命名 `context`。
 <!-- more -->
 
 # Prop drilling 資料瀑布

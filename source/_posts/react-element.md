@@ -14,11 +14,10 @@ categories:
 ---
 
 {% include_md %}
+本篇記錄《React 思維進化》的第一大要點 JSX，是產出網頁骨骼的 Html 基礎、類似於 Vue 的 `template` 架構，是透過關鍵方法 `React.creactElement` 產生的模板對象（object），但他們並不相同哦！
 <!-- more -->
 
 承襲上一篇『React 思維進化』核心理念的出發點——Virtual Dom 為基底，第二層的關鍵因素就是 React Element，筆者佔用了相當大的篇幅與頻繁地提及次數都在在彰顯其份量，可以從幾個粗淺但切中要害的方式分析：
-
-
 
 # React Element 為構築畫面的最小單位
 

@@ -14,13 +14,14 @@ categories:
 ---
 
 {% include_md %}
+這一篇來記錄一下初學 React 時界定最模糊但最常用的鉤子 `useEffect()`，到底怎麼用、為什麼這樣用？
 <!-- more -->
 
-React 所有鉤子都不容易在閱讀官方解說之後馬上理解，需要透過案例演練或者採坑的經驗後慢慢掌握，這一篇來記錄一下初學 React 時界定最模糊但最常用的鉤子 `useEffect()`，到底怎麼用、為什麼這樣用？
-
+React 所有鉤子都不容易在閱讀官方解說之後馬上理解，需要透過案例演練或者採坑的經驗後慢慢掌握。
 
 # useEffect 為何稱之為「副作用」
-就像吃藥治療了身體病痛的同時也會帶來一些額外的影響，例如偏頭痛、喉嚨乾燥等等，`useEffect()` 就是提供你的應用程式一些「額外的影響」，影響的範圍與作用透過第一個函式參數來定義，依賴更新的資料則是第二個 Dependency 參數。
+就像吃藥治療了身體病痛的同時也會帶來一些額外的影響，例如偏頭痛、喉嚨乾燥等等，`useEffect()` 就是提供你的應用程式一些「額外的影響」。
+影響的範圍與作用透過第一個函式參數來定義，依賴更新的資料則是第二個 Dependency 參數。
 
 # useEffect 與生命週期的關係
 而副作用與**元件 component 的生命週期**息息相關，這一點在很多教學重點裡往往沒有提到，感謝 Fireship 的 YT 大佬講解得非常好懂，直接拆解出幾個核心架構：
@@ -66,7 +67,7 @@ useEffect 的寫法會在 **return function** 內，標記著元件移除時要�
 
 以下是 chatGpt 的解說，有時候會胡說八道需要斟酌觀看xd
 
->When you use a hook like `useState`, `useEffect`, `useContext`, etc., it's not the hook itself that determines whether its execution is scheduled as a micro task or a macro task. Instead, it's the way React schedules and processes updates that determines **when the hook's associated functions are called**.
->However, some hooks, like **useEffect with an empty dependency array []**, are often used for tasks that are more closely associated with micro tasks, such as updating the DOM after rendering, it runs its effect callback after the browser **has finished painting and before the next paint**. This ensures that any DOM updates caused by the effect are applied before the browser repaints the screen. In these cases, the effect of the hook may be scheduled as a micro task, but it's not a rule that applies to all hooks.
+> When you use a hook like `useState`, `useEffect`, `useContext`, etc., it's not the hook itself that determines whether its execution is scheduled as a micro task or a macro task. Instead, it's the way React schedules and processes updates that determines **when the hook's associated functions are called**.
+> However, some hooks, like **useEffect with an empty dependency array []**, are often used for tasks that are more closely associated with micro tasks, such as updating the DOM after rendering, it runs its effect callback after the browser **has finished painting and before the next paint**. This ensures that any DOM updates caused by the effect are applied before the browser repaints the screen. In these cases, the effect of the hook may be scheduled as a micro task, but it's not a rule that applies to all hooks.
 > --chatGpt
 

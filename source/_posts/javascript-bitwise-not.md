@@ -7,12 +7,11 @@ categories:
 ---
 
 {% include_md %}
+關於那個專案中奇妙的波浪符號 `~` 是怎麼回事？
 <!-- more -->
 
 # 位元運算子
 簡單介紹一下 **二元運算子**（位元運算子）在 Javascript 中的功用無非就是將 `0` 與 `1` 互相轉換，在 [mozilla 文章](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Expressions_and_operators#%E4%BD%8D%E5%85%83%E9%81%8B%E7%AE%97%E5%AD%90) 有詳細的說明，前端同學不一定能在職涯中常常遇見，但善用的話可能幫助提升效率。
-
-
 
 ## 波浪符號
 維護公司專案時看到一段新穎的代碼所以來了興致，決定記錄下來這個冷門但奇淫的技巧以利自己往後看到能快速反應 XD。

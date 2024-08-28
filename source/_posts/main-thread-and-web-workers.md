@@ -8,6 +8,7 @@ categories: Web worker
 ---
 
 {% include_md %}
+本篇介紹幕後的那隻推手——Web Workers 的運作基本概念與架構。
 <!-- more -->
 
 前端新時代根據 **異步執行(Asynchronous)** 原理產生新的技術與套件，例如 Promise 與 Async Await 使得 **宏任務(Macro Task)** 與 **微任務(Micro Task)** 在 **事件迴圈(Event Loop)** 的完美委派下讓人忘記 Javascript 其實是 **單線程(Single Thread)** 的程式語言，而昂貴或者繁雜的計算成本很可能會阻塞(Block)主執行緒的前進，這時候分擔任務的好幫手 Web workers 就是出場的好時機了。

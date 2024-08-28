@@ -8,9 +8,10 @@ categries: Vue3
 ---
 
 {% include_md %}
-<!-- more -->
 
 一直以來開發著 Javascript 弱型別語言養成許多不嚴謹的隱患，稍一不慎前後端資料協作下很可能導致資料錯誤而噴錯，藉著最近接觸著公司最新技術的專案架構來好好規範一下自己的壞毛病。
+<!-- more -->
+
 感謝公司的 Samuel 與 Bennett 大大帶著我飛，在 Vue3 X Typescript X Vite 的小宇宙挖壓挖......，對 Typescript 的學習在上一間公司是三天捕魚兩天曬網，以下記錄幾個蒐羅的重點整理。
 
 # Call by reference should return function
