@@ -1,7 +1,12 @@
 ---
 title: HTTP error handler 錯誤控制
 date: 2024-06-20 11:41:06
+categories: HTTP
 tags:
+- HTTP
+- error handler
+- axios
+- fetch
 ---
 
 {% include_md %}

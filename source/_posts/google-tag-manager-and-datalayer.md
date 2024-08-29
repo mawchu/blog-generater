@@ -1,6 +1,7 @@
 ---
 title: Google Tag Manager - 你的 datalayer 設定小幫手
 date: 2024-08-28 09:31:10
+categories: GTM
 tags:
 - Google Tag Manager
 - Data Layer

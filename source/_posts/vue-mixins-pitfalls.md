@@ -1,6 +1,7 @@
 ---
 title: 你不知道的 Vue Mixins Pitfalls 小陷阱
 date: 2024-06-25 09:22:49
+categries: Vue
 tags:
 - vue2
 - vue mixins

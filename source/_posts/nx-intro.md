@@ -1,7 +1,11 @@
 ---
-title: Nx powerful monorepo tool - 前端微服務框架
+title: NX powerful monorepo tool - 前端微服務框架
 date: 2024-08-27 16:15:06
+categories: Structure
 tags:
+- NX
+- monorepo
+- polyrepo
 ---
 
 {% include_md %}

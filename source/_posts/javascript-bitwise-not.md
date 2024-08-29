@@ -1,7 +1,9 @@
 ---
 title: Javascript - bitwise NOT
 date: 2024-08-08 11:40:30
-tags: javascript
+tags: 
+- javascript
+- bitwise not
 categories:
 - javascript
 ---

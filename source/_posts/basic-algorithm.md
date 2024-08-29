@@ -1,6 +1,7 @@
 ---
 title: Basic algorithm 極淺談演算法
 date: 2024-05-10 17:51:39
+categories: Algorithm
 tags:
 - algorithm
 - Big O

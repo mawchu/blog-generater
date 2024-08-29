@@ -1,7 +1,12 @@
 ---
 title: 保存畫布 createImageBitmap X visibilitychange
 date: 2024-05-20 14:30:10
+categories:
+- Canvas
 tags:
+- canvas
+- createImageBitmap
+- visibilitychange
 ---
 
 {% include_md %}

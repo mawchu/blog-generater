@@ -1,7 +1,15 @@
 ---
 title: Vue3 - useful features 實用工具解析
 date: 2024-08-14 14:34:02
+categries: Vue3
 tags:
+- Vue3
+- WatchEffect
+- defineProps
+- withDefaults
+- attrs
+- useVModel
+- defineModel
 ---
 
 {% include_md %}

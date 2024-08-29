@@ -1,7 +1,11 @@
 ---
 title: Git commit rules 守門員 - commitlintrc
 date: 2024-08-27 11:16:33
+categories: git
 tags:
+- git
+- commit
+- commitlintrc
 ---
 
 {% include_md %}

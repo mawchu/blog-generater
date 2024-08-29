@@ -1,7 +1,9 @@
 ---
 title: Find & Remove 占用的埠號 :PORT
 date: 2024-05-07 12:19:18
+categories: CMD
 tags:
+- port
 ---
 
 {% include_md %}
