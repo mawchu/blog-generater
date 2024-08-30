@@ -2,10 +2,10 @@
 title: Javascript - bitwise NOT
 date: 2024-08-08 11:40:30
 tags: 
-- javascript
+- Javascript
 - bitwise not
 categories:
-- javascript
+- Javascript
 ---
 
 {% include_md %}

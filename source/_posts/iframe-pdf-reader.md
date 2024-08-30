@@ -5,7 +5,7 @@ tags:
 - iframe
 - pdf
 categories:
-- frontend
+- Javascript
 ---
 
 {% include_md %}

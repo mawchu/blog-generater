@@ -3,7 +3,7 @@ title: React dependency & 常用的 React hook
 date: 2024-04-25 09:51:04
 tags:
 - React
-- javascript
+- Javascript
 - object is
 - React useMemo
 - React memo
