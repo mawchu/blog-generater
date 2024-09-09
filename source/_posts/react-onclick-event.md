@@ -71,7 +71,7 @@ export default Root;
 
 然後就沒有然後了，畫面直接死給你看：
 
-<img style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/react-onclick-event-0.png' width='100%' height='auto'>
+<img class="post-image" style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/react-onclick-event-0.png' width='100%' height='auto'>
 
 原因在於當前 Component 的 function 一旦`傳入參數`就視同於立即呼叫，時機在於 Component 渲染後觸發，這並不是我們預期「點擊後觸發」的行為，為了修正錯誤必須更改為箭頭函式以確保元件渲染的當下才定義函式，並且在需要的時候呼叫：
 
@@ -127,7 +127,7 @@ export default Root;
 
 render 時觸發資料變化 -> re-render -> render 時觸發資料變化 -> re-render -> render 時觸發資料變化 -> re-render ...
 於是造成了渲染渲染再渲染，重複重複再重複的死胡同裡面了。
-<img style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/react-onclick-event-1.gif' width='80%' height='auto'>
+<img class="post-image" style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/react-onclick-event-1.gif' width='80%' height='auto'>
 
 > The reason why passing in a value to a state setter onClick event handler causes an infinite loop, if you call it without an inline function, is that the state is set when the component is rendered. `This causes the component to re-render as the state is updated`. The state is then set again when the component is re-rendered, which causes another re-render. This continues and causes an infinite loop.
 

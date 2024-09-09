@@ -2816,12 +2816,12 @@ mark.search-keyword {
 .search-popup .search-input-container .search-input::placeholder {
   color: #fff;
 }
-.post-img {
+.post-image {
   width: 480px;
   height: auto;
 }
 @media (max-width: 600px) {
-  .post-img {
+  .post-image {
     width: 100%;
   }
 }

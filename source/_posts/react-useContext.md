@@ -105,7 +105,7 @@ export default {
 ## React useContext
 `useContext` 的作法是開啟一個魔法陣(createContext)，變成一個容器一般的存在，所有應用的資料注入後(CustomContext.Provider)在擺進需要應用的元件，有沒有發現關鍵字「Provider」？在該作用域(scope)內放入共享的資料素材後，元件內就可以召喚魔法(useContext)來取得資料了!
 
-<img style='margin-right: unset; margin-left: unset; padding-top: 30px; width: min(100%, 960px)' src='/blog/images/react-useContext-1.jpg' height='auto'>
+<img class="post-image" style='margin-right: unset; margin-left: unset; padding-top: 30px; width: min(100%, 960px)' src='/blog/images/react-useContext-1.jpg' height='auto'>
 
 ### 操作說明書
 - **`createContext`** 創建一個 context 上下文。

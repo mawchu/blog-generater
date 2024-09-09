@@ -18,7 +18,7 @@ tags:
 
 又來到填坑的好時機了，這篇來重點介紹一下 Vue3 釋出的幾個好用的小工具來加快業務邏輯開發的效率，也可以更靈活的擴大 props 的應用，快來瞧瞧吧!
 
-<img style='margin-right: unset; margin-left: unset; padding-top: 30px' class="post-img" src='https://images.pexels.com/photos/1543793/pexels-photo-1543793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' title="https://www.pexels.com/" height='auto'>
+<img class="post-image" style='margin-right: unset; margin-left: unset; padding-top: 30px' class="post-image" src='https://images.pexels.com/photos/1543793/pexels-photo-1543793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' title="https://www.pexels.com/" height='auto'>
 
 
 # WatchEffect

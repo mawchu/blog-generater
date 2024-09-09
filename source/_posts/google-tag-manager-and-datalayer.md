@@ -18,7 +18,7 @@ Google 埋設事件並且追蹤可以使用兩大方式：
 
 ## Google Tag Manager 追蹤事件流程
 透過 `dataLayer` 的操作可以搭建與 GTM 的溝通橋樑，將資料推送到 GA 與 facebook pixels 等流量監控的平台。
-<img style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/google-tag-manager-and-datalayer-0.jpg' alt="https://www.maxlist.xyz/2023/06/01/gtm-datalayer/" width='min(100%, 600px)' height='auto'>
+<img class="post-image" style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/google-tag-manager-and-datalayer-0.jpg' alt="https://www.maxlist.xyz/2023/06/01/gtm-datalayer/" width='min(100%, 600px)' height='auto'>
 
 
 ## Google Tag Manager

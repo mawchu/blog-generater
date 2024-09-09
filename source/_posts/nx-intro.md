@@ -28,7 +28,7 @@ tags:
 
 # Quickly scaffold 是核心優勢
 個人覺得搭鷹架（scaffold）是專案最費時間的地方，如果能在既有框架下增加快速的新專案搭建時間對開發人員會大大的助益，以下是 NX 的架構圖：
-<img style="margin-right: unset; margin-left: unset; padding-top: 30px" src="/blog/images/nx-intro-0.jpg"  width="80%" height="auto">
+<img class="post-image" style="margin-right: unset; margin-left: unset; padding-top: 30px" src="/blog/images/nx-intro-0.jpg">
 
 應用的範圍很大，從CI（Continuous Integration）持續整合到專案配置（前端框架、UI SCSS 主題、node modules、打包設定）、自動化測試、遷移（migration）與快取（cache），對於前端工程師來說應該是專案配置上的省事最有感，讓專案間共享設定與邏輯並且可以客製化。
 

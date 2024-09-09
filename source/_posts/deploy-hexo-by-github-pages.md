@@ -61,7 +61,7 @@ deploy:
   tkn: your-pat-tkn
   ```
 直得注意的是分支 `gh-pages` 會為 github 部屬時自動辨別為子專案使用，待下一個步驟設定完成並建立後將子專案推至此分支。
-<img style="margin-right: unset; margin-left: unset; padding-top: 30px" src="/blog/images/deploy-hexo-by-github-pages-1.jpg"  width="80%" height="auto">
+<img class="post-image" style="margin-right: unset; margin-left: unset; padding-top: 30px" src="/blog/images/deploy-hexo-by-github-pages-1.jpg" height="auto">
 
 #### 事前作業
 為了讓 url 可以指向正確的路徑，需要調整 `__config.yml` 中的幾個設定：

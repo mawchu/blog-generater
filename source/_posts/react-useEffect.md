@@ -36,17 +36,17 @@ React 所有鉤子都不容易在閱讀官方解說之後馬上理解，需要�
 ### componentDidMount 元件初創
 在這個階段類似 Vue 的 `mounted()` 鉤子，會在元件**初創時期**啟動並執行。
 useEffect 的寫法經常會搭配 Fetch API X **empty dependency array**，不用依賴任何資料的變化否則容易進入無限迴圈(Infinite Loop)，這個寫法會執行在瀏覽器首次完成渲染時。
-<img style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/react-useEffect-1.jpg' width='min(100%, 600px)' height='auto'>
+<img class="post-image" style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/react-useEffect-1.jpg' width='min(100%, 600px)' height='auto'>
 
 ### componentDidUpdate 元件初創
 在這個階段類似 Vue 的 `update()` 鉤子，會在元件**資料更新**時啟動並執行。
 如果搭配 useEffect dependency array 的依賴就類似 Vue 的 `watch` 行為，根據資料變化啟動副作用。
-<img style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/react-useEffect-2.jpg' width='min(100%, 600px)' height='auto'>
+<img class="post-image" style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/react-useEffect-2.jpg' width='min(100%, 600px)' height='auto'>
 
 ### componentWillUnmount 元件毀滅
 在這個階段類似 Vue 的 `destroy()` 鉤子，會在元件**從畫面移除時**啟動並執行。
 useEffect 的寫法會在 **return function** 內，標記著元件移除時要啟動的副作用，例如移除事件監聽器。
-<img style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/react-useEffect-3.jpg' width='min(100%, 600px)' height='auto'>
+<img class="post-image" style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/react-useEffect-3.jpg' width='min(100%, 600px)' height='auto'>
 
 ## 等同 useEffect DidMount 階段的寫法
 其實剛學 useEffect 鉤子不太理解加與不加的差別，因為有的行為我只想執行一次又不想加重首次渲染的負擔時就不一定會使用到，例如以下的情況：
