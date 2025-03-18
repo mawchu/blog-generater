@@ -6,7 +6,10 @@ const configPath = './_config.yml';
 const config = yaml.load(fs.readFileSync(configPath, 'utf8'));
 
 if (process.env.GIT_DEPLOY_KEY) {
-  config.deploy.repo = config.deploy.repo.replace('${GIT_DEPLOY_KEY}', process.env.GIT_DEPLOY_KEY);
+  config.deploy.repo = config.deploy.repo.replace(
+    '${GIT_DEPLOY_KEY}',
+    process.env.GIT_DEPLOY_KEY
+  );
   fs.writeFileSync(configPath, yaml.dump(config));
   console.log('🔑 Injected environment variables into _config.yml');
 }
@@ -20,6 +23,9 @@ try {
   console.error('❌ Deployment failed', error);
 }
 
-config.deploy.repo = config.deploy.repo.replace(process.env.GIT_DEPLOY_KEY, '${GIT_DEPLOY_KEY}');
+config.deploy.repo = config.deploy.repo.replace(
+  process.env.GIT_DEPLOY_KEY,
+  '${GIT_DEPLOY_KEY}'
+);
 fs.writeFileSync(configPath, yaml.dump(config));
 console.log('🔄 Restored placeholder in _config.yml');
