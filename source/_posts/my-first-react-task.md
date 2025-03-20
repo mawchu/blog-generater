@@ -149,12 +149,12 @@ type MyRouteObject = Omit<RouteObject, 'children'> & {
 
 const parentRouters: MyRouteObject[] = [
   ...{
-    path: '/systemSetting/ibTransferSetting',
+    path: '/parentCategory/my_module',
     element: lazyLoad(
-      () => import('@src/pages/systemSetting/ibTransferSetting/index')
+      () => import('@src/pages/parentCategory/my_module/index')
     ),
     meta: {
-      key: 'ibTransferSetting',
+      key: 'my_module',
     },
   },
 ];
@@ -411,7 +411,7 @@ export default ({ children }) => {
     import { FC, ReactNode, createContext, useContext, useMemo, useState } from 'react';
     ...
     // 跳過型別設定
-    export const initialState: IbTransferSettingState = {
+    export const initialState: myModuleState = {
         deviceWidth: 0, // 跨元件共用資源可以放進來
         setDeviceWidth: () => {},
         setDataList: () => {},
@@ -512,7 +512,7 @@ const AddModal: React.FC<IAddModalProps> = ({
     //props
 }: IAddModalProps) => {
     // 只拿該元件要用的 context 資料與 setter
-    const { dataList, handleLoading, ... } = useIbTransferSetting();
+    const { dataList, handleLoading, ... } = useMyModuleContext();
     // 操作的業務邏輯放這裡
     ...
     return (
