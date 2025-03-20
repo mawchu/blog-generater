@@ -10,6 +10,7 @@ tags:
 categories:
 - Algorithm
 - Udemy learning
+- Leetcode
 ---
 
 {% include_md %}
