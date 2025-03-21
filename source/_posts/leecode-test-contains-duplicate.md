@@ -1,5 +1,5 @@
 ---
-title: leecode-test-contains-duplicate
+title: 優化演算法練習 Leecode Test X Contains Duplicate
 date: 2025-03-20 11:53:20
 tags:
 - Algorithm

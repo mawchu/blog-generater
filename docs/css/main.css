@@ -2612,6 +2612,9 @@ mark.search-keyword {
     padding: 10px 12px;
   }
 }
+* {
+  box-sizing: border-box;
+}
 ul {
   margin-top: 0;
   margin-bottom: 0;
@@ -2620,6 +2623,27 @@ blockquote li,
 blockquote p {
   line-height: 28px;
   font-size: 18px;
+}
+.img-flex {
+  display: flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.img-flex:has(:nth-child(1):last-child) img {
+  width: 100%;
+}
+.img-flex:has(:nth-child(2):last-child) img {
+  width: calc(50% - 10px);
+}
+.img-flex:has(:nth-child(3):last-child) img {
+  width: calc(33.333% - 10px);
+}
+@media (max-width: 600px) {
+  .img-flex img {
+    width: 100%;
+  }
 }
 .site-subtitle {
   color: #fff;

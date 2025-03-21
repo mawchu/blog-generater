@@ -7,16 +7,16 @@ tags:
   - one-way dataflow
   - onclick arguments
 categories:
-- React
+  - React
 ---
 
 {% include_md %}
 終於在前端生涯來到三年多後第一次接觸 React 開發，即便已經知道 React 容易踩坑無限迴圈的議題，仍然一頭栽了進去。
 今天要來說說關於`「onClick 事件的無限迴圈」`，為什麼在 Vue 習以為常的開發手法卻在 React 踢爆鐵板呢？
+
 <!-- more -->
 
 抱持著踩坑的興奮心情與你各位分享ヾ(=`ω´=)ノ | |：
-
 
 # React 的重新渲染機制
 
@@ -71,7 +71,7 @@ export default Root;
 
 然後就沒有然後了，畫面直接死給你看：
 
-<img class="post-image" style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/react-onclick-event-0.png' width='100%' height='auto'>
+<img class="post-image" style='margin-right: unset; margin-left: unset; padding-top: 12px' src='/blog/images/react-onclick-event-0.png' width='100%' height='auto'>
 
 原因在於當前 Component 的 function 一旦`傳入參數`就視同於立即呼叫，時機在於 Component 渲染後觸發，這並不是我們預期「點擊後觸發」的行為，為了修正錯誤必須更改為箭頭函式以確保元件渲染的當下才定義函式，並且在需要的時候呼叫：
 
@@ -127,7 +127,7 @@ export default Root;
 
 render 時觸發資料變化 -> re-render -> render 時觸發資料變化 -> re-render -> render 時觸發資料變化 -> re-render ...
 於是造成了渲染渲染再渲染，重複重複再重複的死胡同裡面了。
-<img class="post-image" style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/react-onclick-event-1.gif' width='80%' height='auto'>
+<img class="post-image" style='margin-right: unset; margin-left: unset; padding-top: 12px' src='/blog/images/react-onclick-event-1.gif' width='80%' height='auto'>
 
 > The reason why passing in a value to a state setter onClick event handler causes an infinite loop, if you call it without an inline function, is that the state is set when the component is rendered. `This causes the component to re-render as the state is updated`. The state is then set again when the component is re-rendered, which causes another re-render. This continues and causes an infinite loop.
 

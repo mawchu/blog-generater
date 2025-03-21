@@ -345,7 +345,7 @@ export default ({ children }) => {
    ```
 
 3. 模塊架構圖
-   <img style='margin-right: unset; margin-left: unset; padding-top: 30px' src='/blog/images/my-first-react-task-0.jpg' width='min(100%, 600px)' height='auto'>
+   <img style='margin-right: unset; margin-left: unset; padding-top: 12px' src='/blog/images/my-first-react-task-0.jpg' width='min(100%, 600px)' height='auto'>
 
    應用到的幾個技術點：
    (1) 整併 API 取得的共用資源在 hooks 中：./hooks/…
@@ -405,100 +405,104 @@ export default ({ children }) => {
     }
    ```
 
-    (2) 使用 context 互享共用資源，包裝 useState 來偵測資料變化觸發巢狀元件渲染：./context/…
-    ```tsx
-    import useQueryDatas from '../hooks/useQueryDatas';
-    import { FC, ReactNode, createContext, useContext, useMemo, useState } from 'react';
-    ...
-    // 跳過型別設定
-    export const initialState: myModuleState = {
-        deviceWidth: 0, // 跨元件共用資源可以放進來
-        setDeviceWidth: () => {},
-        setDataList: () => {},
-        queryDataList: () => {}, // Api Hook
-        blockList: [],
-        loading: false,
-        handleLoading: () => {},
-        ...
-    };
-    const myModuleContext = createContext<myModuleState>({
-        ...initialState,
-    });
-    export const useMyModuleContext = () => {
-        const state = useContext(myModuleContext);
-        if (state === null) {
-            throw new Error('useStore must be used within a StoreProvider.');
-        }
-        // console.log('state', state);
-        return state;
-    };
+   (2) 使用 context 互享共用資源，包裝 useState 來偵測資料變化觸發巢狀元件渲染：./context/…
 
-    export const myModuleProvider: FC<{ children: ReactNode }> = ({ children }) => {
-        const {
-            deviceWidth,
-            setDeviceWidth,
-            setDataList,
-            queryDataList,
-            dataList,
-            loading,
-            handleLoading,
-            ...
-        }: any = useQueryDatas();
-        const [deviceWidth, setDeviceWidth] = useState<number>(0);
-        const [isBlackList, setIsBlackList] = useState<boolean | null>(null);
+   ```tsx
+   import useQueryDatas from '../hooks/useQueryDatas';
+   import { FC, ReactNode, createContext, useContext, useMemo, useState } from 'react';
+   ...
+   // 跳過型別設定
+   export const initialState: myModuleState = {
+       deviceWidth: 0, // 跨元件共用資源可以放進來
+       setDeviceWidth: () => {},
+       setDataList: () => {},
+       queryDataList: () => {}, // Api Hook
+       blockList: [],
+       loading: false,
+       handleLoading: () => {},
+       ...
+   };
+   const myModuleContext = createContext<myModuleState>({
+       ...initialState,
+   });
+   export const useMyModuleContext = () => {
+       const state = useContext(myModuleContext);
+       if (state === null) {
+           throw new Error('useStore must be used within a StoreProvider.');
+       }
+       // console.log('state', state);
+       return state;
+   };
 
-        const value = useMemo( // 減少非必要的元件渲染
-            () => ({
-                deviceWidth,
-                setDeviceWidth,
-                setDataList,
-                queryDataList,
-                dataList,
-                loading,
-                handleLoading,
-            }),
-            [deviceWidth, dataList, loading], // data dependencies for memo
-        );
+   export const myModuleProvider: FC<{ children: ReactNode }> = ({ children }) => {
+       const {
+           deviceWidth,
+           setDeviceWidth,
+           setDataList,
+           queryDataList,
+           dataList,
+           loading,
+           handleLoading,
+           ...
+       }: any = useQueryDatas();
+       const [deviceWidth, setDeviceWidth] = useState<number>(0);
+       const [isBlackList, setIsBlackList] = useState<boolean | null>(null);
 
-        return (
-            <myModuleContext.Provider value={value}>{children}</myModuleContext.Provider>
-        );
-    };
-    ```
+       const value = useMemo( // 減少非必要的元件渲染
+           () => ({
+               deviceWidth,
+               setDeviceWidth,
+               setDataList,
+               queryDataList,
+               dataList,
+               loading,
+               handleLoading,
+           }),
+           [deviceWidth, dataList, loading], // data dependencies for memo
+       );
 
-    (3) 在跨元件間複雜資料包裝 useReducer 操作表單資料：./hooks
-    ```tsx
-    export const myModuleReducer = (state: myModuleParams, action: IAction) => {
-        const { type, payload } = action;
-        // 撰寫同一份資料的 CRUD 邏輯，要注意使用解構來保持其他資料或巢狀資料的原始參考（immutable update）
-        switch (type) {
-            case EActionTypes.SEARCH:
-            return {
-                ...state,
-                ...payload,
-            };
-            case EActionTypes.SEARCH_RESET:
-            delete state.blockType;
-            return {
-                keyData: state.keyData,
-                ...payload,
-            };
-            case EActionTypes.ADD_ITEM:
-            return {
-                ...state,
-                ...payload,
-            };
-            // 陣列
-            default:
-            return state;
-        }
-    };
-    ```
+       return (
+           <myModuleContext.Provider value={value}>{children}</myModuleContext.Provider>
+       );
+   };
+   ```
+
+   (3) 在跨元件間複雜資料包裝 useReducer 操作表單資料：./hooks
+
+   ```tsx
+   export const myModuleReducer = (state: myModuleParams, action: IAction) => {
+     const { type, payload } = action;
+     // 撰寫同一份資料的 CRUD 邏輯，要注意使用解構來保持其他資料或巢狀資料的原始參考（immutable update）
+     switch (type) {
+       case EActionTypes.SEARCH:
+         return {
+           ...state,
+           ...payload,
+         };
+       case EActionTypes.SEARCH_RESET:
+         delete state.blockType;
+         return {
+           keyData: state.keyData,
+           ...payload,
+         };
+       case EActionTypes.ADD_ITEM:
+         return {
+           ...state,
+           ...payload,
+         };
+       // 陣列
+       default:
+         return state;
+     }
+   };
+   ```
 
 # useContext 解決 props drilling
+
 開發到一半時才發現多個元件都需要使用同一套資料，而且數量頗多的情況下，即便開發時程緊湊還是硬著頭皮在某個週末加班來釐清資料如何拆分，此篇應用可以結合閱讀[React Context pitfalls - 踩雷經驗](/blog/2025/03/13/my-first-react-task/)
 
 最大好處是可以避免 props drilling 並透過 hooks 只拿該元件需要的資料：./components/…
+
 ```tsx
 ...
 // reducer
