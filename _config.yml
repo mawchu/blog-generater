@@ -60,7 +60,8 @@ pagination_dir: page
 include: null
 exclude: null
 ignore: null
-plugins: hexo-generator-feed
+plugins:
+  - hexo-generator-feed
 feed:
   enable: true
   type: atom
