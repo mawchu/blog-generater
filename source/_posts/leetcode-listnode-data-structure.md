@@ -105,6 +105,35 @@ BList = BList.next; // 2 -> 3 -> null
 
 來比較一下哪種競賽適合派誰出場：
 
+### Random access & Search 隨機存取與搜索
+
+#### Array
+
+Keyword - find or search
+
+適用 LeetCode 題目：
+📌 LeetCode Problem: Two Sum (Easy) - #1
+(Given an array, find two numbers that sum to a target value.)
+
+日常範例：
+📌 圖書館書架查找
+📌 按照字母排列查找電話號碼聯絡人
+
+Why：
+按序排列查找已知索引的 `O(1)` 優勢
+
+### Frequent insertions/deletions 頻繁操作插入/刪除
+
+#### Linked List
+
+Keyword - remove or insert
+
+📌 LeetCode Problem: Remove Nth Node From End of List (Medium) - #19
+(Remove the Nth node from the end of a linked list.)
+
+Why：
+從特定位置移除節點的 `O(1)` 優勢
+
 # Linked List 延伸課題
 
 - 反轉鏈結串列（Reverse Linked List）
