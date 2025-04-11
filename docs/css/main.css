@@ -2624,6 +2624,21 @@ blockquote p {
   line-height: 28px;
   font-size: 18px;
 }
+@media (orientation: landscape) {
+  .img-vertical {
+    width: 40%;
+  }
+}
+@media (orientation: portrait) {
+  .img-vertical {
+    width: 90%;
+  }
+}
+@media (max-width: 414px) {
+  .img-vertical {
+    width: 100%;
+  }
+}
 .img-flex {
   display: flex;
   display: flex;

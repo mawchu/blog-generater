@@ -49,7 +49,7 @@ var arr = [true, true, false, true, false, false, false, true, false, true, true
  [ 0, 1, 2, | 3, 4, 5, | 6, 7, 8 ]
 //除 3 取整 0; 除3 取整 1;  除3 取整 2
 ```
-就決定用此邏輯推算切換布林值的判斷式。
+就決定用此邏輯推算切換布林值的判斷式，但中間覺得長度會比較直觀所以改成每三個
 
 ``` js
   let curr = (parseInt(newArr.length / 3)) % 2 == 0; 
