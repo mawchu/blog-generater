@@ -1,5 +1,5 @@
 ---
-title: 回顧 JavaScript 核心 X Bsic Review - This
+title: 回顧 JavaScript 核心 X Basic Review - This
 date: 2025-04-27 15:21:30
 categories: Frontend Interview
 tags:

@@ -88,7 +88,7 @@ fee(2); // 呼叫 closure 得到第 2 年費率
 
 ## 實戰框架的應用
 
-在 Vue React 的應用可謂遍地開花，
+在 Vue React 的應用可謂遍地開花：
 | 案例類型 | 案例範例 | 說明 |
 |:---|:---|:---|
 | **事件監聽器** (Event Handlers) | `onClick={() => handleClick(item.id)}` | 這個 `item.id` 是靠 closure 記住的！ |
@@ -173,7 +173,7 @@ Object.defineProperty(this, 'count', {
 ```
 所以 Vue2 資料註冊的方式不是透過 Closure，而是透過訂閱更新的 `this` 獲取最新資料！
 
-# 工廠函式與閉包
+## 工廠函式與閉包
 先定義了一個具有閉包的函式後，透過「呼叫函式保留了該作用域並封存變數」，以產生一個或多個保有各自私有狀態的工廠函式；換句話說，工廠函式需要透過閉包的手法建立。
 
 ```js
@@ -194,3 +194,91 @@ const counter1 = createCounter();
 console.log(counter1.increment()); // 1
 console.log(counter1.increment()); // 2
 ```
+
+## 三方套件與 IIFE 閉包
+
+IIFE（Immediately Invoked Function Expression）之所以常被用來定義私有變數，正是因為閉包的特性。
+是在 ES6 模組 (import/export) 出現前，常見的私有變數封裝技巧。
+
+例如封裝模組：
+
+```js
+const Counter = (function () {
+  let count = 0; // 👈 私有變數，外面碰不到！
+
+  return {
+    increment() {
+      count++;
+      console.log(count);
+    },
+    reset() {
+      count = 0;
+    }
+  };
+})();
+```
+
+# 來幾個老朋友閉包陷阱題
+
+## For loop 系列
+
+### 經典 for 迴圈 + setTimeout 問題
+
+for loop 可以看做一個 **外部執行環境**，內部的 setTimeout `callback` 自然形成一個閉包子函式：
+
+```js
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => {
+    console.log(i);
+  }, 100);
+}
+```
+
+答案預期輸出什麼？
+
+```js
+3
+3
+3
+```
+為什麼？
+
+- `var` 是 **function-scope**，每一圈跑完都會汙染 `i` 的值，最後 `i = 3` (包含迴圈最後執行 i++)
+- `setTimeout` 是宏任務會最後執行。
+
+#### 解法 1 - let
+
+```js
+for (let i = 0; i < 3; i++) {
+  setTimeout(() => { // 閉包產生
+    console.log(i);
+  }, 100);
+}
+```
+答案預期輸出什麼？
+
+```js
+0
+1
+2
+```
+- `var` 改成 `let` 會套用 **block-scope** 屬性，就可以讓每一次的迴圈重新建立自己的 `lexical scope`。
+
+#### 解法 2 - IIFE
+
+```js
+for (var i = 0; i < 3; i++) {
+  (function(j) {
+    setTimeout(() => { // 閉包產生
+      console.log(j);
+    }, 100);
+  })(i);
+}
+```
+立即呼叫函式的閉包特性始得私有變數 `i` 在每一次呼叫時立刻封裝起來，讓子函式使用獨立的 `j`，所以可以完美的更新正確的變數。
+
+# 閉包的廣義
+
+所有函式本質上都可能是閉包，因為它們都帶有「定義當下的作用域鏈」(Lexical Scope Chain)。
+只是真正重要的閉包行為，是當函式「離開原本的作用域」，仍然「記得當初的變數」。
+
