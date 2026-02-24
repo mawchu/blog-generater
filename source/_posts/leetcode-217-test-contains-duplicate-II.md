@@ -1,5 +1,5 @@
 ---
-title: （二度挑戰）優化演算法練習 Leetcode X Contains Duplicate
+title: （二度挑戰）優化演算法練習 Leetcode X Contains Duplicate - Easy
 date: 2026-02-24 22:41:01
 tags:
   - Algorithm
