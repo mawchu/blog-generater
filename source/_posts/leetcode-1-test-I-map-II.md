@@ -1,5 +1,5 @@
 ---
-title: （二度挑戰）優化演算法練習 Leetcode X Two Sum II
+title: （二度挑戰）優化演算法練習 Leetcode X Two Sum II - Easy
 date: 2026-02-23 22:56:47
 tags:
   - Algorithm
@@ -14,6 +14,7 @@ categories:
 ---
 
 {% include_md %}
+重新打開 Leetcode 總是會心理抗拒，但又難擋靠自己解題獲得的成就感，記錄一下解題過程的腦內風暴吧！
 
 <!-- more -->
 

@@ -1,5 +1,5 @@
 ---
-title: 優化演算法練習 Leetcode X Two Sum
+title: 優化演算法練習 Leetcode X Two Sum - Easy
 date: 2024-05-09 16:33:50
 tags:
   - Algorithm
