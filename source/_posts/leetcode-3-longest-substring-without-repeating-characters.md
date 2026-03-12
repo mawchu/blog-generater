@@ -1,5 +1,5 @@
 ---
-title: 優化演算法練習 Leetcode X Longest Substring Without Repeating Characters
+title: （二度挑戰）優化演算法練習 Leetcode X Longest Substring Without Repeating Characters
 date: 2026-03-08 23:40:00
 tags:
   - Algorithm
